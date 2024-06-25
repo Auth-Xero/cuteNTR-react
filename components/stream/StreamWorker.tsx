@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NativeModules, View, Text, StyleSheet } from 'react-native';
+import { NativeModules, Text, StyleSheet, View } from 'react-native';
 import dgram from 'react-native-udp';
 import { Buffer } from 'buffer';
 import { EventRegister } from 'react-native-event-listeners';
@@ -48,9 +48,11 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
     if (this.fpsInterval) {
       clearInterval(this.fpsInterval);
     }
+    this.stopStream(); // Ensure the stream is stopped when the component unmounts
   }
 
   startStream = () => {
+    console.log('StreamWorker: startStream called');
     this.abort = false;
     if (!this.state.connected) {
       this.socket = dgram.createSocket({ type: 'udp4' });
@@ -71,6 +73,7 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
   };
 
   stopStream = () => {
+    console.log('StreamWorker: stopStream called');
     this.abort = true;
     if (this.socket) {
       this.socket.close();
@@ -166,28 +169,8 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
   };
 
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.fpsCounter}>FPS: {this.state.fps}</Text>
-      </View>
-    );
+    return null;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    padding: 5,
-    borderRadius: 5,
-  },
-  fpsCounter: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-});
 
 export default StreamWorker;

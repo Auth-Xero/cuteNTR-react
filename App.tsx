@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, AppState as RNAppState, Button } from 'react-native';
+import { View, StyleSheet, AppState, Button } from 'react-native';
 import MainWindow from './components/MainWindow';
 import Ntr from './components/ntr/Ntr';
 import NtrUtility from './components/ntr/NtrUtility';
@@ -13,21 +13,18 @@ interface AppComponentState {
   priMode: number;
   priFact: number;
   jpegQuality: number;
-  tScale: number;
-  bScale: number;
-  smooth: boolean;
-  nfcPatchType: number;
   debugging: boolean;
   streaming: boolean;
   remotePlayInitiated: boolean;
   currentScreen: 'Home' | 'StreamWindow';
   isTop: boolean;
+  showFps: boolean;
 }
 
 class App extends Component<{}, AppComponentState> {
-  appStateSubscription: any;
-  stateChangedListener: any;
-  ntrStateChangedListener: any;
+  private appStateSubscription: any;
+  private stateChangedListener: any;
+  private ntrStateChangedListener: any;
 
   constructor(props: {}) {
     super(props);
@@ -37,20 +34,16 @@ class App extends Component<{}, AppComponentState> {
       priMode: 1,
       priFact: 5,
       jpegQuality: 80,
-      tScale: 1,
-      bScale: 1,
-      smooth: false,
-      nfcPatchType: 0,
       debugging: false,
       streaming: false,
       remotePlayInitiated: false,
       currentScreen: 'Home',
       isTop: true,
+      showFps: false,
     };
 
     this.startStream = this.startStream.bind(this);
     this.stopStream = this.stopStream.bind(this);
-    this.sendNfcPatch = this.sendNfcPatch.bind(this);
     this.navigateToStreamWindow = this.navigateToStreamWindow.bind(this);
     this.navigateBack = this.navigateBack.bind(this);
     this.updateDsIP = this.updateDsIP.bind(this);
@@ -60,7 +53,7 @@ class App extends Component<{}, AppComponentState> {
   }
 
   componentDidMount() {
-    this.appStateSubscription = RNAppState.addEventListener('change', this.handleAppStateChange);
+    this.appStateSubscription = AppState.addEventListener('change', this.handleAppStateChange);
     this.stateChangedListener = EventRegister.addEventListener('stateChanged', (state: string) => this.handleStreamStateChanged(state));
     this.ntrStateChangedListener = EventRegister.addEventListener('ntrStateChanged', (state: string) => this.handleNtrStateChanged(state));
   }
@@ -69,10 +62,13 @@ class App extends Component<{}, AppComponentState> {
     this.appStateSubscription.remove();
     EventRegister.removeEventListener(this.stateChangedListener);
     EventRegister.removeEventListener(this.ntrStateChangedListener);
+    this.stopStream(); // Ensure the stream is stopped when the component unmounts
   }
 
   handleAppStateChange(nextAppState: string) {
-    // Handle app state changes if necessary
+    if (nextAppState.match(/inactive|background/)) {
+      this.stopStream(); // Stop the stream when the app goes to the background
+    }
   }
 
   handleNtrStateChanged(state: string) {
@@ -112,13 +108,9 @@ class App extends Component<{}, AppComponentState> {
     }
   }
 
-  sendNfcPatch() {
-    EventRegister.emit('sendNfcPatch', this.state.nfcPatchType);
-  }
-
-  navigateToStreamWindow(isTop: boolean) {
+  navigateToStreamWindow(isTop: boolean, showFps: boolean) {
     console.log('Navigating to StreamWindow');
-    this.setState({ currentScreen: 'StreamWindow', isTop });
+    this.setState({ currentScreen: 'StreamWindow', isTop, showFps });
   }
 
   navigateBack() {
@@ -131,34 +123,27 @@ class App extends Component<{}, AppComponentState> {
   }
 
   render() {
-    const { currentScreen, isTop, dsIP, streaming, priMode, priFact, jpegQuality, qosValue } = this.state;
-
-    if (currentScreen === 'StreamWindow') {
-      return <StreamWindow isTop={isTop} dsIP={dsIP} navigateBack={this.navigateBack} />;
-    }
+    const { currentScreen, isTop, dsIP, streaming, priMode, priFact, jpegQuality, qosValue, showFps } = this.state;
 
     return (
       <View style={styles.container}>
-        <MainWindow
-          dsIP={this.state.dsIP}
-          qosValue={this.state.qosValue}
-          priMode={this.state.priMode}
-          priFact={this.state.priFact}
-          jpegQuality={this.state.jpegQuality}
-          tScale={this.state.tScale}
-          bScale={this.state.bScale}
-          smooth={this.state.smooth}
-          nfcPatchType={this.state.nfcPatchType}
-          debugging={this.state.debugging}
-          streaming={this.state.streaming}
-          startStream={this.startStream}
-          stopStream={this.stopStream}
-          sendNfcPatch={this.sendNfcPatch}
-          updateDsIP={this.updateDsIP}
-          navigateToStreamWindow={this.navigateToStreamWindow}
-        />
-        <Button title="Go to Stream Window (Top)" onPress={() => this.navigateToStreamWindow(true)} />
-        <Button title="Go to Stream Window (Bottom)" onPress={() => this.navigateToStreamWindow(false)} />
+        {currentScreen === 'StreamWindow' ? (
+          <StreamWindow isTop={isTop} dsIP={dsIP} navigateBack={this.navigateBack} showFps={showFps} />
+        ) : (
+          <MainWindow
+            dsIP={this.state.dsIP}
+            qosValue={this.state.qosValue}
+            priMode={this.state.priMode}
+            priFact={this.state.priFact}
+            jpegQuality={this.state.jpegQuality}
+            debugging={this.state.debugging}
+            streaming={this.state.streaming}
+            startStream={this.startStream}
+            stopStream={this.stopStream}
+            updateDsIP={this.updateDsIP}
+            navigateToStreamWindow={this.navigateToStreamWindow}
+          />
+        )}
         <Ntr dsIP={dsIP} screenPriority={priMode} priFact={priFact} jpegq={jpegQuality} qosvalue={qosValue} />
         <NtrUtility dsIP={this.state.dsIP} />
         <StreamWorker dsIP={this.state.dsIP} />

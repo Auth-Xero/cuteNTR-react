@@ -6,6 +6,7 @@ interface StreamWindowProps {
   isTop: boolean;
   dsIP: string;
   navigateBack: () => void;
+  showFps: boolean;
 }
 
 interface StreamWindowState {
@@ -113,6 +114,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
 
   render() {
     const { currentPixmap, previousPixmap, scale, smooth, fullscreen, fps } = this.state;
+    const { showFps } = this.props;
 
     return (
       <View style={styles.container}>
@@ -140,7 +142,9 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
             <Button title="Back" onPress={this.handleBackPress} />
           </View>
         )}
-        <Text style={styles.fpsCounter}>FPS: {fps}</Text>
+        {showFps && (
+          <Text style={styles.fpsCounter}>FPS: {fps}</Text>
+        )}
       </View>
     );
   }

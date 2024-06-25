@@ -8,28 +8,21 @@ interface MainWindowProps {
   priMode: number;
   priFact: number;
   jpegQuality: number;
-  tScale: number;
-  bScale: number;
-  smooth: boolean;
-  nfcPatchType: number;
   debugging: boolean;
   streaming: boolean;
   startStream: () => void;
   stopStream: () => void;
-  sendNfcPatch: () => void;
   updateDsIP: (dsIP: string) => void;
-  navigateToStreamWindow: (isTop: boolean) => void;
+  navigateToStreamWindow: (isTop: boolean, showFps: boolean) => void;
 }
 
 const MainWindow: React.FC<MainWindowProps> = (props) => {
   const [dsIP, setDsIP] = useState<string>(props.dsIP);
   const [qosValue, setQosValue] = useState<string>(props.qosValue.toString());
   const [jpegQuality, setJpegQuality] = useState<string>(props.jpegQuality.toString());
-  const [tScale, setTScale] = useState<string>(props.tScale.toString());
-  const [bScale, setBScale] = useState<string>(props.bScale.toString());
-  const [smooth, setSmooth] = useState<boolean>(props.smooth);
   const [priorityFactor, setPriorityFactor] = useState<number>(props.priFact);
   const [screenPriority, setScreenPriority] = useState<number>(0); // Default to Bottom
+  const [showFps, setShowFps] = useState<boolean>(false);
 
   useEffect(() => {
     const handleStateChanged = (state: string) => {
@@ -122,34 +115,13 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
           onChangeText={(text) => setQosValue(text)}
         />
 
-        <Text style={styles.label}>Top Scale</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Top Scale"
-          placeholderTextColor="#888"
-          keyboardType="numeric"
-          value={tScale}
-          onChangeText={(text) => setTScale(text)}
-        />
-
-        <Text style={styles.label}>Bottom Scale</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Bottom Scale"
-          placeholderTextColor="#888"
-          keyboardType="numeric"
-          value={bScale}
-          onChangeText={(text) => setBScale(text)}
-        />
-
         <View style={styles.switchContainer}>
-          <Text style={styles.label}>Smooth</Text>
-          <Switch value={smooth} onValueChange={setSmooth} />
+          <Text style={styles.label}>Show FPS</Text>
+          <Switch value={showFps} onValueChange={setShowFps} />
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={props.sendNfcPatch}>
-          <Text style={styles.buttonText}>Send NFC Patch</Text>
-        </TouchableOpacity>
+        <Button title="Go to Stream Window (Top)" onPress={() => props.navigateToStreamWindow(true, showFps)} />
+        <Button title="Go to Stream Window (Bottom)" onPress={() => props.navigateToStreamWindow(false, showFps)} />
       </ScrollView>
     </View>
   );
