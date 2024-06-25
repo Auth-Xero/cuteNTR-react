@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, AppState, Button } from 'react-native';
+import { View, StyleSheet, AppState } from 'react-native';
 import MainWindow from './components/MainWindow';
 import Ntr from './components/ntr/Ntr';
 import NtrUtility from './components/ntr/NtrUtility';
@@ -66,7 +66,9 @@ class App extends Component<{}, AppComponentState> {
   }
 
   handleAppStateChange(nextAppState: string) {
-    
+    if (nextAppState.match(/inactive|background/)) {
+      this.stopStream(); // Stop the stream when the app goes to the background
+    }
   }
 
   handleNtrStateChanged(state: string) {
@@ -114,6 +116,7 @@ class App extends Component<{}, AppComponentState> {
   navigateBack() {
     console.log('Navigating back to Home');
     this.setState({ currentScreen: 'Home' });
+    // Do not stop the stream here
   }
 
   updateDsIP(dsIP: string) {
@@ -153,8 +156,9 @@ class App extends Component<{}, AppComponentState> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: '#1E1E1E',
+    padding: 0,
+    margin: 0,
+    backgroundColor: '#000', // Ensure the background color is black to avoid any visible borders
   },
 });
 

@@ -119,7 +119,7 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
       const receivedPacketCount = packets.length;
 
       if (expectedPacketCount !== receivedPacketCount) {
-        console.warn(`Dropping frame ${frameId} due to missing packets.`);
+        //console.warn(`Dropping frame ${frameId} due to missing packets.`);
         this.framePackets.delete(key);
         return;
       }

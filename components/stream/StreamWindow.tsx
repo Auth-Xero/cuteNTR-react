@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ImageBackground, StyleSheet, Button, BackHandler, Text } from 'react-native';
+import { View, ImageBackground, StyleSheet, Button, BackHandler, Text, Dimensions } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
 
 interface StreamWindowProps {
@@ -62,8 +62,8 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
 
   updateSettings = () => {
     const CONFIG = {
-      topScale: 0.9,
-      botScale: 0.9,
+      topScale: 1.0,
+      botScale: 1.0,
       smoothing: false,
     };
 
@@ -115,15 +115,21 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   render() {
     const { currentPixmap, previousPixmap, scale, smooth, fullscreen, fps } = this.state;
     const { showFps } = this.props;
+    const { width, height } = Dimensions.get('window');
+
+    const imageStyle = [
+      styles.image,
+      { transform: [{ scale }, { rotate: '0deg' }] }
+    ];
 
     return (
-      <View style={styles.container}>
+      <View style={fullscreen ? styles.fullscreenContainer : styles.container}>
         {previousPixmap && (
           <ImageBackground
             fadeDuration={0}
             key={previousPixmap}
             source={{ uri: previousPixmap }}
-            style={[styles.image, { transform: [{ scale }] }]}
+            style={imageStyle}
             resizeMode={smooth ? 'contain' : 'cover'}
           />
         )}
@@ -132,14 +138,18 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
             fadeDuration={0}
             key={currentPixmap}
             source={{ uri: currentPixmap }}
-            style={[styles.image, { transform: [{ scale }] }]}
+            style={imageStyle}
             resizeMode={smooth ? 'contain' : 'cover'}
           />
         )}
         {!fullscreen && (
           <View style={styles.buttonContainer}>
-            <Button title="Fullscreen" onPress={this.toggleFullscreen} />
-            <Button title="Back" onPress={this.handleBackPress} />
+            <View style={styles.buttonWrapperTop}>
+              <Button title="Fullscreen" onPress={this.toggleFullscreen} />
+            </View>
+            <View style={styles.buttonWrapperBottom}>
+              <Button title="Back" onPress={this.handleBackPress} />
+            </View>
           </View>
         )}
         {showFps && (
@@ -157,6 +167,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  fullscreenContainer: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'black',
+  },
   image: {
     width: '100%',
     height: '100%',
@@ -164,10 +180,17 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: 'absolute',
-    bottom: 20,
-    flexDirection: 'row',
+    left: 10,
     justifyContent: 'space-between',
-    width: '80%',
+    height: '90%',
+  },
+  buttonWrapperTop: {
+    transform: [{ rotate: '90deg' }],
+    marginTop: 20,
+  },
+  buttonWrapperBottom: {
+    transform: [{ rotate: '90deg' }],
+    marginBottom: 20,
   },
   fpsCounter: {
     position: 'absolute',
