@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { NativeModules } from 'react-native';
 import dgram from 'react-native-udp';
 import { Buffer } from 'buffer';
 import { EventRegister } from 'react-native-event-listeners';
+
+const { StreamWorkerModule } = NativeModules;
 
 interface StreamWorkerProps {
   dsIP: string;
@@ -11,19 +14,23 @@ interface StreamWorkerState {
   connected: boolean;
 }
 
+interface ProcessPacketsResult {
+  jpeg: string;
+  isTop: boolean;
+}
+
 class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
   private socket: any;
   private abort: boolean = false;
+  private messageQueue: Array<Buffer> = [];
+  private messageResolve: ((value: Buffer | null) => void) | null = null;
   private streamReadyListener: any;
   private stopStreamListener: any;
-  private packets: { [key: number]: Buffer } = {};
-  private currentFrameId: number = -1;
-  private currentScreenId: number = -1;
-  private expectedPacket: number = 0;
-  private jpeg: Buffer = Buffer.alloc(0);
+  private framePackets: Map<string, Array<Buffer>> = new Map();
 
   constructor(props: StreamWorkerProps) {
     super(props);
+
     this.state = {
       connected: false,
     };
@@ -35,10 +42,10 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
   componentWillUnmount() {
     EventRegister.removeEventListener(this.streamReadyListener);
     EventRegister.removeEventListener(this.stopStreamListener);
-    this.stopStream();
   }
 
   startStream = () => {
+    this.abort = false;
     if (!this.state.connected) {
       this.socket = dgram.createSocket({ type: 'udp4' });
       this.socket.on('message', this.handleMessage);
@@ -51,12 +58,6 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
       this.socket.on('error', (err: Error) => {
         console.error('Socket error:', err);
         this.stopStream();
-      });
-
-      this.socket.on('close', () => {
-        console.log('Socket closed');
-        this.setState({ connected: false });
-        EventRegister.emit('stateChanged', 'Disconnected');
       });
     }
   };
@@ -72,64 +73,62 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
     }
   };
 
-  handleMessage = async (msg: Buffer) => {
+  handleMessage = (msg: Buffer) => {
+    const header = this.readPacketHeader(msg);
+    const frameId = header[0];
+    const screenId = header[1] & 0x0F;
+    const key = `${frameId}-${screenId}`;
+
+    if (!this.framePackets.has(key)) {
+      this.framePackets.set(key, []);
+    }
+
+    const packets = this.framePackets.get(key)!;
+    packets.push(msg);
+
+    if ((header[1] & 0xF0) === 0x10) {
+      // End of frame
+      this.processFrame(key, packets);
+      this.framePackets.delete(key);
+    }
+  };
+
+  processFrame = async (key: string, packets: Array<Buffer>) => {
+    const sortedPackets = packets.sort((a, b) => {
+      const [, , aPacketNumber] = this.readPacketHeader(a);
+      const [, , bPacketNumber] = this.readPacketHeader(b);
+      return aPacketNumber - bPacketNumber;
+    });
+
+    const packetBuffers = sortedPackets.map(packet => Buffer.from(packet));
+    const concatenatedPackets = Buffer.concat(packetBuffers);
+
     try {
-      let header = this.readPacketHeader(msg);
-      if (!header || (this.currentFrameId !== -1 && header[0] !== this.currentFrameId)) {
-        console.warn('Invalid or incomplete packet received.');
-        return;
-      }
-
-      if (header[2] === 0) {
-
-        this.currentFrameId = header[0];
-        this.currentScreenId = header[1] & 0x0F;
-        this.expectedPacket = 0;
-        this.jpeg = Buffer.alloc(0);
-        this.packets = {};
-      }
-
-      this.packets[header[2]] = msg;
-      let jpegEndFlag = (header[1] & 0xF0) === 0x10;
-
-      if (jpegEndFlag) {
-        this.processFrame();
-      }
+      const result = await this.processPacketsWithNativeModule(concatenatedPackets);
+      const { jpeg, isTop } = result;
+      const uri = `data:image/jpeg;base64,${jpeg}`;
+      //console.log(uri);
+      EventRegister.emit('frameReady', { uri, isTop });
     } catch (error) {
-      console.warn('Error processing frame:', error);
+      console.error('Error processing packets:', error);
     }
   };
 
-  processFrame = () => {
-    let packetNumbers = Object.keys(this.packets).map(Number).sort((a, b) => a - b);
-
-    for (let i = 0; i < packetNumbers.length; i++) {
-      if (packetNumbers[i] !== this.expectedPacket) {
-        console.warn('Missing packet, skipping frame.');
-        return;
-      }
-      this.jpeg = Buffer.concat([this.jpeg, this.packets[packetNumbers[i]].slice(4)]);
-      this.expectedPacket++;
-    }
-
-    if (!this.jpeg.slice(-2).equals(Buffer.from([0xff, 0xd9]))) {
-      console.warn('Skipping current frame. (Invalid/incomplete JPEG image)');
-      return;
-    }
-
-    let base64String = Buffer.from(this.jpeg).toString('base64');
-    let uri = `data:image/jpeg;base64,${base64String}`;
-    console.log('JPEG frame ready:', uri);
-    EventRegister.emit('frameReady', { uri, isTop: this.currentScreenId === 1 });
+  processPacketsWithNativeModule = (buffer: Buffer): Promise<ProcessPacketsResult> => {
+    return new Promise((resolve, reject) => {
+      const base64Packets = buffer.toString('base64');
+      StreamWorkerModule.processPackets(base64Packets)
+        .then((result: ProcessPacketsResult) => resolve(result))
+        .catch((error: any) => reject(error));
+    });
   };
 
-  readPacketHeader = (packet: Buffer) => {
-    if (packet.length < 4) return null;
-    let frameId = packet.readUInt8(0); 
-    let screenId = packet.readUInt8(1); 
-    let packetNumber = packet.readUInt8(3);  
-
-    return [frameId, screenId, packetNumber];
+  readPacketHeader = (packet: Buffer): [number, number, number] => {
+    if (packet.length < 4) throw new Error('Invalid packet');
+    const frameId = packet.readUInt8(0);
+    const screenInfo = packet.readUInt8(1);
+    const packetNumber = packet.readUInt8(3);
+    return [frameId, screenInfo, packetNumber];
   };
 
   render() {

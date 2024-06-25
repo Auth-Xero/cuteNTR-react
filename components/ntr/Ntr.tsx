@@ -5,6 +5,10 @@ import { EventRegister } from 'react-native-event-listeners';
 
 interface NtrProps {
   dsIP: string;
+  screenPriority: number;
+  priFact: number;
+  jpegq: number;
+  qosvalue: number;
 }
 
 interface NtrState {
@@ -25,7 +29,7 @@ enum Command {
   WriteMem,
   Resume,
   QueryHandle,
-  RemotePlay = 901
+  RemotePlay = 901,
 }
 
 class Ntr extends Component<NtrProps, NtrState> {
@@ -36,6 +40,7 @@ class Ntr extends Component<NtrProps, NtrState> {
   private heartbeat: any;
   private remotePlayCalled: boolean = false;
   private ntrCommandListener: any;
+  private ntrConnectListener: any;
 
   constructor(props: NtrProps) {
     super(props);
@@ -50,12 +55,13 @@ class Ntr extends Component<NtrProps, NtrState> {
     this.recievedcmd = 0;
 
     this.ntrCommandListener = EventRegister.addEventListener('ntrCommand', this.sendCommand);
-    this.ntrCommandListener = EventRegister.addEventListener('ntrConnectToDs', this.connectToDS);
+    this.ntrConnectListener = EventRegister.addEventListener('ntrConnectToDs', this.connectToDS);
   }
 
   componentWillUnmount() {
     this.disconnectFromDS();
     EventRegister.removeEventListener(this.ntrCommandListener);
+    EventRegister.removeEventListener(this.ntrConnectListener);
   }
 
   startHeartbeat() {
@@ -225,16 +231,13 @@ class Ntr extends Component<NtrProps, NtrState> {
     }
     this.remotePlayCalled = true;
 
-    const pri = (1 << 8) | 5;
-    const jpegq = 80;
-    const qosvalue = 105 << 17;
-    this.sendPacket(0, Command.RemotePlay, [pri, jpegq, qosvalue, 0], 0);
+    const { screenPriority, priFact, jpegq, qosvalue } = this.props;
+    this.sendPacket(0, Command.RemotePlay, [(screenPriority << 8 | priFact), jpegq, qosvalue], 0);
     this.disconnectFromDS();
+
     setTimeout(() => {
       this.connectToDS();
     }, 3000);
-    this.disconnectFromDS();
-    EventRegister.emit('streamReady');
   }
 
   render() {

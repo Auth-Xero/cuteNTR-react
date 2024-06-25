@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ImageBackground, StyleSheet, Button, BackHandler } from 'react-native';
+import { View, ImageBackground, StyleSheet, Button, BackHandler, Text } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
 
 interface StreamWindowProps {
@@ -9,25 +9,31 @@ interface StreamWindowProps {
 }
 
 interface StreamWindowState {
-  pixmap: string | null;
+  currentPixmap: string | null;
+  previousPixmap: string | null;
   connected: boolean;
   scale: number;
   smooth: boolean;
   fullscreen: boolean;
+  fps: number;
 }
 
 class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   private mounted: boolean;
   private frameReadyListener: any;
+  private frameCount: number = 0;
+  private fpsInterval: NodeJS.Timeout | null = null;
 
   constructor(props: StreamWindowProps) {
     super(props);
     this.state = {
-      pixmap: null,
+      currentPixmap: null,
+      previousPixmap: null,
       connected: false,
       scale: 1,
       smooth: false,
       fullscreen: false,
+      fps: 0,
     };
 
     this.mounted = false;
@@ -41,18 +47,22 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
     console.log('StreamWindow mounted');
     this.mounted = true;
     this.updateSettings();
+    this.startFPSCounter();
   }
 
   componentWillUnmount() {
     this.mounted = false;
     EventRegister.removeEventListener(this.frameReadyListener);
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    if (this.fpsInterval) {
+      clearInterval(this.fpsInterval);
+    }
   }
 
   updateSettings = () => {
     const CONFIG = {
-      topScale: 0.9, 
-      botScale: 0.9, 
+      topScale: 0.9,
+      botScale: 0.9,
       smoothing: false,
     };
 
@@ -66,8 +76,11 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
 
   renderFrame = ({ uri, isTop }: { uri: string; isTop: boolean }) => {
     if (this.mounted && isTop === this.props.isTop) {
-
-      this.setState({ pixmap: uri });
+      this.setState((prevState) => ({
+        previousPixmap: prevState.currentPixmap,
+        currentPixmap: uri,
+      }));
+      this.frameCount += 1;
     }
   };
 
@@ -85,21 +98,40 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   };
 
   shouldComponentUpdate(nextProps: StreamWindowProps, nextState: StreamWindowState) {
-    return nextState.pixmap !== this.state.pixmap || nextState.fullscreen !== this.state.fullscreen;
+    return nextState.currentPixmap !== this.state.currentPixmap || nextState.fullscreen !== this.state.fullscreen || nextState.fps !== this.state.fps;
   }
 
+  startFPSCounter = () => {
+    this.frameCount = 0;
+    this.setState({ fps: 0 });
+
+    this.fpsInterval = setInterval(() => {
+      this.setState({ fps: this.frameCount });
+      this.frameCount = 0;
+    }, 1000);
+  };
+
   render() {
-    const { pixmap, scale, smooth, fullscreen } = this.state;
+    const { currentPixmap, previousPixmap, scale, smooth, fullscreen, fps } = this.state;
 
     return (
       <View style={styles.container}>
-        {pixmap && (
+        {previousPixmap && (
           <ImageBackground
             fadeDuration={0}
-            key={pixmap} 
-            source={{ uri: pixmap }}
+            key={previousPixmap}
+            source={{ uri: previousPixmap }}
             style={[styles.image, { transform: [{ scale }] }]}
-            resizeMode={smooth ? 'contain' : 'cover'} 
+            resizeMode={smooth ? 'contain' : 'cover'}
+          />
+        )}
+        {currentPixmap && (
+          <ImageBackground
+            fadeDuration={0}
+            key={currentPixmap}
+            source={{ uri: currentPixmap }}
+            style={[styles.image, { transform: [{ scale }] }]}
+            resizeMode={smooth ? 'contain' : 'cover'}
           />
         )}
         {!fullscreen && (
@@ -108,6 +140,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
             <Button title="Back" onPress={this.handleBackPress} />
           </View>
         )}
+        <Text style={styles.fpsCounter}>FPS: {fps}</Text>
       </View>
     );
   }
@@ -123,6 +156,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+    position: 'absolute',
   },
   buttonContainer: {
     position: 'absolute',
@@ -130,6 +164,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '80%',
+  },
+  fpsCounter: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    padding: 5,
+    borderRadius: 5,
   },
 });
 

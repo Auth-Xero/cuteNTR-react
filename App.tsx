@@ -32,7 +32,7 @@ class App extends Component<{}, AppComponentState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      dsIP: '10.0.0.115',
+      dsIP: '11.7.0.30',
       qosValue: 105,
       priMode: 1,
       priFact: 5,
@@ -72,7 +72,7 @@ class App extends Component<{}, AppComponentState> {
   }
 
   handleAppStateChange(nextAppState: string) {
-
+    // Handle app state changes if necessary
   }
 
   handleNtrStateChanged(state: string) {
@@ -81,7 +81,7 @@ class App extends Component<{}, AppComponentState> {
       if (!this.state.remotePlayInitiated) {
         this.setState({ remotePlayInitiated: true });
         EventRegister.emit('ntrCommand', {
-          command: 901, 
+          command: 901,
         });
       }
     } else if (state === 'Disconnected') {
@@ -131,7 +131,7 @@ class App extends Component<{}, AppComponentState> {
   }
 
   render() {
-    const { currentScreen, isTop, dsIP, streaming } = this.state;
+    const { currentScreen, isTop, dsIP, streaming, priMode, priFact, jpegQuality, qosValue } = this.state;
 
     if (currentScreen === 'StreamWindow') {
       return <StreamWindow isTop={isTop} dsIP={dsIP} navigateBack={this.navigateBack} />;
@@ -155,10 +155,11 @@ class App extends Component<{}, AppComponentState> {
           stopStream={this.stopStream}
           sendNfcPatch={this.sendNfcPatch}
           updateDsIP={this.updateDsIP}
+          navigateToStreamWindow={this.navigateToStreamWindow}
         />
         <Button title="Go to Stream Window (Top)" onPress={() => this.navigateToStreamWindow(true)} />
         <Button title="Go to Stream Window (Bottom)" onPress={() => this.navigateToStreamWindow(false)} />
-        <Ntr dsIP={this.state.dsIP} />
+        <Ntr dsIP={dsIP} screenPriority={priMode} priFact={priFact} jpegq={jpegQuality} qosvalue={qosValue} />
         <NtrUtility dsIP={this.state.dsIP} />
         <StreamWorker dsIP={this.state.dsIP} />
       </View>
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#1E1E1E',
   },
 });
 

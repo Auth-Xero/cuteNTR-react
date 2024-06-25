@@ -21,6 +21,7 @@
     "react-native-event-listeners": "^1.0.7",
     "react-native-orientation-locker": "^1.7.0",
     "react-native-permissions": "^4.1.5",
+    "react-native-reanimated": "^3.12.1",
     "react-native-tcp-socket": "^6.0.6",
     "react-native-udp": "^4.1.7"
   },
