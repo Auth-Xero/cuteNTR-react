@@ -19,6 +19,7 @@
     "jpeg-js": "^0.4.4",
     "react": "18.2.0",
     "react-native": "^0.74.2",
+    "react-native-bem-check-box": "^1.0.0",
     "react-native-event-listeners": "^1.0.7",
     "react-native-orientation-locker": "^1.7.0",
     "react-native-permissions": "^4.1.5",
