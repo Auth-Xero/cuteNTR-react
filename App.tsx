@@ -66,9 +66,7 @@ class App extends Component<{}, AppComponentState> {
   }
 
   handleAppStateChange(nextAppState: string) {
-    if (nextAppState.match(/inactive|background/)) {
-      this.stopStream(); // Stop the stream when the app goes to the background
-    }
+    
   }
 
   handleNtrStateChanged(state: string) {
