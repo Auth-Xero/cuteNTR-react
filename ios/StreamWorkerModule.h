@@ -1,4 +1,6 @@
+// StreamWorkerModule.h
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
-@interface StreamWorkerModule : NSObject <RCTBridgeModule>
+@interface StreamWorkerModule : RCTEventEmitter <RCTBridgeModule>
 @end

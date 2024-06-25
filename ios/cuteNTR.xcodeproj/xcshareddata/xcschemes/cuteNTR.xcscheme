@@ -83,6 +83,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "cuteNtr"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
