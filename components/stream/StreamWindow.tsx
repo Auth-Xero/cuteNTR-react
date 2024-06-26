@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ImageBackground, StyleSheet, Button, BackHandler, Text, Dimensions } from 'react-native';
+import { View, ImageBackground, StyleSheet, Button, Text, Dimensions, BackHandler, Platform } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
 
 interface StreamWindowProps {
@@ -115,7 +115,6 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   render() {
     const { currentPixmap, previousPixmap, scale, smooth, fullscreen, fps } = this.state;
     const { showFps } = this.props;
-    const { width, height } = Dimensions.get('window');
 
     const imageStyle = [
       styles.image,
@@ -142,16 +141,16 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
             resizeMode={smooth ? 'contain' : 'cover'}
           />
         )}
-        {!fullscreen && (
-          <View style={styles.buttonContainer}>
+        <View style={styles.buttonContainer}>
+          {!fullscreen && (
             <View style={styles.buttonWrapperTop}>
               <Button title="Fullscreen" onPress={this.toggleFullscreen} />
             </View>
-            <View style={styles.buttonWrapperBottom}>
-              <Button title="Back" onPress={this.handleBackPress} />
-            </View>
-          </View>
-        )}
+          )}
+        </View>
+        <View style={styles.backButtonWrapper}>
+          <Button title="Back" onPress={this.handleBackPress} />
+        </View>
         {showFps && (
           <Text style={styles.fpsCounter}>FPS: {fps}</Text>
         )}
@@ -188,9 +187,12 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '90deg' }],
     marginTop: 20,
   },
-  buttonWrapperBottom: {
+  backButtonWrapper: {
     transform: [{ rotate: '90deg' }],
-    marginBottom: 20,
+    position: 'absolute',
+    bottom: 20,
+    left: 30,
+    zIndex: 10,
   },
   fpsCounter: {
     position: 'absolute',

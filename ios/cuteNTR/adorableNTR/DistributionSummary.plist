@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cuteNTR.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>86A9EA928339C6977C2C138121B68145D11D1FFB</string>
+				<key>dateExpires</key>
+				<string>6/26/25</string>
+				<key>type</key>
+				<string>Cloud Managed Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>0.12.0</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>86A9EA928339C6977C2C138121B68145D11D1FFB</string>
+						<key>dateExpires</key>
+						<string>6/26/25</string>
+						<key>type</key>
+						<string>Cloud Managed Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>hermes.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>3SJZQ945LJ</string>
+						<key>name</key>
+						<string>Frederick Biddix</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>0.12.0</string>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>3SJZQ945LJ.com.authxero.cutentr</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>3SJZQ945LJ</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>cuteNTR.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>b3cf652b-4599-427d-8d4a-0222540d99ae</string>
+				<key>dateExpires</key>
+				<string>6/26/25</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: com.authxero.cutentr</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>3SJZQ945LJ</string>
+				<key>name</key>
+				<string>Frederick Biddix</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
