@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { View, ImageBackground, StyleSheet, Button, Text, Dimensions, BackHandler, Platform } from 'react-native';
+import { Platform, View, ImageBackground, StyleSheet, Button, Text, BackHandler, TouchableOpacity, PermissionsAndroid, Alert } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
+import RNFS from 'react-native-fs';
+import { FFmpegKit } from 'ffmpeg-kit-react-native';
 
 interface StreamWindowProps {
   isTop: boolean;
   dsIP: string;
   navigateBack: () => void;
   showFps: boolean;
+  recordingEnabled: boolean;
 }
 
 interface StreamWindowState {
@@ -17,6 +20,8 @@ interface StreamWindowState {
   smooth: boolean;
   fullscreen: boolean;
   fps: number;
+  recording: boolean;
+  frames: Array<string>;
 }
 
 class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
@@ -35,6 +40,8 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
       smooth: false,
       fullscreen: false,
       fps: 0,
+      recording: false,
+      frames: [],
     };
 
     this.mounted = false;
@@ -58,6 +65,9 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
     if (this.fpsInterval) {
       clearInterval(this.fpsInterval);
     }
+    if (this.state.recording) {
+      this.stopRecording();
+    }
   }
 
   updateSettings = () => {
@@ -80,6 +90,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
       this.setState((prevState) => ({
         previousPixmap: prevState.currentPixmap,
         currentPixmap: uri,
+        frames: prevState.recording ? [...prevState.frames, uri] : prevState.frames,
       }));
       this.frameCount += 1;
     }
@@ -112,9 +123,93 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
     }, 1000);
   };
 
+  handleRecordButton = () => {
+    if (this.state.recording) {
+      this.stopRecording();
+    } else {
+      this.startRecording();
+    }
+  };
+
+  startRecording = () => {
+    this.setState({ recording: true, frames: [] });
+  };
+
+  stopRecording = () => {
+    this.setState({ recording: false }, () => {
+      this.saveRecording();
+    });
+  };
+
+  saveRecording = async () => {
+    const { frames } = this.state;
+
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        {
+          title: 'Storage Permission',
+          message: 'App needs access to your storage to save recordings',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        },
+      );
+
+      if (!granted) {
+        console.log('Storage permission denied');
+        return;
+      }
+    } catch (err) {
+      console.warn(err);
+      return;
+    }
+
+    const recordingDir = Platform.OS === 'android'
+      ? `${RNFS.ExternalStorageDirectoryPath}/Documents/Recordings`
+      : `${RNFS.DocumentDirectoryPath}/Recordings`;
+    await RNFS.mkdir(recordingDir);
+
+    const framePaths = await Promise.all(
+      frames.map((frame, index) => {
+        const framePath = `${RNFS.CachesDirectoryPath}/frame_${index}.jpg`;
+        return RNFS.writeFile(framePath, frame.replace('data:image/jpeg;base64,', ''), 'base64').then(() => framePath);
+      })
+    );
+  
+    const frameListPath = `${RNFS.CachesDirectoryPath}/frames.txt`;
+    await RNFS.writeFile(frameListPath, framePaths.map((path) => `file '${path}'`).join('\n'));
+
+    const outputFilePath = `${recordingDir}/adorableNTR-${Date.now()}.mp4`;
+
+    const command = `-f concat -safe 0 -i ${frameListPath} -vf "transpose=2" -vsync vfr -pix_fmt yuv420p ${outputFilePath}`;
+    FFmpegKit.execute(command).then(async (session) => {
+      const returnCode = await session.getReturnCode();
+      if (returnCode.isValueSuccess()) {
+        console.log('Recording saved successfully');
+        Alert.alert('Recording Saved', `The recording has been saved to ${outputFilePath}`);
+      } else {
+        console.log('Recording failed with return code: ' + returnCode);
+      }
+
+      // Clean up temporary files
+      await RNFS.unlink(frameListPath);
+      await Promise.all(framePaths.map((path) => RNFS.unlink(path)));
+    });
+  };
+
+  handleStartStopStream = () => {
+    if (this.state.connected) {
+      EventRegister.emit('stopStream');
+    } else {
+      EventRegister.emit('startStream');
+    }
+    this.setState({ connected: !this.state.connected });
+  };
+
   render() {
-    const { currentPixmap, previousPixmap, scale, smooth, fullscreen, fps } = this.state;
-    const { showFps } = this.props;
+    const { currentPixmap, previousPixmap, scale, smooth, fullscreen, fps, recording, connected } = this.state;
+    const { showFps, recordingEnabled } = this.props;
 
     const imageStyle = [
       styles.image,
@@ -126,7 +221,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
         {previousPixmap && (
           <ImageBackground
             fadeDuration={0}
-            key={previousPixmap}
+            key={`prev_${previousPixmap}`} // Unique key for previousPixmap
             source={{ uri: previousPixmap }}
             style={imageStyle}
             resizeMode={smooth ? 'contain' : 'cover'}
@@ -135,7 +230,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
         {currentPixmap && (
           <ImageBackground
             fadeDuration={0}
-            key={currentPixmap}
+            key={`curr_${currentPixmap}`} // Unique key for currentPixmap
             source={{ uri: currentPixmap }}
             style={imageStyle}
             resizeMode={smooth ? 'contain' : 'cover'}
@@ -153,6 +248,24 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
         </View>
         {showFps && (
           <Text style={styles.fpsCounter}>FPS: {fps}</Text>
+        )}
+        {recordingEnabled && (
+          <>
+            <TouchableOpacity
+              style={styles.recordButton}
+              onPress={this.handleRecordButton}
+            >
+              <Text style={styles.recordButtonText}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
+            </TouchableOpacity>
+            {connected && (
+              <TouchableOpacity
+                style={styles.streamButton}
+                onPress={this.handleStartStopStream}
+              >
+                <Text style={styles.streamButtonText}>{connected ? 'Stop Stream' : 'Start Stream'}</Text>
+              </TouchableOpacity>
+            )}
+          </>
         )}
       </View>
     );
@@ -179,7 +292,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: 'absolute',
-    left: 10,
+    left: 4,
     justifyContent: 'space-between',
     height: '90%',
   },
@@ -204,6 +317,32 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     padding: 5,
     borderRadius: 5,
+  },
+  recordButton: {
+    transform: [{ rotate: '90deg' }],
+    position: 'absolute',
+    bottom: 50,
+    right: 10,
+    backgroundColor: 'red',
+    padding: 10,
+    borderRadius: 5,
+  },
+  recordButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  streamButton: {
+    transform: [{ rotate: '90deg' }],
+    position: 'absolute',
+    bottom: 100,
+    right: 10,
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+  },
+  streamButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
 

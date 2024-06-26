@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, TextInput, Text, StyleSheet, Button, Switch, TouchableOpacity, ScrollView } from 'react-native';
+import { Platform,View, TextInput, Text, StyleSheet, Button, Switch, TouchableOpacity, ScrollView } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
+import RNFS from 'react-native-fs';
 
 interface MainWindowProps {
   dsIP: string;
@@ -14,6 +15,8 @@ interface MainWindowProps {
   stopStream: () => void;
   updateDsIP: (dsIP: string) => void;
   navigateToStreamWindow: (isTop: boolean, showFps: boolean) => void;
+  recordingEnabled: boolean;
+  setRecordingEnabled: (enabled: boolean) => void;
 }
 
 const MainWindow: React.FC<MainWindowProps> = (props) => {
@@ -51,6 +54,10 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
       props.startStream();
     }
   };
+
+  const recordingDirectory = Platform.OS === 'android'
+    ? `${RNFS.ExternalStorageDirectoryPath}/Documents/Recordings`
+    : `${RNFS.DocumentDirectoryPath}/Recordings`;
 
   return (
     <View style={styles.container}>
@@ -120,8 +127,26 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
           <Switch value={showFps} onValueChange={setShowFps} />
         </View>
 
-        <Button title="Go to Stream Window (Top)" onPress={() => props.navigateToStreamWindow(true, showFps)} />
-        <Button title="Go to Stream Window (Bottom)" onPress={() => props.navigateToStreamWindow(false, showFps)} />
+        <View style={styles.switchContainer}>
+          <Text style={styles.label}>Enable Recording</Text>
+          <Switch value={props.recordingEnabled} onValueChange={props.setRecordingEnabled} />
+        </View>
+
+        {props.recordingEnabled && (
+          <>
+            <Text style={styles.label}>Recordings will be saved to:</Text>
+            <Text style={styles.directoryPath}>{recordingDirectory}</Text>
+          </>
+        )}
+
+        <Button
+          title="Go to Stream Window (Top)"
+          onPress={() => props.navigateToStreamWindow(true, showFps)}
+        />
+        <Button
+          title="Go to Stream Window (Bottom)"
+          onPress={() => props.navigateToStreamWindow(false, showFps)}
+        />
       </ScrollView>
     </View>
   );
@@ -139,9 +164,9 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: '#888',
     borderWidth: 1,
-    marginBottom: 12,
     paddingHorizontal: 8,
     color: '#FFF',
+    flex: 1,
   },
   label: {
     marginBottom: 8,
@@ -152,6 +177,11 @@ const styles = StyleSheet.create({
   switchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 12,
+  },
+  directoryPath: {
+    color: '#FFF',
+    fontSize: 14,
     marginBottom: 12,
   },
   button: {

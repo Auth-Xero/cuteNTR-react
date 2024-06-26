@@ -19,6 +19,8 @@ interface AppComponentState {
   currentScreen: 'Home' | 'StreamWindow';
   isTop: boolean;
   showFps: boolean;
+  recordingEnabled: boolean;
+  recordingPath: string;
 }
 
 class App extends Component<{}, AppComponentState> {
@@ -40,6 +42,8 @@ class App extends Component<{}, AppComponentState> {
       currentScreen: 'Home',
       isTop: true,
       showFps: false,
+      recordingEnabled: false,
+      recordingPath: '',
     };
 
     this.startStream = this.startStream.bind(this);
@@ -50,6 +54,8 @@ class App extends Component<{}, AppComponentState> {
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
     this.handleStreamStateChanged = this.handleStreamStateChanged.bind(this);
     this.handleNtrStateChanged = this.handleNtrStateChanged.bind(this);
+    this.setRecordingEnabled = this.setRecordingEnabled.bind(this);
+    this.setRecordingPath = this.setRecordingPath.bind(this);
   }
 
   componentDidMount() {
@@ -123,31 +129,47 @@ class App extends Component<{}, AppComponentState> {
     this.setState({ dsIP });
   }
 
+  setRecordingEnabled(enabled: boolean) {
+    this.setState({ recordingEnabled: enabled });
+  }
+
+  setRecordingPath(path: string) {
+    this.setState({ recordingPath: path });
+  }
+
   render() {
-    const { currentScreen, isTop, dsIP, streaming, priMode, priFact, jpegQuality, qosValue, showFps } = this.state;
+    const { currentScreen, isTop, dsIP, streaming, priMode, priFact, jpegQuality, qosValue, showFps, recordingEnabled, recordingPath } = this.state;
 
     return (
       <View style={styles.container}>
         {currentScreen === 'StreamWindow' ? (
-          <StreamWindow isTop={isTop} dsIP={dsIP} navigateBack={this.navigateBack} showFps={showFps} />
+          <StreamWindow
+            isTop={isTop}
+            dsIP={dsIP}
+            navigateBack={this.navigateBack}
+            showFps={showFps}
+            recordingEnabled={recordingEnabled}
+          />
         ) : (
           <MainWindow
-            dsIP={this.state.dsIP}
-            qosValue={this.state.qosValue}
-            priMode={this.state.priMode}
-            priFact={this.state.priFact}
-            jpegQuality={this.state.jpegQuality}
+            dsIP={dsIP}
+            qosValue={qosValue}
+            priMode={priMode}
+            priFact={priFact}
+            jpegQuality={jpegQuality}
             debugging={this.state.debugging}
-            streaming={this.state.streaming}
+            streaming={streaming}
             startStream={this.startStream}
             stopStream={this.stopStream}
             updateDsIP={this.updateDsIP}
             navigateToStreamWindow={this.navigateToStreamWindow}
+            recordingEnabled={recordingEnabled}
+            setRecordingEnabled={this.setRecordingEnabled}
           />
         )}
         <Ntr dsIP={dsIP} screenPriority={priMode} priFact={priFact} jpegq={jpegQuality} qosvalue={qosValue} />
-        <NtrUtility dsIP={this.state.dsIP} />
-        <StreamWorker dsIP={this.state.dsIP} />
+        <NtrUtility dsIP={dsIP} />
+        <StreamWorker dsIP={dsIP} />
       </View>
     );
   }
