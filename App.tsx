@@ -1,10 +1,12 @@
+// App.tsx
 import React, { Component } from 'react';
 import { View, StyleSheet, AppState } from 'react-native';
 import MainWindow from './components/MainWindow';
 import Ntr from './components/ntr/Ntr';
 import NtrUtility from './components/ntr/NtrUtility';
 import StreamWorker from './components/stream/StreamWorker';
-import StreamWindow from './components/stream/StreamWindow';
+import StreamWindowiOS from './components/stream/StreamWindow.iOS';
+import StreamWindowAndroid from './components/stream/StreamWindow.Android';
 import { EventRegister } from 'react-native-event-listeners';
 
 interface AppComponentState {
@@ -140,10 +142,12 @@ class App extends Component<{}, AppComponentState> {
   render() {
     const { currentScreen, isTop, dsIP, streaming, priMode, priFact, jpegQuality, qosValue, showFps, recordingEnabled, recordingPath } = this.state;
 
+    const StreamWindowComponent = Platform.OS === 'ios' ? StreamWindowiOS : StreamWindowAndroid;
+
     return (
       <View style={styles.container}>
         {currentScreen === 'StreamWindow' ? (
-          <StreamWindow
+          <StreamWindowComponent
             isTop={isTop}
             dsIP={dsIP}
             navigateBack={this.navigateBack}

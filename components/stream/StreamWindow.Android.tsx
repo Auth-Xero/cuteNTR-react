@@ -257,14 +257,6 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
             >
               <Text style={styles.recordButtonText}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
             </TouchableOpacity>
-            {connected && (
-              <TouchableOpacity
-                style={styles.streamButton}
-                onPress={this.handleStartStopStream}
-              >
-                <Text style={styles.streamButtonText}>{connected ? 'Stop Stream' : 'Start Stream'}</Text>
-              </TouchableOpacity>
-            )}
           </>
         )}
       </View>
@@ -330,20 +322,7 @@ const styles = StyleSheet.create({
   recordButtonText: {
     color: 'white',
     fontWeight: 'bold',
-  },
-  streamButton: {
-    transform: [{ rotate: '90deg' }],
-    position: 'absolute',
-    bottom: 100,
-    right: 10,
-    backgroundColor: 'blue',
-    padding: 10,
-    borderRadius: 5,
-  },
-  streamButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
+  }
 });
 
 export default StreamWindow;
