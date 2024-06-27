@@ -1,6 +1,6 @@
 // App.tsx
 import React, { Component } from 'react';
-import { View, StyleSheet, AppState } from 'react-native';
+import { View, StyleSheet, AppState, Platform } from 'react-native';
 import MainWindow from './components/MainWindow';
 import Ntr from './components/ntr/Ntr';
 import NtrUtility from './components/ntr/NtrUtility';

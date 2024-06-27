@@ -22,6 +22,7 @@ interface StreamWindowState {
   fullscreen: boolean;
   fps: number;
   recording: boolean;
+  frames: Array<string>;
 }
 
 class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
@@ -41,6 +42,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
       fullscreen: false,
       recording: false,
       fps: 0,
+      frames: [],
     };
 
     this.mounted = false;
