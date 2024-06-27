@@ -86,7 +86,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   };
 
   renderFrame = ({ uri, isTop }: { uri: string; isTop: boolean }) => {
-    if (this.mounted && isTop === this.props.isTop) {
+    if (this.mounted && isTop === this.props.isTop && uri.startsWith('data:image/jpeg;base64,/9j/')) {
       this.setState((prevState) => ({
         previousPixmap: prevState.currentPixmap,
         currentPixmap: uri,
@@ -224,7 +224,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
             key={`prev_${previousPixmap}`} // Unique key for previousPixmap
             source={{ uri: previousPixmap }}
             style={imageStyle}
-            resizeMode={smooth ? 'contain' : 'cover'}
+            resizeMode={'contain'}
           />
         )}
         {currentPixmap && (
@@ -233,7 +233,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
             key={`curr_${currentPixmap}`} // Unique key for currentPixmap
             source={{ uri: currentPixmap }}
             style={imageStyle}
-            resizeMode={smooth ? 'contain' : 'cover'}
+            resizeMode={'contain'}
           />
         )}
         <View style={styles.buttonContainer}>
@@ -267,7 +267,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'gray',
+    backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
   },

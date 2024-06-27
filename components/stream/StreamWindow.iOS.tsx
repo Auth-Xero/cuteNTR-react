@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, View, ImageBackground, StyleSheet, Button, Text, BackHandler, TouchableOpacity, PermissionsAndroid, Alert, Dimensions } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
-
 import RNFS from 'react-native-fs';
 import { FFmpegKit } from 'ffmpeg-kit-react-native';
 
@@ -95,7 +94,7 @@ startRecording = () => {
   };
 
   renderFrame = ({ uri, isTop }: { uri: string; isTop: boolean }) => {
-    if (this.mounted && isTop === this.props.isTop) {
+    if (this.mounted && isTop === this.props.isTop && uri) {
       this.setState((prevState) => ({
         previousPixmap: prevState.currentPixmap,
         currentPixmap: uri,
@@ -214,7 +213,7 @@ saveRecording = async () => {
             key={previousPixmap}
             source={{ uri: previousPixmap }}
             style={imageStyle}
-            resizeMode={smooth ? 'contain' : 'cover'}
+            resizeMode={'contain' }
           />
         )}
         {currentPixmap && (
@@ -223,7 +222,7 @@ saveRecording = async () => {
             key={currentPixmap}
             source={{ uri: currentPixmap }}
             style={imageStyle}
-            resizeMode={smooth ? 'contain' : 'cover'}
+            resizeMode={'contain' }
           />
         )}
         {!fullscreen && (

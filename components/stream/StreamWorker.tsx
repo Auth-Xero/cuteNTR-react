@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NativeModules, Text, StyleSheet, View } from 'react-native';
+import { NativeModules, View } from 'react-native';
 import dgram from 'react-native-udp';
 import { Buffer } from 'buffer';
 import { EventRegister } from 'react-native-event-listeners';
@@ -27,6 +27,7 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
   private stopStreamListener: any;
   private framePackets: Map<string, Array<Buffer>> = new Map();
   private framePacketCounts: Map<string, number> = new Map();
+  private lastFrameIdForScreen: Map<number, number> = new Map();
   private frameCount: number = 0;
   private fpsInterval: NodeJS.Timeout | null = null;
 
@@ -103,7 +104,17 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
     const frameId = header[0];
     const screenId = header[1] & 0x0F;
     const packetNumber = header[2];
-    const key = `${frameId}-${screenId}`;
+    const isEndOfFrame = (header[1] & 0xF0) === 0x10;
+    const key = `${screenId}-${frameId}`;
+
+    const lastFrameId = this.lastFrameIdForScreen.get(screenId);
+    if (lastFrameId !== undefined && frameId !== lastFrameId) {
+      // If a new frame with the same screen ID starts before the current frame is complete, drop the current frame
+      const oldKey = `${screenId}-${lastFrameId}`;
+      this.framePackets.delete(oldKey);
+      this.framePacketCounts.delete(oldKey);
+    }
+    this.lastFrameIdForScreen.set(screenId, frameId);
 
     if (!this.framePackets.has(key)) {
       this.framePackets.set(key, []);
@@ -113,19 +124,20 @@ class StreamWorker extends Component<StreamWorkerProps, StreamWorkerState> {
     const packets = this.framePackets.get(key)!;
     packets.push(msg);
 
-    if ((header[1] & 0xF0) === 0x10) {
-      // End of frame
+    if (isEndOfFrame) {
       const expectedPacketCount = packetNumber + 1;
       const receivedPacketCount = packets.length;
 
       if (expectedPacketCount !== receivedPacketCount) {
-        //console.warn(`Dropping frame ${frameId} due to missing packets.`);
+        // Drop frame due to missing packets
         this.framePackets.delete(key);
+        this.framePacketCounts.delete(key);
         return;
       }
 
       this.processFrame(key, packets);
       this.framePackets.delete(key);
+      this.framePacketCounts.delete(key);
     }
   };
 

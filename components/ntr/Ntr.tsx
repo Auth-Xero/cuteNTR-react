@@ -123,8 +123,8 @@ class Ntr extends Component<NtrProps, NtrState> {
   }
 
   sendPacket = (type: number, cmd: Command, args: number[] = [], len: number = 0) => {
-    if (!this.sock) {
-      console.warn("Socket is not connected.");
+    if (!this.sock || !this.state.connected) {
+      //console.warn("Socket is not connected.");
       return;
     }
 

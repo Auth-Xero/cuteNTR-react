@@ -24,7 +24,7 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
   const [qosValue, setQosValue] = useState<string>(props.qosValue.toString());
   const [jpegQuality, setJpegQuality] = useState<string>(props.jpegQuality.toString());
   const [priorityFactor, setPriorityFactor] = useState<number>(props.priFact);
-  const [screenPriority, setScreenPriority] = useState<number>(0); // Default to Bottom
+  const [screenPriority, setScreenPriority] = useState<number>(1); // Default to Bottom
   const [showFps, setShowFps] = useState<boolean>(false);
 
   useEffect(() => {
@@ -89,14 +89,14 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
         <Text style={styles.label}>Screen Priority</Text>
         <View style={styles.screenPriorityContainer}>
           <TouchableOpacity
-            style={[styles.screenPriorityButton, screenPriority === 0 && styles.selectedButton]}
-            onPress={() => setScreenPriority(0)}
+            style={[styles.screenPriorityButton, screenPriority === 1 && styles.selectedButton]}
+            onPress={() => setScreenPriority(1)}
           >
             <Text style={styles.buttonText}>Top Screen</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.screenPriorityButton, screenPriority === 1 && styles.selectedButton]}
-            onPress={() => setScreenPriority(1)}
+            style={[styles.screenPriorityButton, screenPriority === 0 && styles.selectedButton]}
+            onPress={() => setScreenPriority(0)}
           >
             <Text style={styles.buttonText}>Bottom Screen</Text>
           </TouchableOpacity>
