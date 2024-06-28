@@ -1,79 +1,122 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# AdorableNTR
 
-# Getting Started
+AdorableNTR is a mobile streaming application designed to connect to a Nintendo 3DS using custom firmware and BootNTR. It leverages a UDP server and TCP sockets to stream video data from the 3DS to your mobile device. Additionally, AdorableNTR allows you to record the stream directly from the application.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- **Real-time streaming**: Stream video data from your Nintendo 3DS to your mobile device.
+- **Recording functionality**: Record the live stream with options to specify the save location.
+- **Seamless connection**: Utilize UDP server and TCP sockets for efficient data transfer.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Requirements
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- Nintendo 3DS with custom firmware
+- BootNTR running on the 3DS
+- Java Development Kit (JDK)
+- Node.js and npm
+- React Native CLI
+- Android Studio (for Android development)
+- Xcode (for iOS development)
 
-```bash
-# using npm
-npm start
+## Installation
 
-# OR using Yarn
-yarn start
-```
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/Auth-Xero/cutentr-react.git
+    cd cutentr-react
+    ```
 
-## Step 2: Start your Application
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+3. **Set up the JNI environment:**
+    - Follow the instructions in the `jni/README.md` to set up the JNI environment for processing the JPEG data.
 
-### For Android
+4. **Build the project:**
+    ```bash
+    npm run build
+    ```
 
-```bash
-# using npm
-npm run android
+5. **Run the app:**
+    ```bash
+    npm start
+    ```
 
-# OR using Yarn
-yarn android
-```
+6. **Run on your mobile device:**
+    - **For Android:**
+        - Connect your mobile device to your development machine.
+        - Start the React Native packager:
+            ```bash
+            npx react-native start
+            ```
+        - In another terminal window, run:
+            ```bash
+            npx react-native run-android
+            ```
+    - **For iOS:**
+        - Open the project in Xcode:
+            ```bash
+            npx react-native run-ios
+            ```
+        - Ensure your iOS device is connected to your development machine and select it as the build target in Xcode.
+        - Click the "Run" button in Xcode to build and launch the app on your device.
 
-### For iOS
+## Usage
 
-```bash
-# using npm
-npm run ios
+1. **Launch BootNTR on your Nintendo 3DS:**
+    - Ensure your 3DS is connected to the same network as your mobile device.
+    - Start BootNTR on your 3DS.
 
-# OR using Yarn
-yarn ios
-```
+2. **Connect to the 3DS from AdorableNTR:**
+    - Open the AdorableNTR application on your mobile device.
+    - Enter the IP address of your 3DS in the connection settings.
+    - Click "Connect" to start streaming.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+3. **Recording the Stream:**
+    - Toggle the "Enable Recording" switch in the application settings.
+    - Use the "Start Recording" button to begin recording the stream.
+    - Click "Stop Recording" to end the recording session.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## Troubleshooting
 
-## Step 3: Modifying your App
+- **Connection issues:**
+    - Ensure both the 3DS and your mobile device are on the same network.
+    - Verify the IP address of your 3DS is correctly entered in the application.
+    - If the stream does not start, try rebooting your 3DS and restarting the BootNTR app.
 
-Now that you have successfully run the app, let's modify it.
+- **Recording problems:**
+    - Check that you have write permissions to the specified save location.
+    - Ensure the recording feature is enabled in the settings.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Contributing
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+We welcome contributions to AdorableNTR! If you have suggestions, bug reports, or want to contribute code, please open an issue or submit a pull request on GitHub.
 
-## Congratulations! :tada:
+## License
 
-You've successfully run and modified your React Native App. :partying_face:
+AdorableNTR is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
-### Now what?
+## Acknowledgments
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+Special thanks to the homebrew community and everyone who contributed to the development of custom firmware and BootNTR for the Nintendo 3DS.
 
-# Troubleshooting
+---
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+Feel free to reach out with any questions or feedback. Happy streaming!
 
-# Learn More
+---
 
-To learn more about React Native, take a look at the following resources:
+### Contact
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- **GitHub**: [Auth-Xero](https://github.com/Auth-Xero)
+- **Email**: authxero@gmail.com
+
+---
+
+This project is not affiliated with or endorsed by Nintendo. The Nintendo 3DS and other trademarks are properties of Nintendo.
+
+---
+
+**Note:** Ensure you have the necessary legal rights to use and distribute any firmware or software associated with this project.
