@@ -21,8 +21,8 @@ AdorableNTR is a mobile streaming application designed to connect to a Nintendo 
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/Auth-Xero/cutentr-react.git
-    cd cutentr-react
+    git clone https://github.com/Auth-Xero/cuteNTR-react.git
+    cd cuteNTR-react
     ```
 
 2. **Install dependencies:**
