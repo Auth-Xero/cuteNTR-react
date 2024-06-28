@@ -5,8 +5,7 @@ AdorableNTR is a mobile streaming application designed to connect to a Nintendo 
 ## Features
 
 - **Real-time streaming**: Stream video data from your Nintendo 3DS to your mobile device.
-- **Recording functionality**: Record the live stream with options to specify the save location.
-- **Seamless connection**: Utilize UDP server and TCP sockets for efficient data transfer.
+- **Recording functionality**: Record the live stream.
 
 ## Requirements
 
