@@ -1,5 +1,46 @@
 workflows:
-    sample-workflow:
-        name: AdorableNTR Workflow
-        max_build_duration: 120
-        instance_type: mac_mini_m1
+  ios-workflow:
+    name: iOS Workflow
+    environment:
+      groups:
+        - apple_credentials
+        - github_credentials
+      variables:
+        FLAVOR: dev
+        REACT_NATIVE_VERSION: 0.74.2 # Specify your React Native version
+      xcode: latest
+      cocoapods: default
+      node: 18.20.3 # Specify the Node.js version
+      npm: default
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+      - name: Set up the JNI environment
+        script: |
+          # Follow instructions to set up JNI environment
+          cd jni
+          # Add your JNI setup commands here
+          cd ..
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios
+          pod install
+          cd ..
+      - name: Run unit tests
+        script: |
+          npm test
+      - name: Build the iOS app
+        script: |
+          xcode-project build-ipa --project-path ios --scheme AdorableNTR --export-method ad-hoc
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - build/ios/xcarchive/*.xcarchive
+    publishing:
+      email:
+        recipients:
+          - authxero@gmail.com
+
+# Note: Make sure to set up the environment variable groups `apple_credentials` and `github_credentials` in Codemagic.
+# `apple_credentials` should include your Apple Developer account credentials.
+# `github_credentials` should include your GitHub access token if you need to access private repositories.
