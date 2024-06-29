@@ -300,6 +300,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   fpsCounter: {
+    transform: [{ rotate: '90deg' }],
     position: 'absolute',
     top: 10,
     right: 10,

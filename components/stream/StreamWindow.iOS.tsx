@@ -126,27 +126,6 @@ handleRecordButton = () => {
 saveRecording = async () => {
     const { frames } = this.state;
 
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        {
-          title: 'Storage Permission',
-          message: 'App needs access to your storage to save recordings',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-
-      if (!granted) {
-        console.log('Storage permission denied');
-        return;
-      }
-    } catch (err) {
-      console.warn(err);
-      return;
-    }
-
     const recordingDir = Platform.OS === 'android'
       ? `${RNFS.ExternalStorageDirectoryPath}/Documents/Recordings`
       : `${RNFS.DocumentDirectoryPath}/Recordings`;
@@ -286,6 +265,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   fpsCounter: {
+    transform: [{ rotate: '90deg' }],
     position: 'absolute',
     top: 10,
     right: 10,
