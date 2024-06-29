@@ -1,0 +1,1280 @@
+2024-06-29 01:39:21 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x338e18ac0; archive(resolved)="<IDEArchive: 0x6000163fc120>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (17, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x338e18ac0; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x338e389e0; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x333bf4750; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x333b23780; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x333b23550; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x12e54f2c0; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x12e534b90; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x111e250d0; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x111e295a0; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x12e534960; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x310691050; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x12e9487b0; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x338e40a70; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600001b78f00; teamID='3SJZQ945LJ', teamName='Frederick Biddix', teamType='Individual', username='authxero@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3340c5ef0; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="(null)">
+	<IDEDistributionContext: 0x339013bb0; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x60000855d9e0>", team="(null)">
+	<IDEDistributionContext: 0x12e9e1120; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x337269370; archive = "<IDEArchive: 0x6000163fc120>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x338e18ac0>
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionCreateDestRootStep
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionCopyItemStep
+2024-06-29 01:39:21 +0000  Running /usr/bin/ditto '-V' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app'
+2024-06-29 01:39:21 +0000  >>> Copying /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app 
+2024-06-29 01:39:21 +0000  copying file ./_CodeSignature/CodeResources ... 
+2024-06-29 01:39:21 +0000  44510 bytes for ./_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  copying file ./AppIcon60x60@2x.png ... 
+2024-06-29 01:39:21 +0000  39117 bytes for ./AppIcon60x60@2x.png
+2024-06-29 01:39:21 +0000  copying file ./Assets.car ... 
+2024-06-29 01:39:21 +0000  1927400 bytes for ./Assets.car
+2024-06-29 01:39:21 +0000  copying file ./AppIcon76x76@2x~ipad.png ... 
+59768 bytes for ./AppIcon76x76@2x~ipad.png
+copying file ./main.jsbundle ... 
+2024-06-29 01:39:21 +0000  1668342 bytes for ./main.jsbundle
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/de.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/de.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/de.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1312 bytes for ./RCTI18nStrings.bundle/de.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/he.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/he.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/he.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1444 bytes for ./RCTI18nStrings.bundle/he.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ar.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/ar.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ar.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1500 bytes for ./RCTI18nStrings.bundle/ar.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/el.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/el.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/el.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1600 bytes for ./RCTI18nStrings.bundle/el.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/zh-Hans.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/zh-Hans.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/zh-Hans.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1296 bytes for ./RCTI18nStrings.bundle/zh-Hans.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ja.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/ja.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ja.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1436 bytes for ./RCTI18nStrings.bundle/ja.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/en.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/en.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/zh-Hant-HK.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/zh-Hant-HK.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/zh-Hant-HK.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1296 bytes for ./RCTI18nStrings.bundle/zh-Hant-HK.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/uk.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/uk.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/uk.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1564 bytes for ./RCTI18nStrings.bundle/uk.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/nb.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/nb.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/nb.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1296 bytes for ./RCTI18nStrings.bundle/nb.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/en-GB.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/en-GB.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/en-GB.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1268 bytes for ./RCTI18nStrings.bundle/en-GB.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/es.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/es.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/es.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1364 bytes for ./RCTI18nStrings.bundle/es.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/da.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/da.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/da.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1300 bytes for ./RCTI18nStrings.bundle/da.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/it.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/it.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/it.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1388 bytes for ./RCTI18nStrings.bundle/it.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/sk.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/sk.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/sk.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1356 bytes for ./RCTI18nStrings.bundle/sk.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/es-ES.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/es-ES.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/es-ES.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1368 bytes for ./RCTI18nStrings.bundle/es-ES.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ms.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/ms.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ms.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1292 bytes for ./RCTI18nStrings.bundle/ms.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/sv.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/sv.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/sv.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1300 bytes for ./RCTI18nStrings.bundle/sv.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/cs.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/cs.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/cs.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1368 bytes for ./RCTI18nStrings.bundle/cs.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ko.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/ko.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ko.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1332 bytes for ./RCTI18nStrings.bundle/ko.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/zh-Hant.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/zh-Hant.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/zh-Hant.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1308 bytes for ./RCTI18nStrings.bundle/zh-Hant.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/hu.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/hu.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/hu.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1348 bytes for ./RCTI18nStrings.bundle/hu.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/tr.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/tr.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/tr.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1360 bytes for ./RCTI18nStrings.bundle/tr.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/pl.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/pl.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/pl.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1340 bytes for ./RCTI18nStrings.bundle/pl.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/vi.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/vi.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/vi.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1352 bytes for ./RCTI18nStrings.bundle/vi.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ru.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/ru.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ru.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1576 bytes for ./RCTI18nStrings.bundle/ru.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/fr.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/fr.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/fr.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1360 bytes for ./RCTI18nStrings.bundle/fr.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/fi.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/fi.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/fi.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1340 bytes for ./RCTI18nStrings.bundle/fi.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/id.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/id.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/id.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1300 bytes for ./RCTI18nStrings.bundle/id.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/nl.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/nl.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/nl.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1324 bytes for ./RCTI18nStrings.bundle/nl.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/th.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/th.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/th.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1784 bytes for ./RCTI18nStrings.bundle/th.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/pt.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/pt.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/pt.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1356 bytes for ./RCTI18nStrings.bundle/pt.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/zu.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/zu.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/zu.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  2076 bytes for ./RCTI18nStrings.bundle/zu.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/pt-PT.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/pt-PT.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/pt-PT.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1372 bytes for ./RCTI18nStrings.bundle/pt-PT.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ro.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/ro.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/ro.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1344 bytes for ./RCTI18nStrings.bundle/ro.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/Info.plist ... 
+2024-06-29 01:39:21 +0000  774 bytes for ./RCTI18nStrings.bundle/Info.plist
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/hr.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/hr.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/hr.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1352 bytes for ./RCTI18nStrings.bundle/hr.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/hi.lproj/Localizable.strings ... 
+2024-06-29 01:39:21 +0000  64 bytes for ./RCTI18nStrings.bundle/hi.lproj/Localizable.strings
+2024-06-29 01:39:21 +0000  copying file ./RCTI18nStrings.bundle/hi.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:21 +0000  1640 bytes for ./RCTI18nStrings.bundle/hi.lproj/fbt_language_pack.bin
+2024-06-29 01:39:21 +0000  copying file ./PrivacyInfo.xcprivacy ... 
+2024-06-29 01:39:21 +0000  986 bytes for ./PrivacyInfo.xcprivacy
+2024-06-29 01:39:21 +0000  copying file ./LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2024-06-29 01:39:21 +0000  3819 bytes for ./LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2024-06-29 01:39:21 +0000  copying file ./LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2024-06-29 01:39:21 +0000  924 bytes for ./LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2024-06-29 01:39:21 +0000  copying file ./LaunchScreen.storyboardc/Info.plist ... 
+2024-06-29 01:39:21 +0000  258 bytes for ./LaunchScreen.storyboardc/Info.plist
+2024-06-29 01:39:21 +0000  copying file ./cuteNTR ... 
+2024-06-29 01:39:21 +0000  5112816 bytes for ./cuteNTR
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libswresample.framework/_CodeSignature/CodeResources ... 
+2006 bytes for ./Frameworks/libswresample.framework/_CodeSignature/CodeResources
+copying file ./Frameworks/libswresample.framework/LICENSE ... 
+7651 bytes for ./Frameworks/libswresample.framework/LICENSE
+copying file ./Frameworks/libswresample.framework/libswresample ... 
+138688 bytes for ./Frameworks/libswresample.framework/libswresample
+copying file ./Frameworks/libswresample.framework/Info.plist ... 
+933 bytes for ./Frameworks/libswresample.framework/Info.plist
+copying file ./Frameworks/libavfilter.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:21 +0000  2006 bytes for ./Frameworks/libavfilter.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavfilter.framework/libavfilter ... 
+2024-06-29 01:39:21 +0000  2467264 bytes for ./Frameworks/libavfilter.framework/libavfilter
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavfilter.framework/LICENSE ... 
+7651 bytes for ./Frameworks/libavfilter.framework/LICENSE
+copying file ./Frameworks/libavfilter.framework/Info.plist ... 
+925 bytes for ./Frameworks/libavfilter.framework/Info.plist
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavformat.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:21 +0000  2006 bytes for ./Frameworks/libavformat.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavformat.framework/LICENSE ... 
+2024-06-29 01:39:21 +0000  7651 bytes for ./Frameworks/libavformat.framework/LICENSE
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavformat.framework/libavformat ... 
+2024-06-29 01:39:21 +0000  3643728 bytes for ./Frameworks/libavformat.framework/libavformat
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavformat.framework/Info.plist ... 
+927 bytes for ./Frameworks/libavformat.framework/Info.plist
+copying file ./Frameworks/libavutil.framework/_CodeSignature/CodeResources ... 
+2006 bytes for ./Frameworks/libavutil.framework/_CodeSignature/CodeResources
+copying file ./Frameworks/libavutil.framework/libavutil ... 
+2024-06-29 01:39:21 +0000  543904 bytes for ./Frameworks/libavutil.framework/libavutil
+copying file ./Frameworks/libavutil.framework/LICENSE ... 
+2024-06-29 01:39:21 +0000  7651 bytes for ./Frameworks/libavutil.framework/LICENSE
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavutil.framework/Info.plist ... 
+2024-06-29 01:39:21 +0000  921 bytes for ./Frameworks/libavutil.framework/Info.plist
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libswscale.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:21 +0000  2006 bytes for ./Frameworks/libswscale.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libswscale.framework/LICENSE ... 
+2024-06-29 01:39:21 +0000  7651 bytes for ./Frameworks/libswscale.framework/LICENSE
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libswscale.framework/libswscale ... 
+2024-06-29 01:39:21 +0000  371440 bytes for ./Frameworks/libswscale.framework/libswscale
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libswscale.framework/Info.plist ... 
+2024-06-29 01:39:21 +0000  922 bytes for ./Frameworks/libswscale.framework/Info.plist
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavdevice.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:21 +0000  2006 bytes for ./Frameworks/libavdevice.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavdevice.framework/LICENSE ... 
+2024-06-29 01:39:21 +0000  7651 bytes for ./Frameworks/libavdevice.framework/LICENSE
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavdevice.framework/libavdevice ... 
+2024-06-29 01:39:21 +0000  115824 bytes for ./Frameworks/libavdevice.framework/libavdevice
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavdevice.framework/Info.plist ... 
+2024-06-29 01:39:21 +0000  927 bytes for ./Frameworks/libavdevice.framework/Info.plist
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavcodec.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:21 +0000  2642 bytes for ./Frameworks/libavcodec.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE ... 
+2024-06-29 01:39:21 +0000  7651 bytes for ./Frameworks/libavcodec.framework/LICENSE
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.GNUTLS ... 
+2024-06-29 01:39:21 +0000  936 bytes for ./Frameworks/libavcodec.framework/LICENSE.GNUTLS
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavcodec.framework/libavcodec ... 
+2024-06-29 01:39:21 +0000  7975184 bytes for ./Frameworks/libavcodec.framework/libavcodec
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.NETTLE ... 
+7639 bytes for ./Frameworks/libavcodec.framework/LICENSE.NETTLE
+copying file ./Frameworks/libavcodec.framework/LICENSE.GMP ... 
+7639 bytes for ./Frameworks/libavcodec.framework/LICENSE.GMP
+copying file ./Frameworks/libavcodec.framework/Info.plist ... 
+924 bytes for ./Frameworks/libavcodec.framework/Info.plist
+copying file ./Frameworks/ffmpegkit.framework/_CodeSignature/CodeResources ... 
+2428 bytes for ./Frameworks/ffmpegkit.framework/_CodeSignature/CodeResources
+copying file ./Frameworks/ffmpegkit.framework/LICENSE ... 
+7651 bytes for ./Frameworks/ffmpegkit.framework/LICENSE
+copying file ./Frameworks/ffmpegkit.framework/SOURCE ... 
+700 bytes for ./Frameworks/ffmpegkit.framework/SOURCE
+copying file ./Frameworks/ffmpegkit.framework/ffmpegkit ... 
+578512 bytes for ./Frameworks/ffmpegkit.framework/ffmpegkit
+copying file ./Frameworks/ffmpegkit.framework/strip-frameworks.sh ... 
+2127 bytes for ./Frameworks/ffmpegkit.framework/strip-frameworks.sh
+copying file ./Frameworks/ffmpegkit.framework/Info.plist ... 
+2024-06-29 01:39:21 +0000  911 bytes for ./Frameworks/ffmpegkit.framework/Info.plist
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/hermes.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:21 +0000  1798 bytes for ./Frameworks/hermes.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/hermes.framework/hermes ... 
+2024-06-29 01:39:21 +0000  4444032 bytes for ./Frameworks/hermes.framework/hermes
+2024-06-29 01:39:21 +0000  copying file ./Frameworks/hermes.framework/Info.plist ... 
+815 bytes for ./Frameworks/hermes.framework/Info.plist
+copying file ./embedded.mobileprovision ... 
+12216 bytes for ./embedded.mobileprovision
+copying file ./Info.plist ... 
+1549 bytes for ./Info.plist
+copying file ./PkgInfo ... 
+8 bytes for ./PkgInfo
+2024-06-29 01:39:21 +0000  /usr/bin/ditto exited with 0
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionEmbedProfileStep
+2024-06-29 01:39:21 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000163ee880; bundleID='com.arthenica.ffmpegkit.FFmpegKit', path='<DVTFilePath:0x60000e9f1e00:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d400; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.FFmpegKit', executablePath='<DVTFilePath:0x60000e9f3700:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework/ffmpegkit'>', hardenedRuntime='0'>'>
+2024-06-29 01:39:21 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000163eea60; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000e9f2200:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x60001edd5ce0:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'>
+2024-06-29 01:39:21 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000163ed740; bundleID='com.arthenica.ffmpegkit.Libavcodec', path='<DVTFilePath:0x60000e9f1780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavcodec', executablePath='<DVTFilePath:0x60000e9f2d80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework/libavcodec'>', hardenedRuntime='0'>'>
+2024-06-29 01:39:21 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000163eedc0; bundleID='com.arthenica.ffmpegkit.Libavdevice', path='<DVTFilePath:0x60000e9f2480:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d810; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavdevice', executablePath='<DVTFilePath:0x60000e9f2780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework/libavdevice'>', hardenedRuntime='0'>'>
+2024-06-29 01:39:21 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000163ee760; bundleID='com.arthenica.ffmpegkit.Libavfilter', path='<DVTFilePath:0x60000e9f1600:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255dc20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavfilter', executablePath='<DVTFilePath:0x60000e9f1400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework/libavfilter'>', hardenedRuntime='0'>'>
+2024-06-29 01:39:21 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000163fb360; bundleID='com.arthenica.ffmpegkit.Libavformat', path='<DVTFilePath:0x60000e9f1680:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000167c14f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavformat', executablePath='<DVTFilePath:0x60000e9f3400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework/libavformat'>', hardenedRuntime='0'>'>
+2024-06-29 01:39:21 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000163eff00; bundleID='com.arthenica.ffmpegkit.Libavutil', path='<DVTFilePath:0x60000e9f1500:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255cff0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavutil', executablePath='<DVTFilePath:0x60000e9f2280:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework/libavutil'>', hardenedRuntime='0'>'>
+2024-06-29 01:39:21 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000163eed60; bundleID='com.arthenica.ffmpegkit.Libswresample', path='<DVTFilePath:0x60000e9f2400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255c410; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswresample', executablePath='<DVTFilePath:0x60000e9f2300:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework/libswresample'>', hardenedRuntime='0'>'>
+2024-06-29 01:39:21 +0000  Skipping profile for item: <IDEDistributionItem: 0x6000163ec1e0; bundleID='com.arthenica.ffmpegkit.Libswscale', path='<DVTFilePath:0x60000e9f2980:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255e620; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswscale', executablePath='<DVTFilePath:0x60000e9f2c80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework/libswscale'>', hardenedRuntime='0'>'>
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionInfoPlistStep
+2024-06-29 01:39:21 +0000  Skipping Info.plist step because item: <IDEDistributionItem: 0x6000163ee880; bundleID='com.arthenica.ffmpegkit.FFmpegKit', path='<DVTFilePath:0x60000e9f1e00:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d400; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.FFmpegKit', executablePath='<DVTFilePath:0x60000e9f3700:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework/ffmpegkit'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-29 01:39:21 +0000  Skipping Info.plist step because item: <IDEDistributionItem: 0x6000163eea60; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000e9f2200:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x60001edd5ce0:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-29 01:39:21 +0000  Skipping Info.plist step because item: <IDEDistributionItem: 0x6000163ed740; bundleID='com.arthenica.ffmpegkit.Libavcodec', path='<DVTFilePath:0x60000e9f1780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavcodec', executablePath='<DVTFilePath:0x60000e9f2d80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework/libavcodec'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-29 01:39:21 +0000  Skipping Info.plist step because item: <IDEDistributionItem: 0x6000163eedc0; bundleID='com.arthenica.ffmpegkit.Libavdevice', path='<DVTFilePath:0x60000e9f2480:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d810; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavdevice', executablePath='<DVTFilePath:0x60000e9f2780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework/libavdevice'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-29 01:39:21 +0000  Skipping Info.plist step because item: <IDEDistributionItem: 0x6000163ee760; bundleID='com.arthenica.ffmpegkit.Libavfilter', path='<DVTFilePath:0x60000e9f1600:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255dc20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavfilter', executablePath='<DVTFilePath:0x60000e9f1400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework/libavfilter'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-29 01:39:21 +0000  Skipping Info.plist step because item: <IDEDistributionItem: 0x6000163fb360; bundleID='com.arthenica.ffmpegkit.Libavformat', path='<DVTFilePath:0x60000e9f1680:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000167c14f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavformat', executablePath='<DVTFilePath:0x60000e9f3400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework/libavformat'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-29 01:39:21 +0000  Skipping Info.plist step because item: <IDEDistributionItem: 0x6000163eff00; bundleID='com.arthenica.ffmpegkit.Libavutil', path='<DVTFilePath:0x60000e9f1500:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255cff0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavutil', executablePath='<DVTFilePath:0x60000e9f2280:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework/libavutil'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-29 01:39:21 +0000  Skipping Info.plist step because item: <IDEDistributionItem: 0x6000163eed60; bundleID='com.arthenica.ffmpegkit.Libswresample', path='<DVTFilePath:0x60000e9f2400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255c410; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswresample', executablePath='<DVTFilePath:0x60000e9f2300:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework/libswresample'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-29 01:39:21 +0000  Skipping Info.plist step because item: <IDEDistributionItem: 0x6000163ec1e0; bundleID='com.arthenica.ffmpegkit.Libswscale', path='<DVTFilePath:0x60000e9f2980:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255e620; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c5c600; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswscale', executablePath='<DVTFilePath:0x60000e9f2c80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework/libswscale'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-29 01:39:21 +0000  Skipping setting DTXcodeBuildDistribution because toolsBuildVersionName was nil.
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionItemRemovalStep
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2024-06-29 01:39:21 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2024-06-29 01:39:21 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2024-06-29 01:39:21 +0000  Processing step: IDEDistributionSymbolsStep
+2024-06-29 01:39:21 +0000  Processing symbols for ffmpegkit.framework
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/ffmpegkit.framework' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  8 files to consider
+2024-06-29 01:39:21 +0000  ffmpegkit.framework/
+2024-06-29 01:39:21 +0000  ffmpegkit.framework/_CodeSignature/
+rsync: link "/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/ffmpegkit.framework/_CodeSignature/CodeResources" => /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-29 01:39:21 +0000  ffmpegkit.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 297 bytes  received 38 bytes  670.00 bytes/sec
+total size is 578.45K  speedup is 1768.15
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  10 files to consider
+2024-06-29 01:39:21 +0000  ./
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 347 bytes  received 62 bytes  818.00 bytes/sec
+total size is 89.06M  speedup is 228332.55
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/EF41E766-CEF6-3981-8259-E080B829EA12.symbols
+2024-06-29 01:39:21 +0000  Processing symbols for hermes.framework
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/hermes.framework' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  5 files to consider
+2024-06-29 01:39:21 +0000  hermes.framework/
+2024-06-29 01:39:21 +0000  hermes.framework/_CodeSignature/
+rsync: link "/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/hermes.framework/_CodeSignature/CodeResources" => /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/hermes.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-29 01:39:21 +0000  hermes.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 223 bytes  received 38 bytes  522.00 bytes/sec
+total size is 4.24M  speedup is 17036.95
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  10 files to consider
+2024-06-29 01:39:21 +0000  ./
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 365 bytes  received 80 bytes  890.00 bytes/sec
+total size is 89.06M  speedup is 209860.70
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/97826E1C-CA18-34AE-A6B0-E7FDF0646359.symbols
+2024-06-29 01:39:21 +0000  Processing symbols for libavcodec.framework
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavcodec.framework' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  9 files to consider
+2024-06-29 01:39:21 +0000  libavcodec.framework/
+2024-06-29 01:39:21 +0000  libavcodec.framework/_CodeSignature/
+rsync: link "/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/libavcodec.framework/_CodeSignature/CodeResources" => /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavcodec.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-29 01:39:21 +0000  libavcodec.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 306 bytes  received 38 bytes  688.00 bytes/sec
+total size is 7.63M  speedup is 23263.42
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  10 files to consider
+2024-06-29 01:39:21 +0000  ./
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 365 bytes  received 80 bytes  890.00 bytes/sec
+total size is 89.06M  speedup is 209860.70
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/66CF45A6-CEDA-321D-A3F8-671A0417B55E.symbols
+2024-06-29 01:39:21 +0000  Processing symbols for libavdevice.framework
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavdevice.framework' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  6 files to consider
+2024-06-29 01:39:21 +0000  libavdevice.framework/
+2024-06-29 01:39:21 +0000  libavdevice.framework/_CodeSignature/
+rsync: link "/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/libavdevice.framework/_CodeSignature/CodeResources" => /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavdevice.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-29 01:39:21 +0000  libavdevice.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 260 bytes  received 38 bytes  596.00 bytes/sec
+total size is 123.45K  speedup is 424.19
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  10 files to consider
+2024-06-29 01:39:21 +0000  ./
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 365 bytes  received 80 bytes  890.00 bytes/sec
+total size is 89.06M  speedup is 209860.70
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/1E432190-9B3D-3860-8ACD-B258A07F7D4B.symbols
+2024-06-29 01:39:21 +0000  Processing symbols for libavfilter.framework
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavfilter.framework' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  6 files to consider
+2024-06-29 01:39:21 +0000  libavfilter.framework/
+2024-06-29 01:39:21 +0000  libavfilter.framework/_CodeSignature/
+rsync: link "/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/libavfilter.framework/_CodeSignature/CodeResources" => /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavfilter.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-29 01:39:21 +0000  libavfilter.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 248 bytes  received 38 bytes  572.00 bytes/sec
+total size is 2.36M  speedup is 8663.80
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  10 files to consider
+2024-06-29 01:39:21 +0000  ./
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 365 bytes  received 80 bytes  890.00 bytes/sec
+total size is 89.06M  speedup is 209860.70
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/90BFBC30-8189-307C-9535-C43F441890F4.symbols
+2024-06-29 01:39:21 +0000  Processing symbols for libavformat.framework
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavformat.framework' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  6 files to consider
+2024-06-29 01:39:21 +0000  libavformat.framework/
+2024-06-29 01:39:21 +0000  libavformat.framework/_CodeSignature/
+rsync: link "/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/libavformat.framework/_CodeSignature/CodeResources" => /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavformat.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-29 01:39:21 +0000  libavformat.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 260 bytes  received 38 bytes  596.00 bytes/sec
+total size is 3.49M  speedup is 12262.79
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  10 files to consider
+2024-06-29 01:39:21 +0000  ./
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 365 bytes  received 80 bytes  890.00 bytes/sec
+total size is 89.06M  speedup is 209860.70
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/1BF609ED-A378-3598-980B-18A585EE50DD.symbols
+2024-06-29 01:39:21 +0000  Processing symbols for libavutil.framework
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavutil.framework' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  6 files to consider
+2024-06-29 01:39:21 +0000  libavutil.framework/
+2024-06-29 01:39:21 +0000  libavutil.framework/_CodeSignature/
+rsync: link "/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/libavutil.framework/_CodeSignature/CodeResources" => /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavutil.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-29 01:39:21 +0000  libavutil.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 244 bytes  received 38 bytes  564.00 bytes/sec
+total size is 541.49K  speedup is 1966.25
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  10 files to consider
+2024-06-29 01:39:21 +0000  ./
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 365 bytes  received 80 bytes  890.00 bytes/sec
+total size is 89.06M  speedup is 209860.70
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/F7FB9BCE-F48E-3B2C-96F9-F820F2FF88EC.symbols
+2024-06-29 01:39:21 +0000  Processing symbols for libswresample.framework
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswresample.framework' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  6 files to consider
+2024-06-29 01:39:21 +0000  libswresample.framework/
+2024-06-29 01:39:21 +0000  libswresample.framework/_CodeSignature/
+rsync: link "/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/libswresample.framework/_CodeSignature/CodeResources" => /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswresample.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-29 01:39:21 +0000  libswresample.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 264 bytes  received 38 bytes  604.00 bytes/sec
+total size is 145.78K  speedup is 494.30
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  10 files to consider
+2024-06-29 01:39:21 +0000  ./
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 365 bytes  received 80 bytes  890.00 bytes/sec
+total size is 89.06M  speedup is 209860.70
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/ED3909C9-9270-3808-9755-1F5A7CA982C4.symbols
+2024-06-29 01:39:21 +0000  Processing symbols for libswscale.framework
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswscale.framework' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  6 files to consider
+2024-06-29 01:39:21 +0000  libswscale.framework/
+2024-06-29 01:39:21 +0000  libswscale.framework/_CodeSignature/
+rsync: link "/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/libswscale.framework/_CodeSignature/CodeResources" => /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswscale.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-29 01:39:21 +0000  libswscale.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 258 bytes  received 38 bytes  592.00 bytes/sec
+total size is 373.07K  speedup is 1290.60
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000  10 files to consider
+2024-06-29 01:39:21 +0000  ./
+2024-06-29 01:39:21 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:21 +0000  
+2024-06-29 01:39:21 +0000  sent 365 bytes  received 80 bytes  890.00 bytes/sec
+total size is 89.06M  speedup is 209860.70
+2024-06-29 01:39:21 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:21 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/0C284C92-6162-3000-86F1-AD02CA3B3EB3.symbols
+2024-06-29 01:39:21 +0000  Processing symbols for cuteNTR.app
+2024-06-29 01:39:21 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:21 +0000  building file list ... 
+2024-06-29 01:39:21 +0000   0 files...2024-06-29 01:39:21 +0000   100 files...2024-06-29 01:39:21 +0000  187 files to consider
+2024-06-29 01:39:21 +0000  cuteNTR.app/
+2024-06-29 01:39:22 +0000  cuteNTR.app/Frameworks/
+cuteNTR.app/Frameworks/ffmpegkit.framework/
+cuteNTR.app/Frameworks/ffmpegkit.framework/_CodeSignature/
+2024-06-29 01:39:22 +0000  cuteNTR.app/Frameworks/hermes.framework/
+cuteNTR.app/Frameworks/hermes.framework/_CodeSignature/
+cuteNTR.app/Frameworks/libavcodec.framework/
+cuteNTR.app/Frameworks/libavcodec.framework/_CodeSignature/
+cuteNTR.app/Frameworks/libavdevice.framework/
+cuteNTR.app/Frameworks/libavdevice.framework/_CodeSignature/
+cuteNTR.app/Frameworks/libavfilter.framework/
+cuteNTR.app/Frameworks/libavfilter.framework/_CodeSignature/
+cuteNTR.app/Frameworks/libavformat.framework/
+cuteNTR.app/Frameworks/libavformat.framework/_CodeSignature/
+cuteNTR.app/Frameworks/libavutil.framework/
+cuteNTR.app/Frameworks/libavutil.framework/_CodeSignature/
+cuteNTR.app/Frameworks/libswresample.framework/
+cuteNTR.app/Frameworks/libswresample.framework/_CodeSignature/
+cuteNTR.app/Frameworks/libswscale.framework/
+cuteNTR.app/Frameworks/libswscale.framework/_CodeSignature/
+cuteNTR.app/LaunchScreen.storyboardc/
+cuteNTR.app/RCTI18nStrings.bundle/
+cuteNTR.app/RCTI18nStrings.bundle/ar.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/cs.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/da.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/de.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/el.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/en-GB.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/en.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/es-ES.lproj/
+2024-06-29 01:39:22 +0000  cuteNTR.app/RCTI18nStrings.bundle/es.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/fi.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/fr.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/he.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/hi.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/hr.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/hu.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/id.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/it.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/ja.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/ko.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/ms.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/nb.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/nl.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/pl.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/pt-PT.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/pt.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/ro.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/ru.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/sk.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/sv.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/th.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/tr.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/uk.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/vi.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/zh-Hans.lproj/
+2024-06-29 01:39:22 +0000  cuteNTR.app/RCTI18nStrings.bundle/zh-Hant-HK.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/zh-Hant.lproj/
+cuteNTR.app/RCTI18nStrings.bundle/zu.lproj/
+cuteNTR.app/_CodeSignature/
+2024-06-29 01:39:22 +0000  
+2024-06-29 01:39:22 +0000  sent 5.67K bytes  received 380 bytes  4.02K bytes/sec
+total size is 27.95M  speedup is 4742.18
+2024-06-29 01:39:22 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:22 +0000  Running /usr/bin/rsync '-8aPhhE' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '--link-dest' '/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/dSYMs/' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv'
+2024-06-29 01:39:22 +0000  building file list ... 
+2024-06-29 01:39:22 +0000   0 files...2024-06-29 01:39:22 +0000  10 files to consider
+2024-06-29 01:39:22 +0000  ./
+2024-06-29 01:39:22 +0000  cuteNTR.app.dSYM/
+cuteNTR.app.dSYM/Contents/
+cuteNTR.app.dSYM/Contents/Resources/
+cuteNTR.app.dSYM/Contents/Resources/DWARF/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/
+cuteNTR.app.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-29 01:39:22 +0000  
+2024-06-29 01:39:22 +0000  sent 365 bytes  received 80 bytes  890.00 bytes/sec
+total size is 89.06M  speedup is 209860.70
+2024-06-29 01:39:22 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:22 +0000  Writing /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols/C91E0AF1-7E12-3491-981F-F9B2D3C6F81D.symbols
+2024-06-29 01:39:22 +0000  Processing step: IDEDistributionCopyAppleProvidedContentStep
+2024-06-29 01:39:22 +0000  Processing step: IDEDistributionAppThinningStep
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2024-06-29 01:39:22 +0000  Processing step: IDEDistributionArchThinningStep
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/ffmpegkit' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "ffmpegkit" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/hermes.framework/hermes' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "hermes" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavcodec.framework/libavcodec' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "libavcodec" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavdevice.framework/libavdevice' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "libavdevice" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavfilter.framework/libavfilter' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "libavfilter" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavformat.framework/libavformat' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "libavformat" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavutil.framework/libavutil' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "libavutil" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswresample.framework/libswresample' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "libswresample" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswscale.framework/libswscale' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "libswscale" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-06-29 01:39:22 +0000  Archs to thin for item /Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app are ["arm64e"]
+2024-06-29 01:39:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/cuteNTR' '-verify_arch' 'arm64e'
+2024-06-29 01:39:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-29 01:39:22 +0000  Skipping architecture thinning for item "cuteNTR" because arch "arm64e" wasn't found
+2024-06-29 01:39:22 +0000  Processing step: IDEDistributionODRStep
+2024-06-29 01:39:22 +0000  Processing step: IDEDistributionStripXattrsStep
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-06-29 01:39:22 +0000  Processing step: IDEDistributionCodesignStep
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ee880; bundleID='com.arthenica.ffmpegkit.FFmpegKit', path='<DVTFilePath:0x60000e9f1e00:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d400; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c2f6c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.FFmpegKit', executablePath='<DVTFilePath:0x60000e9f3700:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework/ffmpegkit'>', hardenedRuntime='0'>'>: {
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ee880; bundleID='com.arthenica.ffmpegkit.FFmpegKit', path='<DVTFilePath:0x60000e9f1e00:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d400; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c070c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.FFmpegKit', executablePath='<DVTFilePath:0x60000e9f3700:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework/ffmpegkit'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163ee880; bundleID='com.arthenica.ffmpegkit.FFmpegKit', path='<DVTFilePath:0x60000e9f1e00:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d400; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c2f300; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.FFmpegKit', executablePath='<DVTFilePath:0x60000e9f3700:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/ffmpegkit.framework/ffmpegkit'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~hFjNvb
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~hFjNvb' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/ffmpegkit.framework'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/ffmpegkit.framework: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/ffmpegkit.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.FFmpegKit]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163eea60; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000e9f2200:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c2f6c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x60001edd5ce0:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'>: {
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163eea60; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000e9f2200:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c070c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x60001edd5ce0:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163eea60; bundleID='dev.hermesengine.iphoneos', path='<DVTFilePath:0x60000e9f2200:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f840; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07cc0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='dev.hermesengine.iphoneos', executablePath='<DVTFilePath:0x60001edd5ce0:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/hermes.framework/hermes'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~Uvuz3s
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~Uvuz3s' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/hermes.framework'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/hermes.framework: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/hermes.framework: signed bundle with Mach-O thin (arm64) [dev.hermesengine.iphoneos]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ed740; bundleID='com.arthenica.ffmpegkit.Libavcodec', path='<DVTFilePath:0x60000e9f1780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c070c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavcodec', executablePath='<DVTFilePath:0x60000e9f2d80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework/libavcodec'>', hardenedRuntime='0'>'>: {
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ed740; bundleID='com.arthenica.ffmpegkit.Libavcodec', path='<DVTFilePath:0x60000e9f1780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07cc0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavcodec', executablePath='<DVTFilePath:0x60000e9f2d80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework/libavcodec'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163ed740; bundleID='com.arthenica.ffmpegkit.Libavcodec', path='<DVTFilePath:0x60000e9f1780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255f660; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07780; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavcodec', executablePath='<DVTFilePath:0x60000e9f2d80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavcodec.framework/libavcodec'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~JwZZa8
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~JwZZa8' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavcodec.framework'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavcodec.framework: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavcodec.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libavcodec]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163eedc0; bundleID='com.arthenica.ffmpegkit.Libavdevice', path='<DVTFilePath:0x60000e9f2480:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d810; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c070c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavdevice', executablePath='<DVTFilePath:0x60000e9f2780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework/libavdevice'>', hardenedRuntime='0'>'>: {
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163eedc0; bundleID='com.arthenica.ffmpegkit.Libavdevice', path='<DVTFilePath:0x60000e9f2480:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d810; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07cc0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavdevice', executablePath='<DVTFilePath:0x60000e9f2780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework/libavdevice'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163eedc0; bundleID='com.arthenica.ffmpegkit.Libavdevice', path='<DVTFilePath:0x60000e9f2480:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255d810; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07780; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavdevice', executablePath='<DVTFilePath:0x60000e9f2780:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavdevice.framework/libavdevice'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~MLcNn0
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~MLcNn0' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavdevice.framework'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavdevice.framework: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavdevice.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libavdevice]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ee760; bundleID='com.arthenica.ffmpegkit.Libavfilter', path='<DVTFilePath:0x60000e9f1600:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255dc20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c070c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavfilter', executablePath='<DVTFilePath:0x60000e9f1400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework/libavfilter'>', hardenedRuntime='0'>'>: {
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ee760; bundleID='com.arthenica.ffmpegkit.Libavfilter', path='<DVTFilePath:0x60000e9f1600:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255dc20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07cc0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavfilter', executablePath='<DVTFilePath:0x60000e9f1400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework/libavfilter'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163ee760; bundleID='com.arthenica.ffmpegkit.Libavfilter', path='<DVTFilePath:0x60000e9f1600:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255dc20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07780; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavfilter', executablePath='<DVTFilePath:0x60000e9f1400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavfilter.framework/libavfilter'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~DvjGkz
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~DvjGkz' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavfilter.framework'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavfilter.framework: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavfilter.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libavfilter]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163fb360; bundleID='com.arthenica.ffmpegkit.Libavformat', path='<DVTFilePath:0x60000e9f1680:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000167c14f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c070c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavformat', executablePath='<DVTFilePath:0x60000e9f3400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework/libavformat'>', hardenedRuntime='0'>'>: {
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163fb360; bundleID='com.arthenica.ffmpegkit.Libavformat', path='<DVTFilePath:0x60000e9f1680:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000167c14f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07cc0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavformat', executablePath='<DVTFilePath:0x60000e9f3400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework/libavformat'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163fb360; bundleID='com.arthenica.ffmpegkit.Libavformat', path='<DVTFilePath:0x60000e9f1680:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000167c14f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07780; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavformat', executablePath='<DVTFilePath:0x60000e9f3400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavformat.framework/libavformat'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~NJNqVh
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~NJNqVh' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavformat.framework'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavformat.framework: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavformat.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libavformat]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163eff00; bundleID='com.arthenica.ffmpegkit.Libavutil', path='<DVTFilePath:0x60000e9f1500:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255cff0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c2f6c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavutil', executablePath='<DVTFilePath:0x60000e9f2280:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework/libavutil'>', hardenedRuntime='0'>'>: {
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163eff00; bundleID='com.arthenica.ffmpegkit.Libavutil', path='<DVTFilePath:0x60000e9f1500:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255cff0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c2f300; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavutil', executablePath='<DVTFilePath:0x60000e9f2280:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework/libavutil'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163eff00; bundleID='com.arthenica.ffmpegkit.Libavutil', path='<DVTFilePath:0x60000e9f1500:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255cff0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c2dc80; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libavutil', executablePath='<DVTFilePath:0x60000e9f2280:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libavutil.framework/libavutil'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~1ifF3D
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~1ifF3D' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavutil.framework'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavutil.framework: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavutil.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libavutil]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163eed60; bundleID='com.arthenica.ffmpegkit.Libswresample', path='<DVTFilePath:0x60000e9f2400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255c410; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c070c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswresample', executablePath='<DVTFilePath:0x60000e9f2300:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework/libswresample'>', hardenedRuntime='0'>'>: {
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163eed60; bundleID='com.arthenica.ffmpegkit.Libswresample', path='<DVTFilePath:0x60000e9f2400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255c410; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c2f6c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswresample', executablePath='<DVTFilePath:0x60000e9f2300:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework/libswresample'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163eed60; bundleID='com.arthenica.ffmpegkit.Libswresample', path='<DVTFilePath:0x60000e9f2400:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255c410; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c2f300; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswresample', executablePath='<DVTFilePath:0x60000e9f2300:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswresample.framework/libswresample'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~dZnmuO
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~dZnmuO' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswresample.framework'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswresample.framework: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswresample.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libswresample]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ec1e0; bundleID='com.arthenica.ffmpegkit.Libswscale', path='<DVTFilePath:0x60000e9f2980:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255e620; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c070c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswscale', executablePath='<DVTFilePath:0x60000e9f2c80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework/libswscale'>', hardenedRuntime='0'>'>: {
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ec1e0; bundleID='com.arthenica.ffmpegkit.Libswscale', path='<DVTFilePath:0x60000e9f2980:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255e620; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07cc0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswscale', executablePath='<DVTFilePath:0x60000e9f2c80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework/libswscale'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163ec1e0; bundleID='com.arthenica.ffmpegkit.Libswscale', path='<DVTFilePath:0x60000e9f2980:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255e620; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07780; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='(null)', teamID='3SJZQ945LJ', identifier='com.arthenica.ffmpegkit.Libswscale', executablePath='<DVTFilePath:0x60000e9f2c80:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/Frameworks/libswscale.framework/libswscale'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~pM3umI
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~pM3umI' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswscale.framework'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswscale.framework: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswscale.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libswscale]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ec8a0; bundleID='com.authxero.adorableNTR', path='<DVTFilePath:0x60000e9f1200:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255c140; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c070c0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='{
+    "application-identifier" = "3SJZQ945LJ.com.authxero.adorableNTR";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 3SJZQ945LJ;
+    "get-task-allow" = 0;
+}', teamID='3SJZQ945LJ', identifier='com.authxero.adorableNTR', executablePath='<DVTFilePath:0x60001edd5b90:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/cuteNTR'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "3SJZQ945LJ.com.authxero.adorableNTR";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 3SJZQ945LJ;
+    "get-task-allow" = 0;
+}
+2024-06-29 01:39:22 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-29 01:39:22 +0000  Entitlements for <IDEDistributionItem: 0x6000163ec8a0; bundleID='com.authxero.adorableNTR', path='<DVTFilePath:0x60000e9f1200:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255c140; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07cc0; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='{
+    "application-identifier" = "3SJZQ945LJ.com.authxero.adorableNTR";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 3SJZQ945LJ;
+    "get-task-allow" = 0;
+}', teamID='3SJZQ945LJ', identifier='com.authxero.adorableNTR', executablePath='<DVTFilePath:0x60001edd5b90:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/cuteNTR'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "3SJZQ945LJ.com.authxero.adorableNTR";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 3SJZQ945LJ;
+    "get-task-allow" = 0;
+}
+2024-06-29 01:39:22 +0000  Writing entitlements for <IDEDistributionItem: 0x6000163ec8a0; bundleID='com.authxero.adorableNTR', path='<DVTFilePath:0x60000e9f1200:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001255c140; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600007c07780; name='Apple Distribution: Frederick Biddix (3SJZQ945LJ)', hash='C73D230245B3B546DF4DDFEA5A8E93236894BA6B', serialNumber='2BECF58414CC84BC33BAE64A0E450609', certificateKinds='(
+    "1.2.840.113635.100.6.1.7",
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2024-06-29 01:15:06 +0000''>', entitlements='{
+    "application-identifier" = "3SJZQ945LJ.com.authxero.adorableNTR";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 3SJZQ945LJ;
+    "get-task-allow" = 0;
+}', teamID='3SJZQ945LJ', identifier='com.authxero.adorableNTR', executablePath='<DVTFilePath:0x60001edd5b90:'/Users/frederickbiddix/Library/Developer/Xcode/Archives/2024-06-28/adorableNTR 6-28-24, 8.38 PM.xcarchive/Products/Applications/cuteNTR.app/cuteNTR'>', hardenedRuntime='0'>'> to: /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~zvHJ0f
+2024-06-29 01:39:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'C73D230245B3B546DF4DDFEA5A8E93236894BA6B' '--entitlements' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/entitlements~~~zvHJ0f' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app'
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app: replacing existing signature
+2024-06-29 01:39:22 +0000  /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app: signed app bundle with Mach-O thin (arm64) [com.authxero.adorableNTR]
+2024-06-29 01:39:22 +0000  /usr/bin/codesign exited with 0
+2024-06-29 01:39:22 +0000  Processing step: IDEDistributionZipODRItemStep
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-29 01:39:22 +0000  Processing step: IDEDistributionCreateIPAStep
+2024-06-29 01:39:22 +0000  Running /usr/bin/rsync '-8aPhhE' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Symbols' '--link-dest' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root'
+2024-06-29 01:39:22 +0000  building file list ... 
+2024-06-29 01:39:22 +0000   0 files...2024-06-29 01:39:22 +0000  11 files to consider
+2024-06-29 01:39:22 +0000  Symbols/
+2024-06-29 01:39:22 +0000  
+2024-06-29 01:39:22 +0000  sent 630 bytes  received 26 bytes  1.28K bytes/sec
+total size is 24.50M  speedup is 39169.46
+2024-06-29 01:39:22 +0000  /usr/bin/rsync exited with 0
+2024-06-29 01:39:22 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root' '/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Packages/cuteNTR.ipa'
+2024-06-29 01:39:22 +0000  >>> Copying /var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root 
+2024-06-29 01:39:22 +0000  copying file ./Payload/cuteNTR.app/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:22 +0000  44510 bytes for ./Payload/cuteNTR.app/_CodeSignature/CodeResources
+2024-06-29 01:39:22 +0000  copying file ./Payload/cuteNTR.app/AppIcon60x60@2x.png ... 
+2024-06-29 01:39:22 +0000  39117 bytes for ./Payload/cuteNTR.app/AppIcon60x60@2x.png
+2024-06-29 01:39:22 +0000  copying file ./Payload/cuteNTR.app/Assets.car ... 
+2024-06-29 01:39:22 +0000  1927400 bytes for ./Payload/cuteNTR.app/Assets.car
+2024-06-29 01:39:22 +0000  copying file ./Payload/cuteNTR.app/AppIcon76x76@2x~ipad.png ... 
+2024-06-29 01:39:22 +0000  59768 bytes for ./Payload/cuteNTR.app/AppIcon76x76@2x~ipad.png
+2024-06-29 01:39:22 +0000  copying file ./Payload/cuteNTR.app/main.jsbundle ... 
+2024-06-29 01:39:23 +0000  1668342 bytes for ./Payload/cuteNTR.app/main.jsbundle
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/de.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/de.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/de.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1312 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/de.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/he.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/he.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/he.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1444 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/he.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ar.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ar.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ar.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1500 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ar.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/el.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/el.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/el.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1600 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/el.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hans.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hans.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hans.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1296 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hans.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ja.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ja.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ja.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1436 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ja.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/en.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/en.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hant-HK.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hant-HK.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hant-HK.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1296 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hant-HK.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/uk.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/uk.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/uk.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1564 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/uk.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/nb.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/nb.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/nb.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1296 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/nb.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/en-GB.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/en-GB.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/en-GB.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1268 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/en-GB.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/es.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/es.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/es.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1364 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/es.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/da.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/da.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/da.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1300 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/da.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/it.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/it.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/it.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1388 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/it.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/sk.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/sk.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/sk.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1356 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/sk.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/es-ES.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/es-ES.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/es-ES.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1368 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/es-ES.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ms.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ms.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ms.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1292 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ms.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/sv.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/sv.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/sv.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1300 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/sv.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/cs.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/cs.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/cs.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1368 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/cs.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ko.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ko.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ko.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1332 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ko.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hant.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hant.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hant.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1308 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zh-Hant.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hu.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hu.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hu.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1348 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hu.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/tr.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/tr.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/tr.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1360 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/tr.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pl.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pl.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pl.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1340 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pl.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/vi.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/vi.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/vi.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1352 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/vi.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ru.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ru.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ru.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1576 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ru.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/fr.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/fr.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/fr.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1360 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/fr.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/fi.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/fi.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/fi.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1340 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/fi.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/id.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/id.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/id.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1300 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/id.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/nl.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/nl.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/nl.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1324 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/nl.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/th.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/th.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/th.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1784 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/th.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pt.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pt.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pt.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1356 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pt.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zu.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zu.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zu.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  2076 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/zu.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pt-PT.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pt-PT.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pt-PT.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1372 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/pt-PT.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ro.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ro.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ro.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1344 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/ro.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/Info.plist ... 
+2024-06-29 01:39:23 +0000  774 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/Info.plist
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hr.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hr.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hr.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1352 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hr.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hi.lproj/Localizable.strings ... 
+2024-06-29 01:39:23 +0000  64 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hi.lproj/Localizable.strings
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hi.lproj/fbt_language_pack.bin ... 
+2024-06-29 01:39:23 +0000  1640 bytes for ./Payload/cuteNTR.app/RCTI18nStrings.bundle/hi.lproj/fbt_language_pack.bin
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/PrivacyInfo.xcprivacy ... 
+2024-06-29 01:39:23 +0000  986 bytes for ./Payload/cuteNTR.app/PrivacyInfo.xcprivacy
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2024-06-29 01:39:23 +0000  3819 bytes for ./Payload/cuteNTR.app/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib ... 
+2024-06-29 01:39:23 +0000  924 bytes for ./Payload/cuteNTR.app/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/LaunchScreen.storyboardc/Info.plist ... 
+2024-06-29 01:39:23 +0000  258 bytes for ./Payload/cuteNTR.app/LaunchScreen.storyboardc/Info.plist
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/cuteNTR ... 
+2024-06-29 01:39:23 +0000  5112816 bytes for ./Payload/cuteNTR.app/cuteNTR
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libswresample.framework/_CodeSignature/CodeResources ... 
+2006 bytes for ./Payload/cuteNTR.app/Frameworks/libswresample.framework/_CodeSignature/CodeResources
+copying file ./Payload/cuteNTR.app/Frameworks/libswresample.framework/LICENSE ... 
+2024-06-29 01:39:23 +0000  7651 bytes for ./Payload/cuteNTR.app/Frameworks/libswresample.framework/LICENSE
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libswresample.framework/libswresample ... 
+2024-06-29 01:39:23 +0000  138944 bytes for ./Payload/cuteNTR.app/Frameworks/libswresample.framework/libswresample
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libswresample.framework/Info.plist ... 
+2024-06-29 01:39:23 +0000  933 bytes for ./Payload/cuteNTR.app/Frameworks/libswresample.framework/Info.plist
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavfilter.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:23 +0000  2006 bytes for ./Payload/cuteNTR.app/Frameworks/libavfilter.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavfilter.framework/libavfilter ... 
+2024-06-29 01:39:23 +0000  2467536 bytes for ./Payload/cuteNTR.app/Frameworks/libavfilter.framework/libavfilter
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavfilter.framework/LICENSE ... 
+7651 bytes for ./Payload/cuteNTR.app/Frameworks/libavfilter.framework/LICENSE
+copying file ./Payload/cuteNTR.app/Frameworks/libavfilter.framework/Info.plist ... 
+2024-06-29 01:39:23 +0000  925 bytes for ./Payload/cuteNTR.app/Frameworks/libavfilter.framework/Info.plist
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavformat.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:23 +0000  2006 bytes for ./Payload/cuteNTR.app/Frameworks/libavformat.framework/_CodeSignature/CodeResources
+copying file ./Payload/cuteNTR.app/Frameworks/libavformat.framework/LICENSE ... 
+2024-06-29 01:39:23 +0000  7651 bytes for ./Payload/cuteNTR.app/Frameworks/libavformat.framework/LICENSE
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavformat.framework/libavformat ... 
+2024-06-29 01:39:23 +0000  3644000 bytes for ./Payload/cuteNTR.app/Frameworks/libavformat.framework/libavformat
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavformat.framework/Info.plist ... 
+927 bytes for ./Payload/cuteNTR.app/Frameworks/libavformat.framework/Info.plist
+copying file ./Payload/cuteNTR.app/Frameworks/libavutil.framework/_CodeSignature/CodeResources ... 
+2006 bytes for ./Payload/cuteNTR.app/Frameworks/libavutil.framework/_CodeSignature/CodeResources
+copying file ./Payload/cuteNTR.app/Frameworks/libavutil.framework/libavutil ... 
+2024-06-29 01:39:23 +0000  544176 bytes for ./Payload/cuteNTR.app/Frameworks/libavutil.framework/libavutil
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavutil.framework/LICENSE ... 
+2024-06-29 01:39:23 +0000  7651 bytes for ./Payload/cuteNTR.app/Frameworks/libavutil.framework/LICENSE
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavutil.framework/Info.plist ... 
+2024-06-29 01:39:23 +0000  921 bytes for ./Payload/cuteNTR.app/Frameworks/libavutil.framework/Info.plist
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libswscale.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:23 +0000  2006 bytes for ./Payload/cuteNTR.app/Frameworks/libswscale.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libswscale.framework/LICENSE ... 
+2024-06-29 01:39:23 +0000  7651 bytes for ./Payload/cuteNTR.app/Frameworks/libswscale.framework/LICENSE
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libswscale.framework/libswscale ... 
+2024-06-29 01:39:23 +0000  371712 bytes for ./Payload/cuteNTR.app/Frameworks/libswscale.framework/libswscale
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libswscale.framework/Info.plist ... 
+2024-06-29 01:39:23 +0000  922 bytes for ./Payload/cuteNTR.app/Frameworks/libswscale.framework/Info.plist
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavdevice.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:23 +0000  2006 bytes for ./Payload/cuteNTR.app/Frameworks/libavdevice.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavdevice.framework/LICENSE ... 
+2024-06-29 01:39:23 +0000  7651 bytes for ./Payload/cuteNTR.app/Frameworks/libavdevice.framework/LICENSE
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavdevice.framework/libavdevice ... 
+2024-06-29 01:39:23 +0000  116096 bytes for ./Payload/cuteNTR.app/Frameworks/libavdevice.framework/libavdevice
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavdevice.framework/Info.plist ... 
+2024-06-29 01:39:23 +0000  927 bytes for ./Payload/cuteNTR.app/Frameworks/libavdevice.framework/Info.plist
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:23 +0000  2642 bytes for ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/LICENSE ... 
+2024-06-29 01:39:23 +0000  7651 bytes for ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/LICENSE
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/LICENSE.GNUTLS ... 
+2024-06-29 01:39:23 +0000  936 bytes for ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/LICENSE.GNUTLS
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/libavcodec ... 
+2024-06-29 01:39:23 +0000  7975456 bytes for ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/libavcodec
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/LICENSE.NETTLE ... 
+7639 bytes for ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/LICENSE.NETTLE
+copying file ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/LICENSE.GMP ... 
+2024-06-29 01:39:23 +0000  7639 bytes for ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/LICENSE.GMP
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/Info.plist ... 
+2024-06-29 01:39:23 +0000  924 bytes for ./Payload/cuteNTR.app/Frameworks/libavcodec.framework/Info.plist
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:23 +0000  2428 bytes for ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/_CodeSignature/CodeResources
+copying file ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/LICENSE ... 
+2024-06-29 01:39:23 +0000  7651 bytes for ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/LICENSE
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/SOURCE ... 
+2024-06-29 01:39:23 +0000  700 bytes for ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/SOURCE
+copying file ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/ffmpegkit ... 
+2024-06-29 01:39:23 +0000  578784 bytes for ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/ffmpegkit
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/strip-frameworks.sh ... 
+2024-06-29 01:39:23 +0000  2127 bytes for ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/strip-frameworks.sh
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/Info.plist ... 
+2024-06-29 01:39:23 +0000  911 bytes for ./Payload/cuteNTR.app/Frameworks/ffmpegkit.framework/Info.plist
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/hermes.framework/_CodeSignature/CodeResources ... 
+2024-06-29 01:39:23 +0000  1798 bytes for ./Payload/cuteNTR.app/Frameworks/hermes.framework/_CodeSignature/CodeResources
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/hermes.framework/hermes ... 
+2024-06-29 01:39:23 +0000  4444304 bytes for ./Payload/cuteNTR.app/Frameworks/hermes.framework/hermes
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Frameworks/hermes.framework/Info.plist ... 
+815 bytes for ./Payload/cuteNTR.app/Frameworks/hermes.framework/Info.plist
+copying file ./Payload/cuteNTR.app/embedded.mobileprovision ... 
+2024-06-29 01:39:23 +0000  12216 bytes for ./Payload/cuteNTR.app/embedded.mobileprovision
+2024-06-29 01:39:23 +0000  copying file ./Payload/cuteNTR.app/Info.plist ... 
+2024-06-29 01:39:23 +0000  1549 bytes for ./Payload/cuteNTR.app/Info.plist
+copying file ./Payload/cuteNTR.app/PkgInfo ... 
+2024-06-29 01:39:23 +0000  8 bytes for ./Payload/cuteNTR.app/PkgInfo
+2024-06-29 01:39:23 +0000  copying file ./Symbols/97826E1C-CA18-34AE-A6B0-E7FDF0646359.symbols ... 
+2024-06-29 01:39:23 +0000  1095564 bytes for ./Symbols/97826E1C-CA18-34AE-A6B0-E7FDF0646359.symbols
+2024-06-29 01:39:23 +0000  copying file ./Symbols/0C284C92-6162-3000-86F1-AD02CA3B3EB3.symbols ... 
+2024-06-29 01:39:23 +0000  43900 bytes for ./Symbols/0C284C92-6162-3000-86F1-AD02CA3B3EB3.symbols
+2024-06-29 01:39:23 +0000  copying file ./Symbols/F7FB9BCE-F48E-3B2C-96F9-F820F2FF88EC.symbols ... 
+2024-06-29 01:39:23 +0000  64892 bytes for ./Symbols/F7FB9BCE-F48E-3B2C-96F9-F820F2FF88EC.symbols
+2024-06-29 01:39:23 +0000  copying file ./Symbols/C91E0AF1-7E12-3491-981F-F9B2D3C6F81D.symbols ... 
+2024-06-29 01:39:24 +0000  22993508 bytes for ./Symbols/C91E0AF1-7E12-3491-981F-F9B2D3C6F81D.symbols
+2024-06-29 01:39:24 +0000  copying file ./Symbols/ED3909C9-9270-3808-9755-1F5A7CA982C4.symbols ... 
+2024-06-29 01:39:24 +0000  11452 bytes for ./Symbols/ED3909C9-9270-3808-9755-1F5A7CA982C4.symbols
+2024-06-29 01:39:24 +0000  copying file ./Symbols/EF41E766-CEF6-3981-8259-E080B829EA12.symbols ... 
+2024-06-29 01:39:24 +0000  133660 bytes for ./Symbols/EF41E766-CEF6-3981-8259-E080B829EA12.symbols
+2024-06-29 01:39:24 +0000  copying file ./Symbols/90BFBC30-8189-307C-9535-C43F441890F4.symbols ... 
+2024-06-29 01:39:24 +0000  254508 bytes for ./Symbols/90BFBC30-8189-307C-9535-C43F441890F4.symbols
+2024-06-29 01:39:24 +0000  copying file ./Symbols/66CF45A6-CEDA-321D-A3F8-671A0417B55E.symbols ... 
+2024-06-29 01:39:24 +0000  704004 bytes for ./Symbols/66CF45A6-CEDA-321D-A3F8-671A0417B55E.symbols
+2024-06-29 01:39:24 +0000  copying file ./Symbols/1BF609ED-A378-3598-980B-18A585EE50DD.symbols ... 
+2024-06-29 01:39:24 +0000  382932 bytes for ./Symbols/1BF609ED-A378-3598-980B-18A585EE50DD.symbols
+2024-06-29 01:39:24 +0000  copying file ./Symbols/1E432190-9B3D-3860-8ACD-B258A07F7D4B.symbols ... 
+2024-06-29 01:39:24 +0000  10748 bytes for ./Symbols/1E432190-9B3D-3860-8ACD-B258A07F7D4B.symbols
+2024-06-29 01:39:24 +0000  /usr/bin/ditto exited with 0
+2024-06-29 01:39:24 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2024-06-29 01:39:24 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2024-06-29 01:39:24 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000ea8b600:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswscale.framework'>
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000ea8ab80:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavdevice.framework'>
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000ea88d80:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/ffmpegkit.framework'>
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000ea89000:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavfilter.framework'>
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000ea88e80:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/hermes.framework'>
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000ea8a080:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavcodec.framework'>
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000ea88f80:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavformat.framework'>
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000ea88b80:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libavutil.framework'>
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000ea8b280:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app/Frameworks/libswresample.framework'>
+2024-06-29 01:39:24 +0000  IDEDistributionItem init <DVTFilePath:0x60000eabe700:'/var/folders/8t/m28ycbd56nsd50gj2b1hzr740000gn/T/XcodeDistPipeline.~~~JfRjkv/Root/Payload/cuteNTR.app'>
+2024-06-29 01:39:24 +0000  Processing step: IDEDistributionCreateManifestStep
+2024-06-29 01:39:24 +0000  Skipping step: IDEDistributionCreateManifestStep because it said so
