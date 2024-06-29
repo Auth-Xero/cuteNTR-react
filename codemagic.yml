@@ -40,7 +40,4 @@ workflows:
       email:
         recipients:
           - authxero@gmail.com
-
-# Note: Make sure to set up the environment variable groups `apple_credentials` and `github_credentials` in Codemagic.
-# `apple_credentials` should include your Apple Developer account credentials.
-# `github_credentials` should include your GitHub access token if you need to access private repositories.
+          
