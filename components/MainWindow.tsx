@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Platform,View, TextInput, Text, StyleSheet, Button, Switch, TouchableOpacity, ScrollView } from 'react-native';
+import { Platform, View, TextInput, Text, StyleSheet, Button, Switch, TouchableOpacity, ScrollView } from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
 import RNFS from 'react-native-fs';
 
@@ -11,12 +11,23 @@ interface MainWindowProps {
   jpegQuality: number;
   debugging: boolean;
   streaming: boolean;
+  hzStreaming: boolean;
   startStream: () => void;
   stopStream: () => void;
+  startHzStream: () => void;
+  stopHzStream: () => void;
   updateDsIP: (dsIP: string) => void;
+  updateJpegQuality: (jpegQuality: number) => void;
+  updateCpuLimit: (cpuLimit: number) => void;
   navigateToStreamWindow: (isTop: boolean, showFps: boolean) => void;
   recordingEnabled: boolean;
   setRecordingEnabled: (enabled: boolean) => void;
+  hzModEnabled: boolean;
+  setHzModEnabled: (enabled: boolean) => void;
+  cpuLimit: number;
+  setCpuLimit: (limit: number) => void;
+  hzConnected: boolean;
+  hzDisconnected: boolean;
 }
 
 const MainWindow: React.FC<MainWindowProps> = (props) => {
@@ -24,7 +35,7 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
   const [qosValue, setQosValue] = useState<string>(props.qosValue.toString());
   const [jpegQuality, setJpegQuality] = useState<string>(props.jpegQuality.toString());
   const [priorityFactor, setPriorityFactor] = useState<number>(props.priFact);
-  const [screenPriority, setScreenPriority] = useState<number>(1); // Default to Bottom
+  const [screenPriority, setScreenPriority] = useState<number>(1); // Default to Top
   const [showFps, setShowFps] = useState<boolean>(false);
 
   useEffect(() => {
@@ -49,9 +60,9 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
     EventRegister.emit('streamSettings', { screenPriority, priorityFactor, jpegq, qosvalue });
 
     if (props.streaming) {
-      props.stopStream();
+      props.hzModEnabled ? props.stopHzStream() : props.stopStream();
     } else {
-      props.startStream();
+      props.hzModEnabled ? props.startHzStream() : props.startStream();
     }
   };
 
@@ -76,27 +87,29 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
 
         <Text style={styles.label}>Priority Factor</Text>
         <View style={styles.priorityContainer}>
-          <Button title="-" onPress={() => setPriorityFactor(prev => Math.max(prev - 1, 0))} />
+          <Button title="-" onPress={() => !props.hzModEnabled && setPriorityFactor(prev => Math.max(prev - 1, 0))} disabled={props.hzModEnabled} />
           <TextInput
-            style={styles.priorityInput}
+            style={[styles.priorityInput, props.hzModEnabled && styles.disabledInput]}
             value={priorityFactor.toString()}
-            onChangeText={(text) => setPriorityFactor(parseInt(text, 10))}
+            onChangeText={(text) => !props.hzModEnabled && setPriorityFactor(parseInt(text, 10))}
             keyboardType="numeric"
+            editable={!props.hzModEnabled}
           />
-          <Button title="+" onPress={() => setPriorityFactor(prev => prev + 1)} />
+          <Button title="+" onPress={() => !props.hzModEnabled && setPriorityFactor(prev => prev + 1)} disabled={props.hzModEnabled} />
         </View>
 
         <Text style={styles.label}>Screen Priority</Text>
         <View style={styles.screenPriorityContainer}>
           <TouchableOpacity
             style={[styles.screenPriorityButton, screenPriority === 1 && styles.selectedButton]}
-            onPress={() => setScreenPriority(1)}
+            onPress={() => !props.hzModEnabled && setScreenPriority(1)}
           >
             <Text style={styles.buttonText}>Top Screen</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.screenPriorityButton, screenPriority === 0 && styles.selectedButton]}
-            onPress={() => setScreenPriority(0)}
+            style={[styles.screenPriorityButton, screenPriority === 0 && styles.selectedButton, props.hzModEnabled && styles.disabledButton]}
+            onPress={() => !props.hzModEnabled && setScreenPriority(0)}
+            disabled={props.hzModEnabled}
           >
             <Text style={styles.buttonText}>Bottom Screen</Text>
           </TouchableOpacity>
@@ -109,18 +122,44 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
           placeholderTextColor="#888"
           keyboardType="numeric"
           value={jpegQuality}
-          onChangeText={(text) => setJpegQuality(text)}
+          onChangeText={(text) => {
+            setJpegQuality(text);
+            props.updateJpegQuality(parseInt(text, 10));
+          }}
         />
 
-        <Text style={styles.label}>QoS Value</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="QoS Value"
-          placeholderTextColor="#888"
-          keyboardType="numeric"
-          value={qosValue}
-          onChangeText={(text) => setQosValue(text)}
-        />
+        {props.hzModEnabled && (
+          <>
+            <Text style={styles.label}>CPU Limit</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="CPU Limit"
+              placeholderTextColor="#888"
+              keyboardType="numeric"
+              value={props.cpuLimit.toString()}
+              onChangeText={(text) => {
+                if (!Number.isNaN(parseInt(text)) && text.length > 0 && typeof text == 'number') {
+                  props.setCpuLimit(parseInt(text, 10));
+                  props.updateCpuLimit(parseInt(text, 10));
+                }
+              }}
+            />
+          </>
+        )}
+
+        {!props.hzModEnabled && (
+          <>
+            <Text style={styles.label}>QoS Value</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="QoS Value"
+              placeholderTextColor="#888"
+              keyboardType="numeric"
+              value={qosValue}
+              onChangeText={(text) => setQosValue(text)}
+            />
+          </>
+        )}
 
         <View style={styles.switchContainer}>
           <Text style={styles.label}>Show FPS</Text>
@@ -139,14 +178,30 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
           </>
         )}
 
+        <View style={styles.switchContainer}>
+          <Text style={styles.label}>HzMod</Text>
+          <Switch
+            value={props.hzModEnabled}
+            onValueChange={(enabled) => {
+              props.setHzModEnabled(enabled);
+              if (enabled) {
+                setScreenPriority(1); // Set to Top Screen when HzMod is enabled
+              }
+            }}
+          />
+        </View>
+
         <Button
           title="Go to Stream Window (Top)"
           onPress={() => props.navigateToStreamWindow(true, showFps)}
         />
-        <Button
-          title="Go to Stream Window (Bottom)"
-          onPress={() => props.navigateToStreamWindow(false, showFps)}
-        />
+
+        {!props.hzModEnabled && (
+          <Button
+            title="Go to Stream Window (Bottom)"
+            onPress={() => props.navigateToStreamWindow(false, showFps)}
+          />
+        )}
       </ScrollView>
     </View>
   );
@@ -224,6 +279,12 @@ const styles = StyleSheet.create({
   },
   selectedButton: {
     backgroundColor: '#5D3FD3',
+  },
+  disabledButton: {
+    backgroundColor: '#555',
+  },
+  disabledInput: {
+    backgroundColor: '#555',
   },
 });
 

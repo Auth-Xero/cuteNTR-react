@@ -1,10 +1,9 @@
-// App.tsx
 import React, { Component } from 'react';
 import { View, StyleSheet, AppState, Platform } from 'react-native';
 import MainWindow from './components/MainWindow';
 import Ntr from './components/ntr/Ntr';
-import NtrUtility from './components/ntr/NtrUtility';
 import StreamWorker from './components/stream/StreamWorker';
+import HzMod from './components/hzmod/HzMod';
 import StreamWindowiOS from './components/stream/StreamWindow.iOS';
 import StreamWindowAndroid from './components/stream/StreamWindow.Android';
 import { EventRegister } from 'react-native-event-listeners';
@@ -17,12 +16,17 @@ interface AppComponentState {
   jpegQuality: number;
   debugging: boolean;
   streaming: boolean;
+  hzStreaming: boolean;
   remotePlayInitiated: boolean;
   currentScreen: 'Home' | 'StreamWindow';
   isTop: boolean;
   showFps: boolean;
   recordingEnabled: boolean;
   recordingPath: string;
+  hzModEnabled: boolean;
+  cpuLimit: number;
+  hzConnected: boolean;
+  hzDisconnected: boolean;
 }
 
 class App extends Component<{}, AppComponentState> {
@@ -33,31 +37,42 @@ class App extends Component<{}, AppComponentState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      dsIP: '11.7.0.30',
+      dsIP: '192.168.179.172',
       qosValue: 105,
       priMode: 1,
       priFact: 5,
-      jpegQuality: 80,
+      jpegQuality: 60,
       debugging: false,
       streaming: false,
+      hzStreaming: false,
       remotePlayInitiated: false,
       currentScreen: 'Home',
       isTop: true,
       showFps: false,
       recordingEnabled: false,
       recordingPath: '',
+      hzModEnabled: false,
+      cpuLimit: 0,
+      hzConnected: false,
+      hzDisconnected: true,
     };
 
     this.startStream = this.startStream.bind(this);
     this.stopStream = this.stopStream.bind(this);
+    this.startHzStream = this.startHzStream.bind(this);
+    this.stopHzStream = this.stopHzStream.bind(this);
     this.navigateToStreamWindow = this.navigateToStreamWindow.bind(this);
     this.navigateBack = this.navigateBack.bind(this);
     this.updateDsIP = this.updateDsIP.bind(this);
+    this.updateJpegQuality = this.updateJpegQuality.bind(this);
+    this.updateCpuLimit = this.updateCpuLimit.bind(this);
     this.handleAppStateChange = this.handleAppStateChange.bind(this);
     this.handleStreamStateChanged = this.handleStreamStateChanged.bind(this);
     this.handleNtrStateChanged = this.handleNtrStateChanged.bind(this);
     this.setRecordingEnabled = this.setRecordingEnabled.bind(this);
     this.setRecordingPath = this.setRecordingPath.bind(this);
+    this.setHzModEnabled = this.setHzModEnabled.bind(this);
+    this.setCpuLimit = this.setCpuLimit.bind(this);
   }
 
   componentDidMount() {
@@ -95,10 +110,10 @@ class App extends Component<{}, AppComponentState> {
 
   handleStreamStateChanged(state: string) {
     if (state === 'Connected') {
-      this.setState({ streaming: true });
+      this.setState({ streaming: true, hzConnected: false, hzDisconnected: false });
       EventRegister.emit('ntrConnectToDs');
     } else if (state === 'Disconnected') {
-      this.setState({ streaming: false, remotePlayInitiated: false });
+      this.setState({ streaming: false, hzStreaming: false, hzConnected: false, hzDisconnected: true, remotePlayInitiated: false });
     }
   }
 
@@ -113,6 +128,22 @@ class App extends Component<{}, AppComponentState> {
     console.log('stopStream called');
     if (this.state.streaming) {
       EventRegister.emit('stopStream');
+    }
+  }
+
+  startHzStream() {
+    console.log('startHzStream called');
+    if (!this.state.hzStreaming) {
+      EventRegister.emit('hzStream');
+      this.setState({ hzStreaming: true });
+    }
+  }
+
+  stopHzStream() {
+    console.log('stopHzStream called');
+    if (this.state.hzStreaming) {
+      EventRegister.emit('stopHzStream');
+      this.setState({ hzStreaming: false });
     }
   }
 
@@ -131,6 +162,14 @@ class App extends Component<{}, AppComponentState> {
     this.setState({ dsIP });
   }
 
+  updateJpegQuality(jpegQuality: number) {
+    this.setState({ jpegQuality });
+  }
+
+  updateCpuLimit(cpuLimit: number) {
+    this.setState({ cpuLimit });
+  }
+
   setRecordingEnabled(enabled: boolean) {
     this.setState({ recordingEnabled: enabled });
   }
@@ -139,8 +178,16 @@ class App extends Component<{}, AppComponentState> {
     this.setState({ recordingPath: path });
   }
 
+  setHzModEnabled(enabled: boolean) {
+    this.setState({ hzModEnabled: enabled });
+  }
+
+  setCpuLimit(limit: number) {
+    this.setState({ cpuLimit: limit });
+  }
+
   render() {
-    const { currentScreen, isTop, dsIP, streaming, priMode, priFact, jpegQuality, qosValue, showFps, recordingEnabled, recordingPath } = this.state;
+    const { currentScreen, isTop, dsIP, streaming, hzStreaming, priMode, priFact, jpegQuality, qosValue, showFps, recordingEnabled, recordingPath, hzModEnabled, cpuLimit, hzConnected, hzDisconnected } = this.state;
 
     const StreamWindowComponent = Platform.OS === 'ios' ? StreamWindowiOS : StreamWindowAndroid;
 
@@ -153,6 +200,7 @@ class App extends Component<{}, AppComponentState> {
             navigateBack={this.navigateBack}
             showFps={showFps}
             recordingEnabled={recordingEnabled}
+            hzModEnabled={hzModEnabled}
           />
         ) : (
           <MainWindow
@@ -163,17 +211,28 @@ class App extends Component<{}, AppComponentState> {
             jpegQuality={jpegQuality}
             debugging={this.state.debugging}
             streaming={streaming}
+            hzStreaming={hzStreaming}
             startStream={this.startStream}
             stopStream={this.stopStream}
+            startHzStream={this.startHzStream}
+            stopHzStream={this.stopHzStream}
             updateDsIP={this.updateDsIP}
+            updateJpegQuality={this.updateJpegQuality}
+            updateCpuLimit={this.updateCpuLimit}
             navigateToStreamWindow={this.navigateToStreamWindow}
             recordingEnabled={recordingEnabled}
             setRecordingEnabled={this.setRecordingEnabled}
+            hzModEnabled={hzModEnabled}
+            setHzModEnabled={this.setHzModEnabled}
+            cpuLimit={cpuLimit}
+            setCpuLimit={this.setCpuLimit}
+            hzConnected={hzConnected}
+            hzDisconnected={hzDisconnected}
           />
         )}
-        <Ntr dsIP={dsIP} screenPriority={priMode} priFact={priFact} jpegq={jpegQuality} qosvalue={qosValue} />
-        <NtrUtility dsIP={dsIP} />
-        <StreamWorker dsIP={dsIP} />
+        {!hzModEnabled && <Ntr dsIP={dsIP} screenPriority={priMode} priFact={priFact} jpegq={jpegQuality} qosvalue={qosValue} />}
+        {!hzModEnabled && <StreamWorker dsIP={dsIP} />}
+        {hzModEnabled && <HzMod cpuLimit={cpuLimit} jpegQuality={jpegQuality} dsIP={dsIP} />}
       </View>
     );
   }

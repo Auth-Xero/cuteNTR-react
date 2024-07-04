@@ -99,6 +99,13 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            storeFile file('../../cutentr.keystore')
+            storePassword 'I1YmxRGkUFm1MNipCxPq8a51skgdGgEv '
+            keyAlias 'cutentr-react'
+            keyPassword 'I1YmxRGkUFm1MNipCxPq8a51skgdGgEv '
+        }
+
     }
     buildTypes {
         debug {

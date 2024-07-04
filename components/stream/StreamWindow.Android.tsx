@@ -10,6 +10,7 @@ interface StreamWindowProps {
   navigateBack: () => void;
   showFps: boolean;
   recordingEnabled: boolean;
+  hzModEnabled: boolean;
 }
 
 interface StreamWindowState {
@@ -176,7 +177,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
         return RNFS.writeFile(framePath, frame.replace('data:image/jpeg;base64,', ''), 'base64').then(() => framePath);
       })
     );
-  
+
     const frameListPath = `${RNFS.CachesDirectoryPath}/frames.txt`;
     await RNFS.writeFile(frameListPath, framePaths.map((path) => `file '${path}'`).join('\n'));
 
@@ -200,9 +201,9 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
 
   handleStartStopStream = () => {
     if (this.state.connected) {
-      EventRegister.emit('stopStream');
+      this.props.hzModEnabled ? EventRegister.emit('stopHzStream') : EventRegister.emit('stopStream');
     } else {
-      EventRegister.emit('startStream');
+      this.props.hzModEnabled ? EventRegister.emit('hzStream') : EventRegister.emit('startStream');
     }
     this.setState({ connected: !this.state.connected });
   };
@@ -263,7 +264,12 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
     );
   }
 }
-
+const bgrToRgbMatrix = [
+  0, 0, 1, 0, 0,
+  0, 1, 0, 0, 0,
+  1, 0, 0, 0, 0,
+  0, 0, 0, 1, 0,
+];
 const styles = StyleSheet.create({
   container: {
     flex: 1,
