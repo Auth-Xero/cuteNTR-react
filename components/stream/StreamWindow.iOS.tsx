@@ -22,6 +22,7 @@ interface StreamWindowState {
   fps: number;
   recording: boolean;
   frames: Array<string>;
+  isLandscape: boolean;
 }
 
 class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
@@ -29,6 +30,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   private frameReadyListener: any;
   private frameCount: number = 0;
   private fpsInterval: NodeJS.Timeout | null = null;
+  private orientationListener: any;
 
   constructor(props: StreamWindowProps) {
     super(props);
@@ -39,9 +41,10 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
       scale: 1,
       smooth: false,
       fullscreen: false,
-      recording: false,
       fps: 0,
+      recording: false,
       frames: [],
+      isLandscape: Dimensions.get('window').width > Dimensions.get('window').height,
     };
 
     this.mounted = false;
@@ -56,12 +59,14 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
     this.mounted = true;
     this.updateSettings();
     this.startFPSCounter();
+    this.orientationListener = Dimensions.addEventListener('change', this.handleOrientationChange);
   }
 
   componentWillUnmount() {
     this.mounted = false;
     EventRegister.removeEventListener(this.frameReadyListener);
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    this.orientationListener.remove();
     if (this.fpsInterval) {
       clearInterval(this.fpsInterval);
     }
@@ -69,15 +74,12 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
       this.stopRecording();
     }
   }
-startRecording = () => {
-    this.setState({ recording: true, frames: [] });
+
+  handleOrientationChange = () => {
+    const isLandscape = Dimensions.get('window').width > Dimensions.get('window').height;
+    this.setState({ isLandscape });
   };
 
-  stopRecording = () => {
-    this.setState({ recording: false }, () => {
-      this.saveRecording();
-    });
-  };
   updateSettings = () => {
     const CONFIG = {
       topScale: 1.0,
@@ -94,12 +96,17 @@ startRecording = () => {
   };
 
   renderFrame = ({ uri, isTop }: { uri: string; isTop: boolean }) => {
-    if (this.mounted && isTop === this.props.isTop && uri) {
-      this.setState((prevState) => ({
-        previousPixmap: prevState.currentPixmap,
-        currentPixmap: uri,
-	frames: prevState.recording ? [...prevState.frames, uri] : prevState.frames,
-      }));
+    if (this.mounted && uri.startsWith('data:image/jpeg;base64,/9j/')) {
+      this.setState((prevState) => {
+        if (prevState.currentPixmap !== uri) {
+          return {
+            previousPixmap: prevState.currentPixmap,
+            currentPixmap: uri,
+            frames: prevState.recording ? [...prevState.frames, uri] : prevState.frames,
+          };
+        }
+        return null;
+      });
       this.frameCount += 1;
     }
   };
@@ -116,14 +123,40 @@ startRecording = () => {
   toggleFullscreen = () => {
     this.setState((prevState) => ({ fullscreen: !prevState.fullscreen }));
   };
-handleRecordButton = () => {
+
+  shouldComponentUpdate(nextProps: StreamWindowProps, nextState: StreamWindowState) {
+    return nextState.currentPixmap !== this.state.currentPixmap || nextState.fullscreen !== this.state.fullscreen || nextState.fps !== this.state.fps || nextState.isLandscape !== this.state.isLandscape;
+  }
+
+  startFPSCounter = () => {
+    this.frameCount = 0;
+    this.setState({ fps: 0 });
+
+    this.fpsInterval = setInterval(() => {
+      this.setState({ fps: this.frameCount });
+      this.frameCount = 0;
+    }, 1000);
+  };
+
+  handleRecordButton = () => {
     if (this.state.recording) {
       this.stopRecording();
     } else {
       this.startRecording();
     }
   };
-saveRecording = async () => {
+
+  startRecording = () => {
+    this.setState({ recording: true, frames: [] });
+  };
+
+  stopRecording = () => {
+    this.setState({ recording: false }, () => {
+      this.saveRecording();
+    });
+  };
+
+  saveRecording = async () => {
     const { frames } = this.state;
 
     const recordingDir = Platform.OS === 'android'
@@ -137,7 +170,7 @@ saveRecording = async () => {
         return RNFS.writeFile(framePath, frame.replace('data:image/jpeg;base64,', ''), 'base64').then(() => framePath);
       })
     );
-  
+
     const frameListPath = `${RNFS.CachesDirectoryPath}/frames.txt`;
     await RNFS.writeFile(frameListPath, framePaths.map((path) => `file '${path}'`).join('\n'));
 
@@ -159,73 +192,64 @@ saveRecording = async () => {
     });
   };
 
-
-  shouldComponentUpdate(nextProps: StreamWindowProps, nextState: StreamWindowState) {
-    return nextState.currentPixmap !== this.state.currentPixmap || nextState.fullscreen !== this.state.fullscreen || nextState.fps !== this.state.fps;
-  }
-
-  startFPSCounter = () => {
-    this.frameCount = 0;
-    this.setState({ fps: 0 });
-
-    this.fpsInterval = setInterval(() => {
-      this.setState({ fps: this.frameCount });
-      this.frameCount = 0;
-    }, 1000);
+  handleStartStopStream = () => {
+    if (this.state.connected) {
+      EventRegister.emit('stopStream');
+    } else {
+      EventRegister.emit('startStream');
+    }
+    this.setState({ connected: !this.state.connected });
   };
 
   render() {
-    const { currentPixmap, previousPixmap, scale, smooth, fullscreen, recording, fps } = this.state;
-    const { showFps,recordingEnabled } = this.props;
-    const { width, height } = Dimensions.get('window');
+    const { currentPixmap, previousPixmap, scale, fullscreen, fps, recording, isLandscape } = this.state;
+    const { showFps, recordingEnabled } = this.props;
 
     const imageStyle = [
-      styles.image,
-      { transform: [{ scale }, { rotate: '0deg' }] }
+      isLandscape ? styles.imageLandscape : styles.imagePortrait,
+      { transform: [{ scale }, { rotate: '270deg' }] }
     ];
+
+    const buttonContainerStyle = isLandscape ? styles.buttonContainerLandscape : styles.buttonContainerPortrait;
 
     return (
       <View style={fullscreen ? styles.fullscreenContainer : styles.container}>
         {previousPixmap && (
           <ImageBackground
             fadeDuration={0}
-            key={previousPixmap}
+            key={`prev_${previousPixmap}`}
             source={{ uri: previousPixmap }}
-            style={imageStyle}
-            resizeMode={'contain' }
+            style={[imageStyle, styles.previousImage]}
+            resizeMode={'contain'}
           />
         )}
         {currentPixmap && (
           <ImageBackground
             fadeDuration={0}
-            key={currentPixmap}
+            key={`curr_${currentPixmap}`}
             source={{ uri: currentPixmap }}
             style={imageStyle}
-            resizeMode={'contain' }
+            resizeMode={'contain'}
           />
         )}
-        {!fullscreen && (
-          <View style={styles.buttonContainer}>
-            <View style={styles.buttonWrapperTop}>
-              <Button title="Fullscreen" onPress={this.toggleFullscreen} />
-            </View>
-            <View style={styles.buttonWrapperBottom}>
-              <Button title="Back" onPress={this.handleBackPress} />
-            </View>
-          </View>
-        )}
+        <View style={buttonContainerStyle}>
+          {!fullscreen && (
+            <Button title="Fullscreen" onPress={this.toggleFullscreen} />
+          )}
+        </View>
+        <View style={styles.backButtonWrapper}>
+          <Button title="Back" onPress={this.handleBackPress} />
+        </View>
         {showFps && (
           <Text style={styles.fpsCounter}>FPS: {fps}</Text>
         )}
-	{recordingEnabled && (
-          <>
-            <TouchableOpacity
-              style={styles.recordButton}
-              onPress={this.handleRecordButton}
-            >
-              <Text style={styles.recordButtonText}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
-            </TouchableOpacity>
-          </>
+        {recordingEnabled && (
+          <TouchableOpacity
+            style={styles.recordButton}
+            onPress={this.handleRecordButton}
+          >
+            <Text style={styles.recordButtonText}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
+          </TouchableOpacity>
         )}
       </View>
     );
@@ -235,7 +259,7 @@ saveRecording = async () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'gray',
+    backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -245,30 +269,44 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: 'black',
   },
-  image: {
+  imageLandscape: {
     width: '100%',
     height: '100%',
     position: 'absolute',
   },
-  buttonContainer: {
+  imagePortrait: {
+    width: '75%',
+    height: '100%',
     position: 'absolute',
-    left: 10,
+  },
+  buttonContainerPortrait: {
+    position: 'absolute',
+    bottom: '5%',
+    left: '5%',
+    right: '5%',
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    height: '90%',
   },
-  buttonWrapperTop: {
-    transform: [{ rotate: '90deg' }],
-    marginTop: 20,
+  buttonContainerLandscape: {
+    position: 'absolute',
+    bottom: '5%',
+    left: '5%',
+    right: '5%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  buttonWrapperBottom: {
-    transform: [{ rotate: '90deg' }],
-    marginBottom: 20,
+  previousImage: {
+    opacity: 1, // You can adjust this value for desired transparency
+  },
+  backButtonWrapper: {
+    position: 'absolute',
+    right: '5%',
+    bottom: '5%',
   },
   fpsCounter: {
-    transform: [{ rotate: '90deg' }],
     position: 'absolute',
     top: 10,
-    right: 10,
+    left: 10,
     fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
@@ -276,10 +314,9 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 5,
   },
-recordButton: {
-    transform: [{ rotate: '90deg' }],
+  recordButton: {
     position: 'absolute',
-    bottom: 50,
+    top: 10,
     right: 10,
     backgroundColor: 'red',
     padding: 10,
@@ -288,7 +325,7 @@ recordButton: {
   recordButtonText: {
     color: 'white',
     fontWeight: 'bold',
-  }
+  },
 });
 
 export default StreamWindow;
