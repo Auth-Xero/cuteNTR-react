@@ -2,18 +2,16 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTBridge.h>
 #import <React/RCTRootView.h>
+#import "ImageProcessorModule.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.moduleName = @"cuteNTR";
-  self.initialProps = @{};
-
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:self.moduleName
-                                            initialProperties:self.initialProps];
+                                                   moduleName:@"cuteNTR"
+                                            initialProperties:nil];
 
   rootView.backgroundColor = [UIColor whiteColor];
 
@@ -27,13 +25,8 @@
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
-  return [self bundleURL];
-}
-
-- (NSURL *)bundleURL
-{
 #if DEBUG
-  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif

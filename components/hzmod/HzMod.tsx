@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { EventRegister } from 'react-native-event-listeners';
 import TcpSocket from 'react-native-tcp-socket';
-import { Buffer, constants } from 'buffer';
+import { Buffer } from 'buffer';
+import { NativeModules } from 'react-native';
 
 interface HzModProps {
     cpuLimit: number;
     jpegQuality: number;
     dsIP: string;
 }
-
 class SocketSingleton {
     private static instance: TcpSocket.Socket | null = null;
 
@@ -102,11 +102,10 @@ class PacketManager {
 
     }
 }
-
 const HzMod: React.FC<HzModProps> = ({ cpuLimit, jpegQuality, dsIP }) => {
     const [connected, setConnected] = useState<boolean>(false);
     const packetManager = new PacketManager();
-
+    const { ImageProcessor } = NativeModules;
     useEffect(() => {
         const startStreamListener = EventRegister.addEventListener('hzStream', startStream);
         const stopStreamListener = EventRegister.addEventListener('stopHzStream', stopStream);
@@ -205,16 +204,15 @@ const HzMod: React.FC<HzModProps> = ({ cpuLimit, jpegQuality, dsIP }) => {
     const handleTGAPacket = (data: Buffer) => {
         //TODO?
     };
-    
-    const handleJPEGPacket = (packetData: Buffer) => {
 
+    const handleJPEGPacket = async (packetData: Buffer) => {
         const jpegData = packetData.slice(8);
-
-        const base64Image = jpegData.toString('base64');
+        const rgbImage = await ImageProcessor.convertBGRtoRGB(jpegData.toString('base64'));
+        //console.log(rgbImage.toString('base64'));
+        const base64Image = rgbImage.toString('base64');
         const uri = `data:image/jpeg;base64,${base64Image}`;
-        console.log(uri);
+        EventRegister.emit('frameReady', { uri: uri, isTop: true });
 
-        EventRegister.emit('frameReady', { uri, isTop: true });
     };
 
     const handleDebugPacket = (data: Buffer) => {
@@ -257,52 +255,4 @@ const HzMod: React.FC<HzModProps> = ({ cpuLimit, jpegQuality, dsIP }) => {
     return null;
 };
 
-interface Pixel {
-    b: number;
-    g: number;
-    r: number;
-}
-
-class ImageConverter {
-    
-    static convertBuffer(inputBuffer: Buffer): Buffer {
-        const pixels = ImageConverter.readPixelsFromBuffer(inputBuffer);
-        const convertedPixels = ImageConverter.bgrToRgb(pixels);
-        return ImageConverter.writePixelsToBuffer(convertedPixels);
-    }
-
-    private static readPixelsFromBuffer(buffer: Buffer): Pixel[] {
-        const pixels: Pixel[] = [];
-
-        for (let i = 0; i < buffer.length; i += 3) {
-            pixels.push({
-                b: buffer[i],
-                g: buffer[i + 1],
-                r: buffer[i + 2],
-            });
-        }
-
-        return pixels;
-    }
-
-    private static bgrToRgb(pixels: Pixel[]): Pixel[] {
-        return pixels.map(pixel => ({
-            r: pixel.b,
-            g: pixel.g,
-            b: pixel.r,
-        }));
-    }
-
-    private static writePixelsToBuffer(pixels: Pixel[]): Buffer {
-        const pixelData = Buffer.alloc(pixels.length * 3);
-
-        for (let i = 0; i < pixels.length; i++) {
-            pixelData[i * 3] = pixels[i].b;
-            pixelData[i * 3 + 1] = pixels[i].g;
-            pixelData[i * 3 + 2] = pixels[i].r;
-        }
-
-        return pixelData;
-    }
-}
 export default HzMod;
