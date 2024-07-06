@@ -15,6 +15,7 @@
 		7699B88040F8A987B510C191 /* libPods-cuteNTR-cuteNTRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-cuteNTR-cuteNTRTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A8103B462C2B801200B9086D /* StreamWorkerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A8103B3E2C2B801200B9086D /* StreamWorkerModule.m */; };
+		A8F6EAD52C38F7A0008F6994 /* ImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F6EAD42C38F7A0008F6994 /* ImageProcessor.m */; };
 		BE699627B17E518C16FA2932 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 12851C80AA77F3A65FB83EEA /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-cuteNTR-cuteNTRTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cuteNTR-cuteNTRTests.release.xcconfig"; path = "Target Support Files/Pods-cuteNTR-cuteNTRTests/Pods-cuteNTR-cuteNTRTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8103B3D2C2B801200B9086D /* StreamWorkerModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamWorkerModule.h; sourceTree = "<group>"; };
 		A8103B3E2C2B801200B9086D /* StreamWorkerModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamWorkerModule.m; sourceTree = "<group>"; };
+		A8F6EAD32C38F7A0008F6994 /* ImageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageProcessor.h; sourceTree = "<group>"; };
+		A8F6EAD42C38F7A0008F6994 /* ImageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageProcessor.m; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -92,6 +95,8 @@
 		13B07FAE1A68108700A75B9A /* cuteNTR */ = {
 			isa = PBXGroup;
 			children = (
+				A8F6EAD32C38F7A0008F6994 /* ImageProcessor.h */,
+				A8F6EAD42C38F7A0008F6994 /* ImageProcessor.m */,
 				A8103B3D2C2B801200B9086D /* StreamWorkerModule.h */,
 				A8103B3E2C2B801200B9086D /* StreamWorkerModule.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -404,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8103B462C2B801200B9086D /* StreamWorkerModule.m in Sources */,
+				A8F6EAD52C38F7A0008F6994 /* ImageProcessor.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -478,11 +484,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3SJZQ945LJ;
+				DEVELOPMENT_TEAM = 3SJZQ945LJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = cuteNTR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -498,7 +502,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.authxero.adorableNTR;
 				PRODUCT_NAME = cuteNTR;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AdorableNtr-AppDistribution";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -512,11 +515,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3SJZQ945LJ;
+				DEVELOPMENT_TEAM = 3SJZQ945LJ;
 				INFOPLIST_FILE = cuteNTR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -531,7 +532,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.authxero.adorableNTR;
 				PRODUCT_NAME = cuteNTR;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "AdorableNtr-AppDistribution";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

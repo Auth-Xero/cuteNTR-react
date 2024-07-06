@@ -96,7 +96,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   };
 
   renderFrame = ({ uri, isTop }: { uri: string; isTop: boolean }) => {
-    if (this.mounted && uri.startsWith('data:image/jpeg;base64,/9j/')) {
+    if (this.mounted && isTop === this.props.isTop && uri.startsWith('data:image/jpeg;base64,/9j/')) {
       this.setState((prevState) => {
         if (prevState.currentPixmap !== uri) {
           return {
@@ -217,19 +217,19 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
         {previousPixmap && (
           <ImageBackground
             fadeDuration={0}
-            key={`prev_${previousPixmap}`}
+            key={previousPixmap}
             source={{ uri: previousPixmap }}
-            style={[imageStyle, styles.previousImage]}
-            resizeMode={'contain'}
+            style={imageStyle}
+            resizeMode={'contain' }
           />
         )}
         {currentPixmap && (
           <ImageBackground
             fadeDuration={0}
-            key={`curr_${currentPixmap}`}
+            key={currentPixmap}
             source={{ uri: currentPixmap }}
             style={imageStyle}
-            resizeMode={'contain'}
+            resizeMode={'contain' }
           />
         )}
         <View style={buttonContainerStyle}>
@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
   },
   fpsCounter: {
     position: 'absolute',
-    top: 10,
+    top: 50,
     left: 10,
     fontSize: 20,
     fontWeight: 'bold',
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
   },
   recordButton: {
     position: 'absolute',
-    top: 10,
+    top: 50,
     right: 10,
     backgroundColor: 'red',
     padding: 10,

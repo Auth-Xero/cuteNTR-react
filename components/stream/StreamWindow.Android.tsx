@@ -97,7 +97,7 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   };
 
   renderFrame = ({ uri, isTop }: { uri: string; isTop: boolean }) => {
-    if (this.mounted && uri.startsWith('data:image/jpeg;base64,/9j/')) {
+    if (this.mounted && isTop === this.props.isTop && uri.startsWith('data:image/jpeg;base64,/9j/')) {
       this.setState((prevState) => {
         if (prevState.currentPixmap !== uri) {
           return {

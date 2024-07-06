@@ -1,7 +1,7 @@
-#import "ImageProcessorModule.h"
+#import "ImageProcessor.h"
 #import <UIKit/UIKit.h>
 
-@implementation ImageProcessorModule
+@implementation ImageProcessor
 
 RCT_EXPORT_MODULE();
 
