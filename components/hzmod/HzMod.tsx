@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Component } from 'react';
 import { EventRegister } from 'react-native-event-listeners';
 import TcpSocket from 'react-native-tcp-socket';
 import { Buffer } from 'buffer';
@@ -9,6 +9,11 @@ interface HzModProps {
     jpegQuality: number;
     dsIP: string;
 }
+
+interface HzModState {
+    connected: boolean;
+}
+
 class SocketSingleton {
     private static instance: TcpSocket.Socket | null = null;
 
@@ -23,10 +28,15 @@ class SocketSingleton {
 
     static destroyInstance() {
         if (SocketSingleton.instance) {
-            SocketSingleton.instance.destroy();
+            SocketSingleton.instance.end();
             SocketSingleton.instance = null;
             console.log('SocketSingleton: Instance destroyed');
         }
+    }
+
+    static reconnectInstance(dsIP: string): TcpSocket.Socket {
+        SocketSingleton.destroyInstance();
+        return SocketSingleton.getInstance(dsIP);
     }
 }
 
@@ -43,7 +53,6 @@ class Packet {
             this.data = Buffer.alloc(this.size);
 
             if (buffer.length > 4) {
-
                 this.addData(buffer.slice(4));
             }
         } else {
@@ -79,7 +88,6 @@ class PacketManager {
         const newBuffer = typeof data === 'string' ? Buffer.from(data) : data;
         this.buffer = Buffer.concat([this.buffer, newBuffer]);
         if (!this.currentPacket || this.currentPacket.isComplete()) {
-
             if (this.buffer.length >= 4) {
                 const size = this.buffer.readUIntLE(1, 3);
 
@@ -87,96 +95,119 @@ class PacketManager {
                     this.currentPacket = new Packet(this.buffer.slice(0, size + 4));
                     this.buffer = this.buffer.slice(size + 4);
                 } else {
-
                     return;
                 }
             } else {
-
                 return;
             }
         } else {
-
             this.currentPacket.addData(this.buffer);
             this.buffer = Buffer.alloc(0);
         }
-
     }
 }
-const HzMod: React.FC<HzModProps> = ({ cpuLimit, jpegQuality, dsIP }) => {
-    const [connected, setConnected] = useState<boolean>(false);
-    const packetManager = new PacketManager();
-    const { ImageProcessor } = NativeModules;
-    useEffect(() => {
-        const startStreamListener = EventRegister.addEventListener('hzStream', startStream);
-        const stopStreamListener = EventRegister.addEventListener('stopHzStream', stopStream);
-        const listener = EventRegister.addEventListener('completePacket', handlePacket);
 
-        return () => {
-            EventRegister.removeEventListener('hzStream');
-            EventRegister.removeEventListener('stopHzStream');
-            EventRegister.removeEventListener('completePacket');
-            stopStream();
+class HzMod extends Component<HzModProps, HzModState> {
+    packetManager = new PacketManager();
+    ImageProcessor = NativeModules.ImageProcessor;
+    socketRef: TcpSocket.Socket | null = null;
+
+    constructor(props: HzModProps) {
+        super(props);
+        this.state = {
+            connected: false,
         };
-    }, []);
+    }
 
-    const startStream = async () => {
+    componentDidMount() {
+        EventRegister.addEventListener('hzStream', this.startStream);
+        EventRegister.addEventListener('stopHzStream', this.stopStream);
+        EventRegister.addEventListener('completePacket', this.handlePacket);
+    }
+
+    componentWillUnmount() {
+        EventRegister.removeEventListener('hzStream');
+        EventRegister.removeEventListener('stopHzStream');
+        EventRegister.removeEventListener('completePacket');
+        this.stopStream();
+    }
+
+    componentDidUpdate(prevProps: HzModProps) {
+        if (prevProps.dsIP !== this.props.dsIP || prevProps.cpuLimit !== this.props.cpuLimit || prevProps.jpegQuality !== this.props.jpegQuality) {
+            console.log('HzMod: componentDidUpdate detected changes in props');
+            this.reconnectSocket();
+        }
+    }
+
+    reconnectSocket = () => {
+        console.log('HzMod: reconnectSocket called');
+        SocketSingleton.destroyInstance();
+        this.socketRef = SocketSingleton.getInstance(this.props.dsIP);
+        this.startStream();
+    };
+
+    startStream = async () => {
         console.log('HzMod: startStream called');
-        if (!connected) {
-            const socket = SocketSingleton.getInstance(dsIP);
+        if (!this.state.connected) {
+            const socket = SocketSingleton.getInstance(this.props.dsIP);
+            this.socketRef = socket;
 
             socket.on('connect', async () => {
-                setConnected(true);
+                this.setState({ connected: true });
                 EventRegister.emit('stateChanged', 'Connected');
-                console.log(`HzMod: Socket connected to ${dsIP} on port 6464`);
-                await hzModInit(jpegQuality, cpuLimit);
+                console.log(`HzMod: Socket connected to ${this.props.dsIP} on port 6464`);
+                await this.hzModInit(this.props.jpegQuality, this.props.cpuLimit);
             });
 
-            socket.on('data', async (data) => {
-                packetManager.processData(data);
+            socket.on('data', (data) => {
+                this.packetManager.processData(data);
             });
 
             socket.on('error', (err: Error) => {
                 console.error('HzMod: Socket error:', err);
-                stopStream();
+                this.stopStream();
             });
 
             socket.on('close', () => {
-                setConnected(false);
+                this.setState({ connected: false });
                 EventRegister.emit('stateChanged', 'Disconnected');
                 console.log('HzMod: Socket closed');
             });
         }
     };
-    const stopStream = async () => {
+
+    stopStream = () => {
         console.log('HzMod: stopStream called');
         SocketSingleton.destroyInstance();
-        setConnected(false);
+        this.setState({ connected: false });
         EventRegister.emit('stateChanged', 'Disconnected');
         console.log('HzMod: Socket closed and stream stopped');
     };
 
-    const handlePacket = async (packet: Packet) => {
+    handlePacket = async (packet: Packet) => {
         const { packetid, data } = packet;
-        if (!data) { return; }
+        if (!data) {
+            return;
+        }
 
         switch (packetid) {
             case 0x01:
-                handleErrorPacket(data);
+                this.handleErrorPacket(data);
                 break;
             case 0x02:
-                handleModeSetPacket(data);
+                this.handleModeSetPacket(data);
                 break;
             case 0x03:
-                handleTGAPacket(data);
+                this.handleTGAPacket(data);
                 break;
             case 0x04:
-                await handleJPEGPacket(data);
+                await this.handleJPEGPacket(data);
                 break;
             case 0x7E:
                 console.log("Received CFGBLK_IN packet");
                 break;
             case 0xFF:
-                handleDebugPacket(data);
+                this.handleDebugPacket(data);
                 break;
             default:
                 console.log(`Unknown packet: ${packetid?.toString(16)}`);
@@ -184,7 +215,7 @@ const HzMod: React.FC<HzModProps> = ({ cpuLimit, jpegQuality, dsIP }) => {
         }
     };
 
-    const handleErrorPacket = (data: Buffer) => {
+    handleErrorPacket = (data: Buffer) => {
         console.log(`Disconnected by error (${data[0]}):`);
         for (let i = 1; i < data.length; i++) {
             process.stdout.write(String.fromCharCode(data[i]));
@@ -193,29 +224,26 @@ const HzMod: React.FC<HzModProps> = ({ cpuLimit, jpegQuality, dsIP }) => {
         process.exit(1);
     };
 
-    const handleModeSetPacket = (data: Buffer) => {
+    handleModeSetPacket = (data: Buffer) => {
         const pdata = new Uint32Array(data.buffer);
 
         console.log(`ModeTOP: ${pdata[0].toString(16)} (o: ${pdata[0] & 7}, bytesize: ${pdata[1]})`);
         console.log(`ModeBOT: ${pdata[2].toString(16)} (o: ${pdata[2] & 7}, bytesize: ${pdata[3]})`);
-
     };
 
-    const handleTGAPacket = (data: Buffer) => {
-        //TODO?
+    handleTGAPacket = (data: Buffer) => {
+        // TODO?
     };
 
-    const handleJPEGPacket = async (packetData: Buffer) => {
+    handleJPEGPacket = async (packetData: Buffer) => {
         const jpegData = packetData.slice(8);
-        const rgbImage = await ImageProcessor.convertBGRtoRGB(jpegData.toString('base64'));
-        //console.log(rgbImage.toString('base64'));
+        const rgbImage = await this.ImageProcessor.convertBGRtoRGB(jpegData.toString('base64'));
         const base64Image = rgbImage.toString('base64');
         const uri = `data:image/jpeg;base64,${base64Image}`;
         EventRegister.emit('frameReady', { uri: uri, isTop: true });
-
     };
 
-    const handleDebugPacket = (data: Buffer) => {
+    handleDebugPacket = (data: Buffer) => {
         console.log(`DebugMSG (0x${data.length.toString(16)}):`);
         for (let i = 0; i < data.length; i += 4) {
             console.log(` ${data.readUInt32LE(i).toString(16)}`);
@@ -223,9 +251,9 @@ const HzMod: React.FC<HzModProps> = ({ cpuLimit, jpegQuality, dsIP }) => {
         console.log('\n');
     };
 
-    const hzModInit = (quality: number, cpuLimit: number) => {
-        console.log('HzMod: _HzModInit called');
-        const socket = SocketSingleton.getInstance(dsIP);
+    hzModInit = (quality: number, cpuLimit: number) => {
+        console.log('HzMod: hzModInit called');
+        const socket = SocketSingleton.getInstance(this.props.dsIP);
         if (cpuLimit > 255) cpuLimit = 255;
         const streamStartPacket = Buffer.from([0x7E, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01]);
         const limitCPUPacket = Buffer.concat([Buffer.from([0x7E, 0x05, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00]), Buffer.from([cpuLimit])]);
@@ -236,14 +264,14 @@ const HzMod: React.FC<HzModProps> = ({ cpuLimit, jpegQuality, dsIP }) => {
             socket.write(limitCPUPacket);
             console.log('HzMod: Setting CPU cycle cap to', cpuLimit);
         }
-        hzModChangeQuality(quality);
+        this.hzModChangeQuality(quality);
         socket.write(streamStartPacket);
         console.log('HzMod: Stream started');
     };
 
-    const hzModChangeQuality = (quality: number) => {
-        console.log('HzMod: _HzModChangeQuality called');
-        const socket = SocketSingleton.getInstance(dsIP);
+    hzModChangeQuality = (quality: number) => {
+        console.log('HzMod: hzModChangeQuality called');
+        const socket = SocketSingleton.getInstance(this.props.dsIP);
         if (quality < 1) quality = 1;
         if (quality > 100) quality = 100;
         const qualityPacket = Buffer.concat([Buffer.from([0x7E, 0x05, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00]), Buffer.from([quality])]);
@@ -252,7 +280,9 @@ const HzMod: React.FC<HzModProps> = ({ cpuLimit, jpegQuality, dsIP }) => {
         console.log('HzMod: Setting quality to', quality);
     };
 
-    return null;
-};
+    render() {
+        return null;
+    }
+}
 
 export default HzMod;

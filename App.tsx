@@ -37,7 +37,7 @@ class App extends Component<{}, AppComponentState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      dsIP: '192.168.179.172',
+      dsIP: '192.168.179.178',
       qosValue: 105,
       priMode: 1,
       priFact: 5,
