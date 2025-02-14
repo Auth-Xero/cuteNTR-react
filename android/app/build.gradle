@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.cutentr"
+    namespace "com.adorableNTR"
     defaultConfig {
-        applicationId "com.cutentr"
+        applicationId "com.adorableNTR"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -100,9 +100,9 @@ android {
             keyPassword 'android'
         }
         release {
-            storeFile file('../../cutentr.keystore')
+            storeFile file('../../adorableNTR.keystore')
             storePassword 'I1YmxRGkUFm1MNipCxPq8a51skgdGgEv '
-            keyAlias 'cutentr-react'
+            keyAlias 'adorableNTR-react'
             keyPassword 'I1YmxRGkUFm1MNipCxPq8a51skgdGgEv '
         }
 

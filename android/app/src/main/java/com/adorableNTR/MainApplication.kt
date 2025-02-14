@@ -1,4 +1,4 @@
-package com.cutentr
+package com.adorableNTR
 
 import android.app.Application
 import com.facebook.react.PackageList
@@ -15,13 +15,23 @@ class MainApplication : Application(), ReactApplication {
 
   override val reactNativeHost: ReactNativeHost =
       object : DefaultReactNativeHost(this) {
-        override fun getPackages(): List<ReactPackage> =
-            PackageList(this).packages.apply {
-              // Packages that cannot be autolinked yet can be added manually here, for example:
-              // add(MyReactNativePackage())
-              add(StreamWorkerPackage())
-              add(ImageProcessorPackage())
-            }
+        override fun getPackages(): List<ReactPackage> {
+          // Get the list of autolinked packages.
+          val packages = PackageList(this).packages.toMutableList()
+
+          // Add your custom packages only if they are not already registered.
+          if (packages.none { it is StreamWorkerPackage }) {
+            packages.add(StreamWorkerPackage())
+          }
+          if (packages.none { it is ImageProcessorPackage }) {
+            packages.add(ImageProcessorPackage())
+          }
+          if (packages.none { it is VideoStreamPackage }) {
+            packages.add(VideoStreamPackage())
+          }
+
+          return packages
+        }
 
         override fun getJSMainModuleName(): String = "index"
 
@@ -38,7 +48,7 @@ class MainApplication : Application(), ReactApplication {
     super.onCreate()
     SoLoader.init(this, false)
     if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
-      // If you opted-in for the New Architecture, we load the native entry point for this app.
+      // Load the native entry point if New Architecture is enabled.
       load()
     }
   }

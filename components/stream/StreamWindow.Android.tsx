@@ -1,8 +1,53 @@
 import React, { Component } from 'react';
-import { Platform, View, ImageBackground, StyleSheet, Button, Text, BackHandler, TouchableOpacity, PermissionsAndroid, Alert, Dimensions } from 'react-native';
+import {
+  Platform,
+  View,
+  StyleSheet,
+  Text,
+  BackHandler,
+  TouchableOpacity,
+  Dimensions,
+  StatusBar,
+  Alert,
+  PermissionsAndroid,
+} from 'react-native';
 import { EventRegister } from 'react-native-event-listeners';
 import RNFS from 'react-native-fs';
 import { FFmpegKit } from 'ffmpeg-kit-react-native';
+import { requireNativeComponent } from 'react-native';
+import Ionicons from '@react-native-vector-icons/ionicons';
+
+// Native JPEG video view component
+interface JpegVideoViewProps {
+  frame: string | null;
+  style?: any;
+}
+
+const JpegVideoView = requireNativeComponent<JpegVideoViewProps>('JpegVideoView');
+
+// Singleton wrapper for the native view
+class SingletonJpegVideoView extends Component<JpegVideoViewProps> {
+  private static instance: SingletonJpegVideoView | null = null;
+
+  constructor(props: JpegVideoViewProps) {
+    super(props);
+    if (SingletonJpegVideoView.instance) {
+      console.warn('SingletonJpegVideoView already exists. Reusing the existing instance.');
+    } else {
+      SingletonJpegVideoView.instance = this;
+    }
+  }
+
+  componentWillUnmount() {
+    if (SingletonJpegVideoView.instance === this) {
+      SingletonJpegVideoView.instance = null;
+    }
+  }
+
+  render() {
+    return <JpegVideoView {...this.props} />;
+  }
+}
 
 interface StreamWindowProps {
   isTop: boolean;
@@ -14,15 +59,12 @@ interface StreamWindowProps {
 }
 
 interface StreamWindowState {
-  currentPixmap: string | null;
-  previousPixmap: string | null;
+  currentFrame: string | null;
   connected: boolean;
-  scale: number;
-  smooth: boolean;
-  fullscreen: boolean;
   fps: number;
   recording: boolean;
-  frames: Array<string>;
+  frames: string[];
+  fullscreen: boolean;
   isLandscape: boolean;
 }
 
@@ -33,32 +75,27 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   private fpsInterval: NodeJS.Timeout | null = null;
   private orientationListener: any;
 
+  
   constructor(props: StreamWindowProps) {
     super(props);
     this.state = {
-      currentPixmap: null,
-      previousPixmap: null,
+      currentFrame: null,
       connected: false,
-      scale: 1,
-      smooth: false,
-      fullscreen: false,
       fps: 0,
       recording: false,
       frames: [],
+      fullscreen: false,
       isLandscape: Dimensions.get('window').width > Dimensions.get('window').height,
     };
 
     this.mounted = false;
-
     this.frameReadyListener = EventRegister.addEventListener('frameReady', this.renderFrame);
-
     BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
   }
 
   componentDidMount() {
     console.log('StreamWindow mounted');
     this.mounted = true;
-    this.updateSettings();
     this.startFPSCounter();
     this.orientationListener = Dimensions.addEventListener('change', this.handleOrientationChange);
   }
@@ -67,7 +104,9 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
     this.mounted = false;
     EventRegister.removeEventListener(this.frameReadyListener);
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
-    this.orientationListener.remove();
+    if (this.orientationListener && this.orientationListener.remove) {
+      this.orientationListener.remove();
+    }
     if (this.fpsInterval) {
       clearInterval(this.fpsInterval);
     }
@@ -79,39 +118,26 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
   handleOrientationChange = () => {
     const isLandscape = Dimensions.get('window').width > Dimensions.get('window').height;
     this.setState({ isLandscape });
-  };
-
-  updateSettings = () => {
-    const CONFIG = {
-      topScale: 1.0,
-      botScale: 1.0,
-      smoothing: false,
-    };
-
-    if (this.mounted) {
-      this.setState({
-        smooth: CONFIG.smoothing,
-        scale: this.props.isTop ? CONFIG.topScale : CONFIG.botScale,
-      });
-    }
+    console.log('Orientation changed, isLandscape:', isLandscape);
   };
 
   renderFrame = ({ uri, isTop }: { uri: string; isTop: boolean }) => {
-    if (this.mounted && isTop === this.props.isTop && uri.startsWith('data:image/jpeg;base64,/9j/')) {
-      this.setState((prevState) => {
-        if (prevState.currentPixmap !== uri) {
-          return {
-            previousPixmap: prevState.currentPixmap,
-            currentPixmap: uri,
-            frames: prevState.recording ? [...prevState.frames, uri] : prevState.frames,
-          };
-        }
-        return null;
-      });
-      this.frameCount += 1;
+    try {
+      if (
+        this.mounted &&
+        isTop === this.props.isTop &&
+        uri.startsWith('data:image/jpeg;base64,/9j/')
+      ) {
+        this.setState((prevState) => ({
+          currentFrame: uri,
+          frames: prevState.recording ? [...prevState.frames, uri] : prevState.frames,
+        }));
+        this.frameCount += 1;
+      }
+    } catch (error) {
+      console.error('Error processing frame:', error);
     }
   };
-  
 
   handleBackPress = () => {
     if (this.state.fullscreen) {
@@ -122,22 +148,17 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
     return true;
   };
 
-  toggleFullscreen = () => {
-    this.setState((prevState) => ({ fullscreen: !prevState.fullscreen }));
-  };
-
-  shouldComponentUpdate(nextProps: StreamWindowProps, nextState: StreamWindowState) {
-    return nextState.currentPixmap !== this.state.currentPixmap || nextState.fullscreen !== this.state.fullscreen || nextState.fps !== this.state.fps || nextState.isLandscape !== this.state.isLandscape;
-  }
-
   startFPSCounter = () => {
     this.frameCount = 0;
     this.setState({ fps: 0 });
-
     this.fpsInterval = setInterval(() => {
       this.setState({ fps: this.frameCount });
       this.frameCount = 0;
     }, 1000);
+  };
+
+  toggleFullscreen = () => {
+    this.setState((prevState) => ({ fullscreen: !prevState.fullscreen }));
   };
 
   handleRecordButton = () => {
@@ -160,44 +181,35 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
 
   saveRecording = async () => {
     const { frames } = this.state;
-
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        {
-          title: 'Storage Permission',
-          message: 'App needs access to your storage to save recordings',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-
-      if (!granted) {
-        console.log('Storage permission denied');
-        return;
-      }
-    } catch (err) {
-      console.warn(err);
+    if (frames.length === 0) {
+      Alert.alert('No frames captured', 'Recording did not capture any frames.');
       return;
     }
 
-    const recordingDir = Platform.OS === 'android'
-      ? `${RNFS.ExternalStorageDirectoryPath}/Documents/Recordings`
-      : `${RNFS.DocumentDirectoryPath}/Recordings`;
+    const recordingDir =
+      Platform.OS === 'android'
+        ? `${RNFS.ExternalStorageDirectoryPath}/Documents/Recordings`
+        : `${RNFS.DocumentDirectoryPath}/Recordings`;
     await RNFS.mkdir(recordingDir);
 
+    // Write each frame as a JPEG file
     const framePaths = await Promise.all(
       frames.map((frame, index) => {
         const framePath = `${RNFS.CachesDirectoryPath}/frame_${index}.jpg`;
-        return RNFS.writeFile(framePath, frame.replace('data:image/jpeg;base64,', ''), 'base64').then(() => framePath);
-      })
+        return RNFS.writeFile(framePath, frame.replace('data:image/jpeg;base64,', ''), 'base64').then(
+          () => framePath,
+        );
+      }),
     );
 
+    // Create a list file for FFmpeg
     const frameListPath = `${RNFS.CachesDirectoryPath}/frames.txt`;
-    await RNFS.writeFile(frameListPath, framePaths.map((path) => `file '${path}'`).join('\n'));
+    await RNFS.writeFile(
+      frameListPath,
+      framePaths.map((path) => `file '${path}'`).join('\n'),
+    );
 
-    const outputFilePath = `${recordingDir}/adorableNTR-${Date.now()}.mp4`;
+    const outputFilePath = `${recordingDir}/recording-${Date.now()}.mp4`;
 
     const command = `-f concat -safe 0 -i ${frameListPath} -vf "transpose=2" -vsync vfr -pix_fmt yuv420p ${outputFilePath}`;
     FFmpegKit.execute(command).then(async (session) => {
@@ -215,148 +227,109 @@ class StreamWindow extends Component<StreamWindowProps, StreamWindowState> {
     });
   };
 
-  handleStartStopStream = () => {
-    if (this.state.connected) {
-      this.props.hzModEnabled ? EventRegister.emit('stopHzStream') : EventRegister.emit('stopStream');
-    } else {
-      this.props.hzModEnabled ? EventRegister.emit('hzStream') : EventRegister.emit('startStream');
-    }
-    this.setState({ connected: !this.state.connected });
-  };
-
   render() {
-    const { currentPixmap, previousPixmap, scale, fullscreen, fps, recording, isLandscape } = this.state;
-    const { showFps, recordingEnabled } = this.props;
-
-    const imageStyle = [
-      isLandscape ? styles.imageLandscape : styles.imagePortrait,
-      { transform: [{ scale }, { rotate: '270deg' }] }
-    ];
-
-    const buttonContainerStyle = isLandscape ? styles.buttonContainerLandscape : styles.buttonContainerPortrait;
+    const { currentFrame, fullscreen, fps, recording, isLandscape } = this.state;
+    // Adjust video transformation as needed based on orientation
+    const videoTransform = [{ rotate: '0deg' }];
 
     return (
-      <View style={fullscreen ? styles.fullscreenContainer : styles.container}>       
-                {previousPixmap && (
-          <ImageBackground
-            fadeDuration={0}
-            key={`prev_${previousPixmap}`}
-            source={{ uri: previousPixmap }}
-            style={[imageStyle, styles.previousImage]}
-            resizeMode={'contain'}
-          />
+      <View style={fullscreen ? styles.fullscreenContainer : styles.container}>
+        <StatusBar hidden={fullscreen} />
+        <SingletonJpegVideoView
+          style={[styles.video, { transform: videoTransform }]}
+          frame={currentFrame}
+        />
+
+        {/* Render the top bar only when NOT in full screen */}
+        {!fullscreen && (
+          <View style={styles.topBar}>
+            <TouchableOpacity onPress={this.handleBackPress} style={styles.iconButton}>
+              <Ionicons name="arrow-back" size={28} color="#FFF" />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.toggleFullscreen} style={styles.iconButton}>
+              <Ionicons name={fullscreen ? 'contract' : 'expand'} size={28} color="#FFF" />
+            </TouchableOpacity>
+          </View>
         )}
-        {currentPixmap && (
-          <ImageBackground
-            fadeDuration={0}
-            key={`curr_${currentPixmap}`}
-            source={{ uri: currentPixmap }}
-            style={imageStyle}
-            resizeMode={'contain'}
-          />
-        )}
-        <View style={buttonContainerStyle}>
-          {!fullscreen && (
-            <Button title="Fullscreen" onPress={this.toggleFullscreen} />
-          )}
-        </View>
-        <View style={styles.backButtonWrapper}>
-          <Button title="Back" onPress={this.handleBackPress} />
-        </View>
-        {showFps && (
-          <Text style={styles.fpsCounter}>FPS: {fps}</Text>
-        )}
-        {recordingEnabled && (
-          <TouchableOpacity
-            style={styles.recordButton}
-            onPress={this.handleRecordButton}
-          >
-            <Text style={styles.recordButtonText}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
-          </TouchableOpacity>
+
+        {/* Render the bottom bar only when NOT in full screen */}
+        {!fullscreen && (
+          <View style={styles.bottomBar}>
+            {this.props.showFps && (
+              <View style={styles.fpsContainer}>
+                <Ionicons name="speedometer" size={20} color="#FFF" />
+                <Text style={styles.fpsText}>FPS: {fps}</Text>
+              </View>
+            )}
+            {this.props.recordingEnabled && (
+              <TouchableOpacity style={styles.recordButton} onPress={this.handleRecordButton}>
+                <Ionicons
+                  name={recording ? 'stop-circle' : 'radio-button-on'}
+                  size={40}
+                  color={recording ? '#CF6679' : '#FF1744'}
+                />
+              </TouchableOpacity>
+            )}
+          </View>
         )}
       </View>
     );
   }
-
 }
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#121212',
   },
   fullscreenContainer: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#121212',
+    zIndex: 999,
+  },
+  video: {
     flex: 1,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'black',
   },
-  imageLandscape: {
-    width: '100%',
-    height: '100%',
+  topBar: {
     position: 'absolute',
-  },
-  imagePortrait: {
-    width: '75%',
-    height: '100%',
-    position: 'absolute',
-  },
-  buttonContainerPortrait: {
-    position: 'absolute',
-    bottom: '5%',
-    left: '5%',
-    right: '5%',
+    top: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
-  buttonContainerLandscape: {
+  bottomBar: {
     position: 'absolute',
-    bottom: '5%',
-    left: '5%',
-    right: '5%',
+    bottom: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
-  previousImage: {
-    opacity: 1, // You can adjust this value for desired transparency
-  },
-  buttonWrapperTop: {
-    position: 'absolute',
-    left: '5%',
-    bottom: '5%',
-  },
-  backButtonWrapper: {
-    position: 'absolute',
-    right: '5%',
-    bottom: '5%',
-  },
-  fpsCounter: {
-    position: 'absolute',
-    top: 10,
-    left: 10,
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  iconButton: {
     padding: 5,
-    borderRadius: 5,
+  },
+  fpsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  fpsText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FFFFFF',
+    marginLeft: 5,
   },
   recordButton: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-    backgroundColor: 'red',
-    padding: 10,
-    borderRadius: 5,
-  },
-  recordButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
+    padding: 5,
   },
 });
-
 
 export default StreamWindow;

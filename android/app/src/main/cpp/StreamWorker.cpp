@@ -9,7 +9,7 @@
 
 extern "C"
 JNIEXPORT jobject JNICALL
-Java_com_cutentr_StreamWorkerModule_processPackets(JNIEnv *env, jobject thiz, jobjectArray packets) {
+Java_com_adorableNTR_StreamWorkerModule_processPackets(JNIEnv *env, jobject thiz, jobjectArray packets) {
     std::vector<uint8_t> jpegData;
     bool isTop = false;
 
@@ -54,7 +54,7 @@ Java_com_cutentr_StreamWorkerModule_processPackets(JNIEnv *env, jobject thiz, jo
     env->SetByteArrayRegion(result, 0, jpegData.size(), reinterpret_cast<jbyte*>(jpegData.data()));
 
     // Create a result object containing the JPEG byte array and isTop boolean
-    jclass resultClass = env->FindClass("com/cutentr/StreamWorkerModule$Result");
+    jclass resultClass = env->FindClass("com/adorableNTR/StreamWorkerModule$Result");
     if (resultClass == NULL) {
         return NULL;
     }

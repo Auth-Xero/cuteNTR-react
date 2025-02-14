@@ -1,5 +1,5 @@
 {
-  "name": "cuteNTR",
+  "name": "adorableNTR",
   "version": "1.0.1",
   "private": true,
   "scripts": {
@@ -10,8 +10,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.1.1",
     "@react-native-community/checkbox": "^0.5.17",
     "@react-native-picker/picker": "^2.7.7",
+    "@react-native-vector-icons/common": "^11.0.0",
+    "@react-native-vector-icons/ionicons": "^7.4.0",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
     "base64-arraybuffer": "^1.0.2",
@@ -22,7 +25,9 @@
     "react-native": "^0.74.2",
     "react-native-document-picker": "^9.3.0",
     "react-native-event-listeners": "^1.0.7",
+    "react-native-fast-image": "^8.6.3",
     "react-native-fs": "^2.20.0",
+    "react-native-immersive": "^2.0.0",
     "react-native-orientation-locker": "^1.7.0",
     "react-native-permissions": "^4.1.5",
     "react-native-reanimated": "^3.12.1",

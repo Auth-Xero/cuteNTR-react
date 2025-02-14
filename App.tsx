@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, AppState, Platform } from 'react-native';
+import { 
+  View, 
+  StyleSheet, 
+  AppState, 
+  Platform, 
+  PermissionsAndroid 
+} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import MainWindow from './components/MainWindow';
 import Ntr from './components/ntr/Ntr';
 import StreamWorker from './components/stream/StreamWorker';
 import HzMod from './components/hzmod/HzMod';
-import StreamWindowiOS from './components/stream/StreamWindow.iOS';
-import StreamWindowAndroid from './components/stream/StreamWindow.Android';
 import { EventRegister } from 'react-native-event-listeners';
 
 interface AppComponentState {
@@ -37,7 +42,7 @@ class App extends Component<{}, AppComponentState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      dsIP: '192.168.179.178',
+      dsIP: '10.0.0.116',
       qosValue: 105,
       priMode: 1,
       priFact: 5,
@@ -79,6 +84,19 @@ class App extends Component<{}, AppComponentState> {
     this.appStateSubscription = AppState.addEventListener('change', this.handleAppStateChange);
     this.stateChangedListener = EventRegister.addEventListener('stateChanged', (state: string) => this.handleStreamStateChanged(state));
     this.ntrStateChangedListener = EventRegister.addEventListener('ntrStateChanged', (state: string) => this.handleNtrStateChanged(state));
+
+    // Load persisted settings (if any) and request storage permission initially.
+    this.loadSettings();
+    this.requestStoragePermission();
+  }
+
+  componentDidUpdate(prevProps: {}, prevState: AppComponentState) {
+    // Persist selected settings so they survive an app restart.
+    const { dsIP, qosValue, priMode, priFact, jpegQuality, recordingEnabled, recordingPath, hzModEnabled, cpuLimit } = this.state;
+    const settings = { dsIP, qosValue, priMode, priFact, jpegQuality, recordingEnabled, recordingPath, hzModEnabled, cpuLimit };
+    AsyncStorage.setItem('appSettings', JSON.stringify(settings)).catch(error =>
+      console.error('Failed to save settings:', error),
+    );
   }
 
   componentWillUnmount() {
@@ -88,10 +106,61 @@ class App extends Component<{}, AppComponentState> {
     this.stopStream(); // Ensure the stream is stopped when the component unmounts
   }
 
+  // Load settings from AsyncStorage
+  loadSettings = async () => {
+    try {
+      const settingsString = await AsyncStorage.getItem('appSettings');
+      if (settingsString) {
+        const settings = JSON.parse(settingsString);
+        this.setState({
+          dsIP: settings.dsIP || '10.0.0.116',
+          qosValue: settings.qosValue || 105,
+          priMode: settings.priMode || 1,
+          priFact: settings.priFact || 5,
+          jpegQuality: settings.jpegQuality || 60,
+          recordingEnabled: settings.recordingEnabled || false,
+          recordingPath: settings.recordingPath || '',
+          hzModEnabled: settings.hzModEnabled || false,
+          cpuLimit: settings.cpuLimit || 0,
+        });
+      }
+    } catch (error) {
+      console.error('Failed to load settings:', error);
+    }
+  };
+
+  // Request storage permission (for Android)
+  requestStoragePermission = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          {
+            title: 'Storage Permission',
+            message: 'App needs access to your storage to save recordings',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          },
+        );
+        console.log(granted)
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('Storage permission granted');
+        } else {
+          console.log('Storage permission denied');
+        }
+      } catch (err) {
+        console.warn(err);
+      }
+    }
+  };
+
   handleAppStateChange(nextAppState: string) {
-    /*if (nextAppState.match(/inactive|background/)) {
-      this.stopStream(); // Stop the stream when the app goes to the background
-    }*/
+    /* Uncomment if you want to stop the stream when the app goes to the background:
+    if (nextAppState.match(/inactive|background/)) {
+      this.stopStream();
+    }
+    */
   }
 
   handleNtrStateChanged(state: string) {
@@ -113,7 +182,13 @@ class App extends Component<{}, AppComponentState> {
       this.setState({ streaming: true, hzConnected: false, hzDisconnected: false });
       EventRegister.emit('ntrConnectToDs');
     } else if (state === 'Disconnected') {
-      this.setState({ streaming: false, hzStreaming: false, hzConnected: false, hzDisconnected: true, remotePlayInitiated: false });
+      this.setState({
+        streaming: false,
+        hzStreaming: false,
+        hzConnected: false,
+        hzDisconnected: true,
+        remotePlayInitiated: false,
+      });
     }
   }
 
@@ -187,9 +262,29 @@ class App extends Component<{}, AppComponentState> {
   }
 
   render() {
-    const { currentScreen, isTop, dsIP, streaming, hzStreaming, priMode, priFact, jpegQuality, qosValue, showFps, recordingEnabled, recordingPath, hzModEnabled, cpuLimit, hzConnected, hzDisconnected } = this.state;
+    const { 
+      currentScreen, 
+      isTop, 
+      dsIP, 
+      streaming, 
+      hzStreaming, 
+      priMode, 
+      priFact, 
+      jpegQuality, 
+      qosValue, 
+      showFps, 
+      recordingEnabled, 
+      recordingPath, 
+      hzModEnabled, 
+      cpuLimit, 
+      hzConnected, 
+      hzDisconnected 
+    } = this.state;
 
-    const StreamWindowComponent = Platform.OS === 'ios' ? StreamWindowiOS : StreamWindowAndroid;
+    const StreamWindowComponent = Platform.OS === 'ios'
+  ? require('./components/stream/StreamWindow.iOS').default
+  : require('./components/stream/StreamWindow.Android').default;
+
 
     return (
       <View style={styles.container}>

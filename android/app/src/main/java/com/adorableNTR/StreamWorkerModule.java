@@ -1,4 +1,4 @@
-package com.cutentr;
+package com.adorableNTR;
 
 import com.facebook.react.bridge.*;
 import android.util.Base64;
