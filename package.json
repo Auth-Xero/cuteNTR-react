@@ -19,6 +19,7 @@
     "@react-navigation/stack": "^6.3.29",
     "base64-arraybuffer": "^1.0.2",
     "buffer": "^6.0.3",
+    "fast-png": "^6.2.0",
     "ffmpeg-kit-react-native": "^6.0.2",
     "hermes-engine": "^0.11.0",
     "react": "18.2.0",
@@ -34,6 +35,7 @@
     "react-native-tcp-socket": "^6.0.6",
     "react-native-udp": "^4.1.7",
     "rn-fetch-blob": "^0.12.0",
+    "tga-js": "^1.1.1",
     "yarn": "^1.22.22"
   },
   "devDependencies": {

@@ -31,7 +31,8 @@ interface MainWindowProps {
   updateDsIP: (dsIP: string) => void;
   updateJpegQuality: (jpegQuality: number) => void;
   updateCpuLimit: (cpuLimit: number) => void;
-  navigateToStreamWindow: (isTop: boolean, showFps: boolean) => void;
+  // Modified navigateToStreamWindow accepts a mode: 'top' | 'bottom' | 'both'
+  navigateToStreamWindow: (mode: 'top' | 'bottom' | 'both', showFps: boolean) => void;
   recordingEnabled: boolean;
   setRecordingEnabled: (enabled: boolean) => void;
   hzModEnabled: boolean;
@@ -50,6 +51,9 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
   const [priorityFactor, setPriorityFactor] = useState<number>(props.priFact);
   const [screenPriority, setScreenPriority] = useState<number>(1); // Default to Top
   const [showFps, setShowFps] = useState<boolean>(false);
+  // New state for toggling both view mode.
+  // If HzMod is enabled, bothViewEnabled is forced to false.
+  const [bothViewEnabled, setBothViewEnabled] = useState<boolean>(false);
 
   // Load persisted settings from AsyncStorage when the component mounts.
   useEffect(() => {
@@ -64,6 +68,7 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
           if (settings.priorityFactor || settings.priorityFactor === 0) setPriorityFactor(settings.priorityFactor);
           if (settings.screenPriority || settings.screenPriority === 0) setScreenPriority(settings.screenPriority);
           if (settings.showFps !== undefined) setShowFps(settings.showFps);
+          if (settings.bothViewEnabled !== undefined) setBothViewEnabled(settings.bothViewEnabled);
         }
       } catch (error) {
         console.log('Error loading mainWindowSettings:', error);
@@ -80,11 +85,12 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
       priorityFactor,
       screenPriority,
       showFps,
+      bothViewEnabled,
     };
     AsyncStorage.setItem('mainWindowSettings', JSON.stringify(settings)).catch((error) =>
       console.error('Failed to save mainWindowSettings:', error),
     );
-  }, [dsIP, qosValue, jpegQuality, priorityFactor, screenPriority, showFps]);
+  }, [dsIP, qosValue, jpegQuality, priorityFactor, screenPriority, showFps, bothViewEnabled]);
 
   // Request storage permission on Android.
   useEffect(() => {
@@ -200,6 +206,7 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
             >
               <Text style={styles.buttonText}>Top Screen</Text>
             </TouchableOpacity>
+            {/* Only allow Bottom Screen selection if HzMod is disabled */}
             <TouchableOpacity
               style={[
                 styles.screenPriorityButton,
@@ -284,22 +291,46 @@ const MainWindow: React.FC<MainWindowProps> = (props) => {
               value={props.hzModEnabled}
               onValueChange={(enabled) => {
                 props.setHzModEnabled(enabled);
+                // If HzMod is enabled, force bothViewEnabled to false.
                 if (enabled) {
-                  setScreenPriority(1);
+                  setBothViewEnabled(false);
                 }
               }}
+            />
+          </View>
+          {/* Both View Option is available only if HzMod is disabled */}
+          <View style={styles.switchContainer}>
+            <Text style={styles.label}>Both View</Text>
+            <Switch
+              value={bothViewEnabled}
+              onValueChange={setBothViewEnabled}
+              disabled={props.hzModEnabled}
             />
           </View>
         </View>
 
         {/* Navigation Buttons */}
-        <TouchableOpacity style={styles.button} onPress={() => props.navigateToStreamWindow(true, showFps)}>
-          <Text style={styles.buttonText}>Go to Stream Window (Top)</Text>
-        </TouchableOpacity>
-        {!props.hzModEnabled && (
-          <TouchableOpacity style={styles.button} onPress={() => props.navigateToStreamWindow(false, showFps)}>
-            <Text style={styles.buttonText}>Go to Stream Window (Bottom)</Text>
+        {props.hzModEnabled ? (
+          // If HzMod is enabled, force top screen.
+          <TouchableOpacity style={styles.button} onPress={() => props.navigateToStreamWindow('top', showFps)}>
+            <Text style={styles.buttonText}>Go to Stream Window (Top)</Text>
           </TouchableOpacity>
+        ) : (
+          // HzMod disabled: offer either both view or separate top/bottom.
+          bothViewEnabled ? (
+            <TouchableOpacity style={styles.button} onPress={() => props.navigateToStreamWindow('both', showFps)}>
+              <Text style={styles.buttonText}>Go to Stream Window (Both)</Text>
+            </TouchableOpacity>
+          ) : (
+            <>
+              <TouchableOpacity style={styles.button} onPress={() => props.navigateToStreamWindow('top', showFps)}>
+                <Text style={styles.buttonText}>Go to Stream Window (Top)</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button} onPress={() => props.navigateToStreamWindow('bottom', showFps)}>
+                <Text style={styles.buttonText}>Go to Stream Window (Bottom)</Text>
+              </TouchableOpacity>
+            </>
+          )
         )}
       </ScrollView>
     </View>

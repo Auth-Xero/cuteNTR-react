@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "functional": "cpp",
+        "xlocale": "cpp",
+        "xstring": "cpp",
+        "array": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "vector": "cpp",
+        "xutility": "cpp",
+        "stdexcept": "cpp"
+    }
+}

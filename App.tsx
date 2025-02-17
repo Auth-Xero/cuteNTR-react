@@ -24,7 +24,8 @@ interface AppComponentState {
   hzStreaming: boolean;
   remotePlayInitiated: boolean;
   currentScreen: 'Home' | 'StreamWindow';
-  isTop: boolean;
+  isTop: boolean; // Determines which screen to show when in single mode
+  streamMode: 'top' | 'bottom' | 'both'; // New property to indicate stream mode
   showFps: boolean;
   recordingEnabled: boolean;
   recordingPath: string;
@@ -53,6 +54,7 @@ class App extends Component<{}, AppComponentState> {
       remotePlayInitiated: false,
       currentScreen: 'Home',
       isTop: true,
+      streamMode: 'top', // default mode is top
       showFps: false,
       recordingEnabled: false,
       recordingPath: '',
@@ -143,7 +145,7 @@ class App extends Component<{}, AppComponentState> {
             buttonPositive: 'OK',
           },
         );
-        console.log(granted)
+        console.log(granted);
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
           console.log('Storage permission granted');
         } else {
@@ -222,9 +224,16 @@ class App extends Component<{}, AppComponentState> {
     }
   }
 
-  navigateToStreamWindow(isTop: boolean, showFps: boolean) {
-    console.log('Navigating to StreamWindow');
-    this.setState({ currentScreen: 'StreamWindow', isTop, showFps });
+  // Updated navigateToStreamWindow to accept a mode ('top' | 'bottom' | 'both')
+  navigateToStreamWindow(mode: 'top' | 'bottom' | 'both', showFps: boolean) {
+    console.log('Navigating to StreamWindow with mode:', mode);
+    this.setState({
+      currentScreen: 'StreamWindow',
+      streamMode: mode,
+      // For single view modes, set isTop accordingly; for 'both', isTop is not used
+      isTop: mode === 'top',
+      showFps: showFps,
+    });
   }
 
   navigateBack() {
@@ -265,6 +274,7 @@ class App extends Component<{}, AppComponentState> {
     const { 
       currentScreen, 
       isTop, 
+      streamMode, 
       dsIP, 
       streaming, 
       hzStreaming, 
@@ -281,16 +291,16 @@ class App extends Component<{}, AppComponentState> {
       hzDisconnected 
     } = this.state;
 
-    const StreamWindowComponent = Platform.OS === 'ios'
-  ? require('./components/stream/StreamWindow.iOS').default
-  : require('./components/stream/StreamWindow.Android').default;
-
+    // Choose the platform-specific StreamWindow component.
+    const StreamWindowComponent = require('./components/stream/StreamWindow').default;
 
     return (
       <View style={styles.container}>
         {currentScreen === 'StreamWindow' ? (
           <StreamWindowComponent
+            // Pass isTop (for single view) and bothViewEnabled (for dual view) accordingly.
             isTop={isTop}
+            bothViewEnabled={streamMode === 'both'}
             dsIP={dsIP}
             navigateBack={this.navigateBack}
             showFps={showFps}
@@ -314,6 +324,7 @@ class App extends Component<{}, AppComponentState> {
             updateDsIP={this.updateDsIP}
             updateJpegQuality={this.updateJpegQuality}
             updateCpuLimit={this.updateCpuLimit}
+            // Pass the updated navigateToStreamWindow that now takes a mode.
             navigateToStreamWindow={this.navigateToStreamWindow}
             recordingEnabled={recordingEnabled}
             setRecordingEnabled={this.setRecordingEnabled}
@@ -325,6 +336,7 @@ class App extends Component<{}, AppComponentState> {
             hzDisconnected={hzDisconnected}
           />
         )}
+        {/* Ntr and StreamWorker are only rendered when HzMod is disabled */}
         {!hzModEnabled && <Ntr dsIP={dsIP} screenPriority={priMode} priFact={priFact} jpegq={jpegQuality} qosvalue={qosValue} />}
         {!hzModEnabled && <StreamWorker dsIP={dsIP} />}
         {hzModEnabled && <HzMod cpuLimit={cpuLimit} jpegQuality={jpegQuality} dsIP={dsIP} />}
@@ -338,7 +350,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 0,
     margin: 0,
-    backgroundColor: '#000', // Ensure the background color is black to avoid any visible borders
+    backgroundColor: '#000', // Black background to match your stream's appearance
   },
 });
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AppState, AppStateStatus } from 'react-native';
 import TcpSocket from 'react-native-tcp-socket';
 import { Buffer } from 'buffer';
 import { EventRegister } from 'react-native-event-listeners';
@@ -41,6 +42,7 @@ class Ntr extends Component<NtrProps, NtrState> {
   private remotePlayCalled: boolean = false;
   private ntrCommandListener: any;
   private ntrConnectListener: any;
+  private appStateSubscription: { remove: () => void } | null = null;
 
   constructor(props: NtrProps) {
     super(props);
@@ -58,11 +60,30 @@ class Ntr extends Component<NtrProps, NtrState> {
     this.ntrConnectListener = EventRegister.addEventListener('ntrConnectToDs', this.connectToDS);
   }
 
+  componentDidMount() {
+    // Listen to app state changes
+    this.appStateSubscription = AppState.addEventListener('change', this.handleAppStateChange);
+  }
+
   componentWillUnmount() {
     this.disconnectFromDS();
     EventRegister.removeEventListener(this.ntrCommandListener);
     EventRegister.removeEventListener(this.ntrConnectListener);
+    if (this.appStateSubscription) {
+      this.appStateSubscription.remove();
+    }
   }
+
+  // Pause/resume Ntr connection based on app state
+  handleAppStateChange = (nextAppState: AppStateStatus) => {
+    if (nextAppState.match(/inactive|background/)) {
+      console.log("Ntr: App is in background. Disconnecting.");
+      this.disconnectFromDS();
+    } else if (nextAppState === "active") {
+      console.log("Ntr: App is active. Connecting.");
+      this.connectToDS();
+    }
+  };
 
   startHeartbeat() {
     this.heartbeat = setInterval(this.sendHeartbeat, 1000);
@@ -82,12 +103,12 @@ class Ntr extends Component<NtrProps, NtrState> {
     this.sock = TcpSocket.createConnection(
       { port: 8000, host: this.props.dsIP },
       () => {
-        console.log('Ntr Connection attempted');
+        console.log('Ntr: Connection attempted');
       }
     );
 
     this.sock.on('connect', () => {
-      console.log('Ntr Connection established');
+      console.log('Ntr: Connection established');
       this.setState({ connected: true });
       this.sendHeartbeat();
       this.startHeartbeat();
@@ -99,12 +120,12 @@ class Ntr extends Component<NtrProps, NtrState> {
     });
 
     this.sock.on('error', (error: Error) => {
-      console.error(error);
+      console.error('Ntr: Error', error);
       this.disconnectFromDS();
     });
 
     this.sock.on('close', () => {
-      console.log('Ntr Connection closed');
+      console.log('Ntr: Connection closed');
       this.setState({ connected: false });
       EventRegister.emit('ntrStateChanged', 'Disconnected');
       this.stopHeartbeat();
@@ -124,7 +145,7 @@ class Ntr extends Component<NtrProps, NtrState> {
 
   sendPacket = (type: number, cmd: Command, args: number[] = [], len: number = 0) => {
     if (!this.sock || !this.state.connected) {
-      //console.warn("Socket is not connected.");
+      // Socket not connected
       return;
     }
 
@@ -152,12 +173,12 @@ class Ntr extends Component<NtrProps, NtrState> {
   readPacket = (data: Buffer) => {
     const pkt = new Uint32Array(data.buffer.slice(0, 84));
     if (pkt[0] !== 0x12345678) {
-      console.warn('Bad magic number, discarding packet');
+      console.warn('Ntr: Bad magic number, discarding packet');
       return;
     }
     this.bufferlen = pkt[20];
     this.recievedcmd = pkt[3];
-    console.log("Ntr received cmd: " + pkt[3])
+    console.log("Ntr: Received cmd: " + pkt[3]);
   }
 
   readToBuf = (data: Buffer) => {
@@ -174,7 +195,7 @@ class Ntr extends Component<NtrProps, NtrState> {
 
   sendCommand = ({ command, args, len, data }: { command: Command, args: number[], len: number, data: string }) => {
     if (!this.state.connected) {
-      console.warn("Not connected, can't send command");
+      console.warn("Ntr: Not connected, can't send command");
       return;
     }
 
@@ -226,13 +247,13 @@ class Ntr extends Component<NtrProps, NtrState> {
 
   remotePlay = () => {
     if (this.remotePlayCalled) {
-      console.warn("RemotePlay has already been called for this connection");
+      console.warn("Ntr: RemotePlay has already been called for this connection");
       return;
     }
     this.remotePlayCalled = true;
 
     const { screenPriority, priFact, jpegq, qosvalue } = this.props;
-    this.sendPacket(0, Command.RemotePlay, [(screenPriority << 8 | priFact), jpegq, qosvalue], 0);
+    this.sendPacket(0, Command.RemotePlay, [(screenPriority << 8) | priFact, jpegq, qosvalue], 0);
     this.disconnectFromDS();
 
     setTimeout(() => {

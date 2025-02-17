@@ -1,19 +1,28 @@
 package com.adorableNTR;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
-import com.facebook.react.bridge.NativeModule;
+import android.util.Log;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Promise;
-
 import java.io.ByteArrayOutputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ImageProcessorModule extends ReactContextBaseJavaModule {
-    private final ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    static {
+        System.loadLibrary("native-lib");
+    }
+
+    private Bitmap reusableBitmap = null;
+    private final ByteArrayOutputStream jpegOutputStream = new ByteArrayOutputStream(64 * 1024);
+    private static final String TAG = "ImageProcessorModule";
+
+    private static final ExecutorService executor =
+            Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
     public ImageProcessorModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -24,55 +33,95 @@ public class ImageProcessorModule extends ReactContextBaseJavaModule {
         return "ImageProcessor";
     }
 
+    public native TgaDecodeResult decodeTgaNative(byte[] tgaData);
+
     @ReactMethod
-    public void convertBGRtoRGB(String base64Image, Promise promise) {
-        executorService.submit(() -> {
-            try {
-                byte[] bgrImage = Base64.decode(base64Image, Base64.DEFAULT);
-                Bitmap bitmap = BitmapFactory.decodeByteArray(bgrImage, 0, bgrImage.length);
+    public void decodeTgaFromMemory(final String base64Tga, final Promise promise) {
 
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                Bitmap rgbBitmap = Bitmap.createBitmap(width, height, bitmap.getConfig());
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    byte[] tgaData = Base64.decode(base64Tga, Base64.DEFAULT);
+                    TgaDecodeResult result = decodeTgaNative(tgaData);
+                    if (result == null) {
+                        promise.reject("DECODE_ERROR", "Failed to decode TGA image");
+                        return;
+                    }
 
-                int[] pixels = new int[width * height];
-                bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
-
-                int numThreads = Runtime.getRuntime().availableProcessors();
-                Thread[] threads = new Thread[numThreads];
-
-                for (int t = 0; t < numThreads; t++) {
-                    final int threadId = t;
-                    threads[t] = new Thread(() -> {
-                        int start = threadId * pixels.length / numThreads;
-                        int end = (threadId + 1) * pixels.length / numThreads;
-                        for (int i = start; i < end; i++) {
-                            int color = pixels[i];
-                            int red = (color >> 16) & 0xFF;
-                            int green = (color >> 8) & 0xFF;
-                            int blue = color & 0xFF;
-                            int alpha = (color >> 24) & 0xFF;
-
-                            pixels[i] = (alpha << 24) | (blue << 16) | (green << 8) | red;
+                    if (reusableBitmap == null ||
+                        reusableBitmap.getWidth() != result.width ||
+                        reusableBitmap.getHeight() != result.height) {
+                        if (reusableBitmap != null) {
+                            reusableBitmap.recycle();
                         }
-                    });
-                    threads[t].start();
+                        reusableBitmap = Bitmap.createBitmap(result.width, result.height, Bitmap.Config.ARGB_8888);
+                    }
+
+                    reusableBitmap.setPixels(result.pixels, 0, result.width, 0, 0, result.width, result.height);
+                    jpegOutputStream.reset();
+                    reusableBitmap.compress(Bitmap.CompressFormat.JPEG, 60, jpegOutputStream);
+                    String base64Jpeg = Base64.encodeToString(jpegOutputStream.toByteArray(), Base64.NO_WRAP);
+                    promise.resolve(base64Jpeg);
+                } catch (Exception e) {
+                    Log.e(TAG, "Error processing TGA", e);
+                    promise.reject("TGA_DECODE_ERROR", e);
                 }
+            }
+        });
+    }
 
-                for (Thread thread : threads) {
-                    thread.join();
+    @ReactMethod
+    public void convertBGRtoRGB(final String base64Image, final Promise promise) {
+
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    byte[] jpegData = Base64.decode(base64Image, Base64.DEFAULT);
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(jpegData, 0, jpegData.length);
+                    if (bitmap == null) {
+                        promise.reject("DECODE_ERROR", "Failed to decode JPEG image");
+                        return;
+                    }
+                    int width = bitmap.getWidth();
+                    int height = bitmap.getHeight();
+                    Bitmap swappedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+                    int[] pixels = new int[width * height];
+                    bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+
+                    int cores = Runtime.getRuntime().availableProcessors();
+                    int chunkSize = pixels.length / cores;
+                    Thread[] threads = new Thread[cores];
+                    for (int i = 0; i < cores; i++) {
+                        final int start = i * chunkSize;
+                        final int end = (i == cores - 1) ? pixels.length : start + chunkSize;
+                        threads[i] = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                for (int j = start; j < end; j++) {
+                                    int color = pixels[j];
+
+                                    pixels[j] = (color & 0xFF00FF00)
+                                                | ((color & 0x00FF0000) >> 16)
+                                                | ((color & 0x000000FF) << 16);
+                                }
+                            }
+                        });
+                        threads[i].start();
+                    }
+                    for (Thread t : threads) {
+                        t.join();
+                    }
+
+                    swappedBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+                    ByteArrayOutputStream out = new ByteArrayOutputStream();
+                    swappedBitmap.compress(Bitmap.CompressFormat.JPEG, 80, out);
+                    String base64Result = Base64.encodeToString(out.toByteArray(), Base64.NO_WRAP);
+                    promise.resolve(base64Result);
+                } catch (Exception e) {
+                    promise.reject("BGR_TO_RGB_ERROR", e);
                 }
-
-                rgbBitmap.setPixels(pixels, 0, width, 0, 0, width, height);
-
-                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                rgbBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-                byte[] rgbImage = outputStream.toByteArray();
-                String base64RgbImage = Base64.encodeToString(rgbImage, Base64.DEFAULT);
-
-                promise.resolve(base64RgbImage);
-            } catch (Exception e) {
-                promise.reject("Error processing image", e);
             }
         });
     }

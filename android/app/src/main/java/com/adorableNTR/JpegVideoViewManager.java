@@ -21,10 +21,6 @@ public class JpegVideoViewManager extends SimpleViewManager<JpegVideoView> {
         return new JpegVideoView(reactContext);
     }
 
-    /**
-     * Sets the "frame" property, a base64-encoded JPEG.
-     * This method now strips the "data:image/jpeg;base64," prefix if present.
-     */
     @ReactProp(name = "frame")
     public void setFrame(JpegVideoView view, String base64Frame) {
         Log.d(TAG, "setFrame called with string length: " + (base64Frame != null ? base64Frame.length() : "null"));
